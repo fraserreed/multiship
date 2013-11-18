@@ -1,0 +1,94 @@
+{"WebAuthenticationDetail":{
+    "UserCredential":{
+        "Key":"Acc3$$",
+        "Password":"fedex_password"
+    }
+}, "ClientDetail":{
+    "AccountNumber":"",
+    "MeterNumber":""
+}, "TransactionDetail":{
+    "CustomerTransactionId":" *** Rate Request v13 using PHP ***"
+}, "Version":{
+    "ServiceId":"crs",
+    "Major":"13",
+    "Intermediate":"0",
+    "Minor":"0"
+}, "ReturnTransitAndCommit":true, "RequestedShipment":{
+    "DropoffType":"REGULAR_PICKUP",
+    "ShipTimestamp":"2013-11-16T00:20:01-05:00",
+    "PackagingType":"YOUR_PACKAGING",
+    "TotalInsuredValue":{
+        "Amount":"100",
+        "Currency":"USD"
+    },
+    "Shipper":{
+        "Contact":{
+            "PersonName":"Imani Carr",
+            "CompanyName":"",
+            "PhoneNumber":""
+        },
+        "Address":{
+            "StreetLines":["Southam Rd"],
+            "City":"Timonium",
+            "StateOrProvinceCode":"MD",
+            "PostalCode":"21093",
+            "CountryCode":"US"
+        }
+    },
+    "Recipient":{
+        "Contact":{
+            "PersonName":"Imani Imaginarium",
+            "CompanyName":"",
+            "PhoneNumber":""
+        },
+        "Address":{
+            "StreetLines":["21 ARGONAUT SUITE B"],
+            "City":"ALISO VIEJO",
+            "StateOrProvinceCode":"CA",
+            "PostalCode":"92656",
+            "CountryCode":"US",
+            "Residential":""
+        }
+    },
+    "ShippingChargesPayment":{
+        "PaymentType":"SENDER",
+        "Payor":{
+            "ResponsibleParty":{
+                "AccountNumber":"",
+                "CountryCode":"US"
+            }
+        }
+    },
+    "RateRequestTypes":"LIST",
+    "PackageCount":2,
+    "RequestedPackageLineItems":[
+        {
+            "SequenceNumber":"1",
+            "GroupPackageCount":"1",
+            "Weight":{
+                "Value":"1",
+                "Units":"LB"
+            },
+            "Dimensions":{
+                "Length":"5",
+                "Width":"4",
+                "Height":"10",
+                "Units":"IN"
+            }
+        },
+        {
+            "SequenceNumber":"1",
+            "GroupPackageCount":"1",
+            "Weight":{
+                "Value":"2",
+                "Units":"LB"
+            },
+            "Dimensions":{
+                "Length":"8",
+                "Width":"5",
+                "Height":"3",
+                "Units":"IN"
+            }
+        }
+    ]
+}}

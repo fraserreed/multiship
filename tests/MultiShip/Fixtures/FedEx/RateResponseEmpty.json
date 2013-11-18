@@ -1,0 +1,15 @@
+{"HighestSeverity":"SUCCESS", "Notifications":{
+    "Severity":"SUCCESS",
+    "Source":"crs",
+    "Code":0,
+    "Message":"Request was successfully processed.",
+    "LocalizedMessage":"Request was successfully processed . "
+}, "TransactionDetail":{
+    "CustomerTransactionId":"*** Rate Request v13 using PHP ***"
+}, "Version":{
+    "ServiceId":"crs",
+    "Major":13,
+    "Intermediate":0,
+    "Minor":0
+}
+}

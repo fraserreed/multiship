@@ -1,0 +1,94 @@
+{"Request":{
+    "RequestOption":"Shop"
+}, "PickupType":{
+    "Code":"01",
+    "Description":"Daily Pickup"
+}, "CustomerClassification":{
+    "Code":"01",
+    "Description":"Classfication"
+}, "Shipment":{
+    "Shipper":{
+        "Name":"Imani Carr",
+        "ShipperNumber":222006,
+        "Address":{
+            "AddressLine":["Southam Rd", "4 Case Cour", "Apt 3B"],
+            "City":"Timonium",
+            "StateProvinceCode":"MD",
+            "PostalCode":21093,
+            "CountryCode":"US"
+        }
+    },
+    "ShipTo":{
+        "Name":"Imani Imaginarium",
+        "Address":{
+            "AddressLine":"21 ARGONAUT SUITE B",
+            "City":"ALISO VIEJO",
+            "StateProvinceCode":"CA",
+            "PostalCode":92656,
+            "CountryCode":"US",
+            "ResidentialAddressIndicator":""
+        }
+    },
+    "ShipFrom":{
+        "Name":"Imani Carr",
+        "Address":{
+            "AddressLine":["Southam Rd", "4 Case Cour", "Apt 3B"],
+            "City":"Timonium",
+            "StateProvinceCode":"MD",
+            "PostalCode":21093,
+            "CountryCode":"US"
+        }
+    },
+    "Service":{
+        "Code":"03",
+        "Description":"Service Code"
+    },
+    "Package":[
+        {
+            "PackagingType":{
+                "Code":"02",
+                "Description":"Rate"
+            },
+            "Dimensions":{
+                "Length":5,
+                "Width":4,
+                "Height":10,
+                "UnitOfMeasurement":{
+                    "Code":"in",
+                    "Description":"Inches"
+                }
+            },
+            "PackageWeight":{
+                "Weight":1,
+                "UnitOfMeasurement":{
+                    "Code":"lbs",
+                    "Description":"Pounds"
+                }
+            }
+        },
+        {
+            "PackagingType":{
+                "Code":"02",
+                "Description":"Rate"
+            },
+            "Dimensions":{
+                "Length":8,
+                "Width":5,
+                "Height":3,
+                "UnitOfMeasurement":{
+                    "Code":"in",
+                    "Description":"Inches"
+                }
+            },
+            "PackageWeight":{
+                "Weight":2,
+                "UnitOfMeasurement":{
+                    "Code":"lbs",
+                    "Description":"Pounds"
+                }
+            }
+        }
+    ],
+    "ShipmentServiceOptions":"",
+    "LargePackageIndicator":""
+}}

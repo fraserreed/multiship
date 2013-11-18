@@ -1,0 +1,19 @@
+{"Response":{
+    "ResponseStatus":{
+        "Code":"1",
+        "Description":"Success"
+    },
+    "Alert":[
+        {
+            "Code":"110971",
+            "Description":"Your invoice may vary from the displayed reference rates"
+        },
+        {
+            "Code":"110920",
+            "Description":"Ship To Address Classification is changed from Residential to Commercial"
+        }
+    ],
+    "TransactionReference":{}
+}, "RatedShipment":[
+
+]}

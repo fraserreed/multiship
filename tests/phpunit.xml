@@ -1,0 +1,22 @@
+<phpunit bootstrap="./bootstrap.php" strict="false" verbose="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true">
+
+    <testsuites>
+        <testsuite name="unit">
+            <directory>./MultiShip</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory>../</directory>
+            <exclude>
+                <file>../index.php</file>
+                <directory>../tests</directory>
+                <directory>../vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
