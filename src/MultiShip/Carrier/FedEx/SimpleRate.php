@@ -203,9 +203,13 @@ class SimpleRate extends AbstractRate
 
                 //set total charge
                 if( isset( $shipmentDetail->TotalNetFedExCharge ) )
+                {
                     $rateElement->setTotal( $this->prepareCharge( new TotalCharge(), $shipmentDetail->TotalNetFedExCharge ) );
+                }
                 else if( isset( $shipmentDetail->TotalNetCharge ) )
+                {
                     $rateElement->setTotal( $this->prepareCharge( new NetCharge(), $shipmentDetail->TotalNetCharge ) );
+                }
 
                 $rateResponse->addRate( $rateElement );
             }

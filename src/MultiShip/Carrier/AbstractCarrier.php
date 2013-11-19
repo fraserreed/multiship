@@ -31,6 +31,11 @@ abstract class AbstractCarrier implements ICarrier
      */
     protected $config;
 
+    /**
+     * @var Soap
+     */
+    protected $soap;
+
     public function __construct( Configuration $config )
     {
         $this->setConfiguration( $config );
@@ -56,6 +61,25 @@ abstract class AbstractCarrier implements ICarrier
     }
 
     /**
+     * @param \MultiShip\Services\Soap $soap
+     */
+    public function setSoap( Soap $soap )
+    {
+        $this->soap = $soap;
+    }
+
+    /**
+     * @return \MultiShip\Services\Soap
+     */
+    public function getSoap()
+    {
+        if( !$this->soap )
+            $this->soap = new Soap();
+
+        return $this->soap;
+    }
+
+    /**
      * @param IRequest $request
      *
      * @return mixed
@@ -64,7 +88,7 @@ abstract class AbstractCarrier implements ICarrier
     {
         try
         {
-            $soapRequest = new Soap();
+            $soapRequest = $this->getSoap();
             $soapRequest->setBody( $request->getRequestBody() );
 
             $soapHeader = $this->getSoapHeader();

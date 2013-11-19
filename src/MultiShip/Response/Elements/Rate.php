@@ -74,7 +74,7 @@ class Rate extends SimpleRate
     /**
      * @param \MultiShip\Package\Package $billingPackage
      */
-    public function setBillingPackage( $billingPackage )
+    public function setBillingPackage( Package $billingPackage )
     {
         $this->billingPackage = $billingPackage;
     }
@@ -114,7 +114,7 @@ class Rate extends SimpleRate
     /**
      * @param \MultiShip\Response\Elements\DeliveryGuarantee $deliveryGuarantee
      */
-    public function setDeliveryGuarantee( $deliveryGuarantee )
+    public function setDeliveryGuarantee( DeliveryGuarantee $deliveryGuarantee )
     {
         $this->deliveryGuarantee = $deliveryGuarantee;
     }

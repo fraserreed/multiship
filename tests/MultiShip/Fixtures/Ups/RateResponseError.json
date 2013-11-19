@@ -1,0 +1,8 @@
+{"Errors":{
+    "ErrorDetail":{
+        "PrimaryErrorCode":{
+            "Code":"111",
+            "Description":"Soap Exception"
+        }
+    }
+}}
