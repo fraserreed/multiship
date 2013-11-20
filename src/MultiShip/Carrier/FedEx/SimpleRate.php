@@ -192,6 +192,7 @@ class SimpleRate extends AbstractRate
             foreach( $response->RateReplyDetails as $rate )
             {
                 $rateElement = new RateElement();
+                $rateElement->setCarrierCode( $this->getCarrierCode() );
 
                 //service type
                 if( isset( $rate->ServiceType ) )
@@ -206,7 +207,7 @@ class SimpleRate extends AbstractRate
                 {
                     $rateElement->setTotal( $this->prepareCharge( new TotalCharge(), $shipmentDetail->TotalNetFedExCharge ) );
                 }
-                else if( isset( $shipmentDetail->TotalNetCharge ) )
+                elseif( isset( $shipmentDetail->TotalNetCharge ) )
                 {
                     $rateElement->setTotal( $this->prepareCharge( new NetCharge(), $shipmentDetail->TotalNetCharge ) );
                 }

@@ -13,7 +13,6 @@
 namespace MultiShip\Request;
 
 
-use MultiShip\Carrier\ICarrier;
 use MultiShip\Configuration;
 use MultiShip\Address\Address;
 use MultiShip\Package\Package;
@@ -27,6 +26,11 @@ use MultiShip\Exceptions\MultiShipException;
  */
 abstract class AbstractRequest
 {
+    /**
+     * @var string
+     */
+    protected $carrierCode;
+
     /**
      * @var Configuration
      */
@@ -51,6 +55,22 @@ abstract class AbstractRequest
      * @var array
      */
     protected $packages = array();
+
+    /**
+     * @param string $carrierCode
+     */
+    public function setCarrierCode( $carrierCode )
+    {
+        $this->carrierCode = $carrierCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCarrierCode()
+    {
+        return $this->carrierCode;
+    }
 
     /**
      * @param \MultiShip\Configuration $configuration

@@ -22,9 +22,30 @@ class SimpleRateTest extends BaseTestCase
     protected function setUp()
     {
         $this->object = new SimpleRate();
+        $this->object->setCarrierCode( 'FedEx' );
         $this->object->setServiceCode( 'FEDEX_EXPRESS_SAVER' );
         $this->object->setServiceDescription( 'FedEx Express Saver' );
         $this->object->setTotal( 100.99 );
+    }
+
+    /**
+     * @covers \MultiShip\Response\Elements\SimpleRate::setCarrierCode
+     */
+    public function testSetCarrierCode()
+    {
+        $this->object->setCarrierCode( 'UPS' );
+
+        $this->assertNotNull( $this->object->getCarrierCode() );
+        $this->assertEquals( 'UPS', $this->object->getCarrierCode() );
+    }
+
+    /**
+     * @covers \MultiShip\Response\Elements\SimpleRate::getCarrierCode
+     */
+    public function testGetCarrierCode()
+    {
+        $this->assertNotNull( $this->object->getCarrierCode() );
+        $this->assertEquals( 'FedEx', $this->object->getCarrierCode() );
     }
 
     /**

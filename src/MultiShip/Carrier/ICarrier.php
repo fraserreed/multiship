@@ -9,6 +9,7 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
  */
 namespace MultiShip\Carrier;
 
@@ -27,6 +28,11 @@ use MultiShip\Request\AbstractRate;
 interface ICarrier
 {
     /**
+     * @return string
+     */
+    public function getCarrierCode();
+
+    /**
      * @param \MultiShip\Configuration $config
      *
      * @return mixed
@@ -37,6 +43,7 @@ interface ICarrier
      * @return \MultiShip\Configuration
      */
     public function getConfiguration();
+
     /**
      * @return SoapHeader
      */
@@ -58,7 +65,6 @@ interface ICarrier
      * @return AbstractRate
      */
     public function getSimpleRateRequest();
-
 }
 
 ?>

@@ -12,6 +12,7 @@
  */
 namespace MultiShip\Carrier;
 
+
 use MultiShip\Carrier\FedEx\Rate;
 use MultiShip\Carrier\FedEx\SimpleRate;
 
@@ -25,6 +26,14 @@ use MultiShip\Carrier\FedEx\SimpleRate;
  */
 class FedEx extends AbstractCarrier
 {
+    /**
+     * @return string
+     */
+    public function getCarrierCode()
+    {
+        return 'FedEx';
+    }
+
     /**
      * FedEx has no additional soap headers
      *

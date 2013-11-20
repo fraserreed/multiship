@@ -68,6 +68,7 @@ class Rate extends SimpleRate
             foreach( $response->RateReplyDetails as $rate )
             {
                 $rateElement = new RateElement();
+                $rateElement->setCarrierCode( $this->getCarrierCode() );
 
                 //service type
                 if( isset( $rate->ServiceType ) )

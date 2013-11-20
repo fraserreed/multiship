@@ -19,6 +19,7 @@ use MultiShip\Exceptions\MultiShipException;
  *
  * @covers MultiShip\Carrier\AbstractCarrier
  * @covers MultiShip\Carrier\Ups\SimpleRate
+ * @covers MultiShip\Request\AbstractRequest
  */
 class SimpleRateTest extends BaseTestCase
 {

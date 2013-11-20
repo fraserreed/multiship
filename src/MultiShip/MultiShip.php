@@ -13,6 +13,8 @@ use MultiShip\Package\Package;
 
 use MultiShip\Request\AbstractRequest;
 
+use MultiShip\Response\Collections\Rate;
+
 use MultiShip\Exceptions\MultiShipException;
 
 /**
@@ -51,7 +53,7 @@ class MultiShip
      */
     public function __construct( array $options )
     {
-        if( !is_array( $options ) )
+        if( !is_array( $options ) || empty( $options ) )
             throw new MultiShipException( 'Invalid option structure.' );
 
         foreach( $options as $carrier => $carrierConfiguration )
@@ -172,6 +174,9 @@ class MultiShip
         return $this->packages;
     }
 
+    /**
+     * @return Response\Collections\Rate
+     */
     public function getRates()
     {
         $response = array();
@@ -182,11 +187,11 @@ class MultiShip
             $response[ ] = $this->executeRequest( $carrier->getRateRequest(), $carrier );
         }
 
-        return $response;
+        return $this->aggregateRateResponse( $response );
     }
 
     /**
-     * @return array
+     * @return Response\Collections\Rate
      */
     public function getSimpleRates()
     {
@@ -198,20 +203,64 @@ class MultiShip
             $response[ ] = $this->executeRequest( $carrier->getSimpleRateRequest(), $carrier );
         }
 
-        return $response;
+        return $this->aggregateRateResponse( $response );
+    }
+
+    /**
+     * @param $response
+     *
+     * @return Response\Collections\Rate
+     */
+    private function aggregateRateResponse( $response )
+    {
+        $aggregatedResponse = new Rate();
+
+        if( !empty( $response ) )
+        {
+            /** @var $responseCollection \MultiShip\Response\Collections\Rate */
+            foreach( $response as $responseCollection )
+            {
+                //if the carrier collection returned results, add them to the aggregate collection of rates
+                if( $responseCollection->getCount() > 0 )
+                {
+                    foreach( $responseCollection->getRates() as $rate )
+                    {
+                        $aggregatedResponse->addRate( $rate );
+                        $aggregatedResponse->setCount( $aggregatedResponse->getCount() + 1 );
+                    }
+                }
+            }
+        }
+
+        return $aggregatedResponse;
     }
 
     /**
      * @param Request\AbstractRequest $request
      * @param Carrier\ICarrier        $carrier
      *
+     * @throws Exceptions\MultiShipException
      * @return mixed
      */
     private function executeRequest( AbstractRequest $request, ICarrier $carrier )
     {
+        $request->setCarrierCode( $carrier->getCarrierCode() );
+
         $request->setConfiguration( $carrier->getConfiguration() );
+
+        if( !$this->getFromAddress() )
+            throw new MultiShipException( 'From address must be present to execute request.' );
+
         $request->setFromAddress( $this->getFromAddress() );
+
+        if( !$this->getToAddress() )
+            throw new MultiShipException( 'To address must be present to execute request.' );
+
         $request->setToAddress( $this->getToAddress() );
+
+        if( count( $this->getPackages() ) == 0 )
+            throw new MultiShipException( 'At least one package must be present to execute request.' );
+
         foreach( $this->getPackages() as $package )
             $request->addPackage( $package );
 

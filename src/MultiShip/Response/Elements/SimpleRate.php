@@ -25,6 +25,11 @@ class SimpleRate
     /**
      * @var string
      */
+    protected $carrierCode;
+
+    /**
+     * @var string
+     */
     protected $serviceCode;
 
     /**
@@ -36,6 +41,22 @@ class SimpleRate
      * @var TotalCharge
      */
     protected $total;
+
+    /**
+     * @param string $carrierCode
+     */
+    public function setCarrierCode( $carrierCode )
+    {
+        $this->carrierCode = $carrierCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCarrierCode()
+    {
+        return $this->carrierCode;
+    }
 
     /**
      * @param string $serviceCode

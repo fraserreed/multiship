@@ -28,6 +28,14 @@ use MultiShip\Carrier\Ups\SimpleRate;
 class Ups extends AbstractCarrier
 {
     /**
+     * @return string
+     */
+    public function getCarrierCode()
+    {
+        return 'Ups';
+    }
+
+    /**
      * @return SoapHeader
      */
     public function getSoapHeader()

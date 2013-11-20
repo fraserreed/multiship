@@ -159,6 +159,7 @@ class SimpleRate extends AbstractRate
             foreach( $response->RatedShipment as $rate )
             {
                 $rateElement = new RateElement();
+                $rateElement->setCarrierCode( $this->getCarrierCode() );
 
                 //service code
                 if( isset( $rate->Service ) )
