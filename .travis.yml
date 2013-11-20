@@ -3,4 +3,7 @@ php:
   - "5.5"
   - "5.4"
   - "5.3"
-script: phpunit --configuration tests/phpunit.xml
+before-script:
+  - composer install
+script:
+  - phpunit --configuration tests/phpunit.xml
