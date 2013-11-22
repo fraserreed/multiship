@@ -32,6 +32,10 @@ class SimpleRate extends AbstractRate
 {
     protected $operation = "ProcessRate";
 
+    protected $wsdl = "/Schema/Wsdl/Ups/RateWS.wsdl";
+
+    protected $urlAction = 'Rate';
+
     public function getRequestBody()
     {
         $fromAddress = $this->getFromAddress();
@@ -107,7 +111,7 @@ class SimpleRate extends AbstractRate
                         'StateProvinceCode'           => $toAddress->getRegion(),
                         'PostalCode'                  => $toAddress->getPostalCode(),
                         'CountryCode'                 => $toAddress->getCountry(),
-                        'ResidentialAddressIndicator' => ''
+                        'ResidentialAddressIndicator' => $toAddress->getResidentialAddress()
                     )
                 ),
 

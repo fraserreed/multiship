@@ -29,10 +29,11 @@ class MultiShipTest extends BaseTestCase
     {
         $this->options = array(
             'ups'   => array(
-                'accessKey' => "BC987DE765FG543",
-                'userId'    => "multiship",
-                'password'  => "SuperSecret",
-                'debug'     => true
+                'accessKey'     => "BC987DE765FG543",
+                'accountNumber' => "12340012",
+                'userId'        => "multiship",
+                'password'      => "SuperSecret",
+                'debug'         => true
             ),
             'fedex' => array(
                 'accessKey'     => "yabbaDabba600",
@@ -140,14 +141,9 @@ class MultiShipTest extends BaseTestCase
 
         $config = new Configuration();
         $config->setAccessKey( $this->options[ 'ups' ][ 'accessKey' ] );
+        $config->setAccountNumber( $this->options[ 'ups' ][ 'accountNumber' ] );
         $config->setUserId( $this->options[ 'ups' ][ 'userId' ] );
         $config->setPassword( $this->options[ 'ups' ][ 'password' ] );
-        $config->setWsdl( dirname( dirname( dirname( __DIR__ ) ) ) . "/src/MultiShip/Schema/Wsdl/Ups/RateWS.wsdl" );
-
-        if( $this->options[ 'ups' ][ 'debug' ] == true )
-            $config->setEndPointUrl( 'https://wwwcie.ups.com/webservices/Rate' );
-        else
-            $config->setEndPointUrl( 'https://wwwcie.ups.com/webservices/Rate' );
 
         $carrier = new Ups( $config );
 

@@ -16,6 +16,7 @@ namespace MultiShip\Carrier;
 use SoapHeader;
 use MultiShip\Carrier\Ups\Rate;
 use MultiShip\Carrier\Ups\SimpleRate;
+use MultiShip\Carrier\Ups\Shipment;
 
 /**
  * Ups shipping carrier object
@@ -27,12 +28,24 @@ use MultiShip\Carrier\Ups\SimpleRate;
  */
 class Ups extends AbstractCarrier
 {
+
     /**
      * @return string
      */
     public function getCarrierCode()
     {
         return 'Ups';
+    }
+
+    /**
+     * @return string
+     */
+    public function getEndPointUrl()
+    {
+        if( 1 == 1 /*$this->debug*/ )
+            return 'https://wwwcie.ups.com/webservices/';
+        else
+            return 'https://onlinetools.ups.com/webservices/';
     }
 
     /**
@@ -71,6 +84,14 @@ class Ups extends AbstractCarrier
     public function getSimpleRateRequest()
     {
         return new SimpleRate();
+    }
+
+    /**
+     * @return Ups\Shipment
+     */
+    public function getShipmentRequest()
+    {
+        return new Shipment();
     }
 }
 

@@ -89,6 +89,8 @@ abstract class AbstractCarrier implements ICarrier
         try
         {
             $soapRequest = $this->getSoap();
+            $soapRequest->setWsdl( $request->getWsdl() );
+            $soapRequest->setEndPointUrl( $this->getEndPointUrl() . $request->getUrlAction() );
             $soapRequest->setBody( $request->getRequestBody() );
 
             $soapHeader = $this->getSoapHeader();

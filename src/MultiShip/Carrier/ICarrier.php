@@ -19,6 +19,7 @@ use MultiShip\Configuration;
 use MultiShip\Request\IRequest;
 
 use MultiShip\Request\AbstractRate;
+use MultiShip\Request\AbstractShipment;
 
 /**
  * Shipping carrier interface
@@ -45,6 +46,11 @@ interface ICarrier
     public function getConfiguration();
 
     /**
+     * @return string
+     */
+    public function getEndPointUrl();
+
+    /**
      * @return SoapHeader
      */
     public function getSoapHeader();
@@ -65,6 +71,11 @@ interface ICarrier
      * @return AbstractRate
      */
     public function getSimpleRateRequest();
+
+    /**
+     * @return AbstractShipment
+     */
+    public function getShipmentRequest();
 }
 
 ?>

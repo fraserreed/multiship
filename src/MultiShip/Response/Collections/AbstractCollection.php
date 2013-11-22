@@ -32,6 +32,11 @@ abstract class AbstractCollection implements ICollection
     protected $statusDescription;
 
     /**
+     * @var string
+     */
+    protected $detail;
+
+    /**
      * @var int
      */
     protected $count;
@@ -69,6 +74,22 @@ abstract class AbstractCollection implements ICollection
     }
 
     /**
+     * @param string $detail
+     */
+    public function setDetail( $detail )
+    {
+        $this->detail = $detail;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDetail()
+    {
+        return $this->detail;
+    }
+
+    /**
      * @param int $count
      */
     public function setCount( $count )
@@ -83,7 +104,6 @@ abstract class AbstractCollection implements ICollection
     {
         return (int) $this->count;
     }
-
 }
 
 ?>

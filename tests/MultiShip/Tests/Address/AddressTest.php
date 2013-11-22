@@ -23,9 +23,12 @@ class AddressTest extends BaseTestCase
 
         $this->object->setType( 'shipping' );
         $this->object->setName( 'Imina Carr' );
+        $this->object->setAttentionName( 'Mrs. Carr' );
         $this->object->setCompany( 'Shipping 123 Inc.' );
         $this->object->setNumber( 222006 );
+        $this->object->setTaxIdNumber( 12345 );
         $this->object->setPhoneNumber( '209-991-0011' );
+        $this->object->setPhoneExtension( '120' );
         $this->object->setLine1( 'Southam Rd' );
         $this->object->setLine2( '4 Case Court' );
         $this->object->setLine3( 'Apt 3B' );
@@ -33,6 +36,7 @@ class AddressTest extends BaseTestCase
         $this->object->setRegion( 'MD' );
         $this->object->setPostalCode( 21093 );
         $this->object->setCountry( 'US' );
+        $this->object->setResidentialAddress( true );
     }
 
     /**
@@ -76,6 +80,26 @@ class AddressTest extends BaseTestCase
     }
 
     /**
+     * @covers MultiShip\Address\Address::setAttentionName
+     */
+    public function testSetAttentionName()
+    {
+        $this->object->setAttentionName( 'Mr. Vann' );
+
+        $this->assertNotNull( $this->object->getAttentionName() );
+        $this->assertEquals( 'Mr. Vann', $this->object->getAttentionName() );
+    }
+
+    /**
+     * @covers MultiShip\Address\Address::getAttentionName
+     */
+    public function testGetAttentionName()
+    {
+        $this->assertNotNull( $this->object->getAttentionName() );
+        $this->assertEquals( 'Mrs. Carr', $this->object->getAttentionName() );
+    }
+
+    /**
      * @covers MultiShip\Address\Address::setCompany
      */
     public function testSetCompany()
@@ -116,6 +140,26 @@ class AddressTest extends BaseTestCase
     }
 
     /**
+     * @covers MultiShip\Address\Address::setTaxIdNumber
+     */
+    public function testSetTaxIdNumber()
+    {
+        $this->object->setTaxIdNumber( 6120 );
+
+        $this->assertNotNull( $this->object->getTaxIdNumber() );
+        $this->assertEquals( 6120, $this->object->getTaxIdNumber() );
+    }
+
+    /**
+     * @covers MultiShip\Address\Address::getTaxIdNumber
+     */
+    public function testGetTaxIdNumber()
+    {
+        $this->assertNotNull( $this->object->getTaxIdNumber() );
+        $this->assertEquals( 12345, $this->object->getTaxIdNumber() );
+    }
+
+    /**
      * @covers MultiShip\Address\Address::setPhoneNumber
      */
     public function testSetPhoneNumber()
@@ -133,6 +177,26 @@ class AddressTest extends BaseTestCase
     {
         $this->assertNotNull( $this->object->getPhoneNumber() );
         $this->assertEquals( '209-991-0011', $this->object->getPhoneNumber() );
+    }
+
+    /**
+     * @covers MultiShip\Address\Address::setPhoneExtension
+     */
+    public function testSetPhoneExtension()
+    {
+        $this->object->setPhoneExtension( '210' );
+
+        $this->assertNotNull( $this->object->getPhoneExtension() );
+        $this->assertEquals( '210', $this->object->getPhoneExtension() );
+    }
+
+    /**
+     * @covers MultiShip\Address\Address::getPhoneExtension
+     */
+    public function testGetPhoneExtension()
+    {
+        $this->assertNotNull( $this->object->getPhoneExtension() );
+        $this->assertEquals( '120', $this->object->getPhoneExtension() );
     }
 
     /**
@@ -273,5 +337,25 @@ class AddressTest extends BaseTestCase
     {
         $this->assertNotNull( $this->object->getCountry() );
         $this->assertEquals( 'US', $this->object->getCountry() );
+    }
+
+    /**
+     * @covers MultiShip\Address\Address::setResidentialAddress
+     */
+    public function testSetResidentialAddress()
+    {
+        $this->object->setResidentialAddress( false );
+
+        $this->assertNotNull( $this->object->getResidentialAddress() );
+        $this->assertFalse( $this->object->getResidentialAddress() );
+    }
+
+    /**
+     * @covers MultiShip\Address\Address::getResidentialAddress
+     */
+    public function testGetResidentialAddress()
+    {
+        $this->assertNotNull( $this->object->getResidentialAddress() );
+        $this->assertTrue( $this->object->getResidentialAddress() );
     }
 }

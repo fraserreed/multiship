@@ -34,6 +34,10 @@ class SimpleRate extends AbstractRate
 {
     protected $operation = 'getRates';
 
+    protected $wsdl = "/Schema/Wsdl/FedEx/RateService_v13.wsdl";
+
+    protected $urlAction = 'rate';
+
     public function getRequestBody()
     {
         $config      = $this->getConfiguration();

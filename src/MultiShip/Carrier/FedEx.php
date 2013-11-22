@@ -15,6 +15,7 @@ namespace MultiShip\Carrier;
 
 use MultiShip\Carrier\FedEx\Rate;
 use MultiShip\Carrier\FedEx\SimpleRate;
+use MultiShip\Carrier\FedEx\Shipment;
 
 /**
  * FedEx shipping carrier object
@@ -32,6 +33,17 @@ class FedEx extends AbstractCarrier
     public function getCarrierCode()
     {
         return 'FedEx';
+    }
+
+    /**
+     * @return string
+     */
+    public function getEndPointUrl()
+    {
+        if( 1 == 1 /*$this->debug*/ )
+            return 'https://wsbeta.fedex.com:443/web-services/';
+        else
+            return 'https://ws.fedex.com:443/web-services/';
     }
 
     /**
@@ -58,6 +70,14 @@ class FedEx extends AbstractCarrier
     public function getSimpleRateRequest()
     {
         return new SimpleRate();
+    }
+
+    /**
+     * @return FedEx\Shipment
+     */
+    public function getShipmentRequest()
+    {
+        throw new \MultiShip\Exceptions\MultiShipException( 'Not implemented yet.' );
     }
 }
 

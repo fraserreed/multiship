@@ -28,6 +28,16 @@ interface IRequest
     public function getOperation();
 
     /**
+     * @return string
+     */
+    public function getWsdl();
+
+    /**
+     * @return string
+     */
+    public function getUrlAction();
+
+    /**
      * @return mixed
      */
     public function getRequestBody();

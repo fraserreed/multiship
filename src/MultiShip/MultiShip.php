@@ -69,12 +69,7 @@ class MultiShip
                     $config->setAccessKey( $carrierConfiguration[ 'accessKey' ] );
                     $config->setUserId( $carrierConfiguration[ 'userId' ] );
                     $config->setPassword( $carrierConfiguration[ 'password' ] );
-                    $config->setWsdl( dirname( __DIR__ ) . "/MultiShip/Schema/Wsdl/Ups/RateWS.wsdl" );
-
-                    if( $carrierConfiguration[ 'debug' ] == true )
-                        $config->setEndPointUrl( 'https://wwwcie.ups.com/webservices/Rate' );
-                    else
-                        $config->setEndPointUrl( 'https://wwwcie.ups.com/webservices/Rate' );
+                    $config->setAccountNumber( $carrierConfiguration[ 'accountNumber' ] );
 
                     $this->addCarrier( new Ups( $config ) );
                     break;
@@ -89,12 +84,6 @@ class MultiShip
                     $config->setAccountNumber( $carrierConfiguration[ 'accountNumber' ] );
                     $config->setMeterNumber( $carrierConfiguration[ 'meterNumber' ] );
                     $config->setPassword( $carrierConfiguration[ 'password' ] );
-                    $config->setWsdl( dirname( __DIR__ ) . "/MultiShip/Schema/Wsdl/FedEx/RateService_v13.wsdl" );
-
-                    if( $carrierConfiguration[ 'debug' ] == true )
-                        $config->setEndPointUrl( 'https://wsbeta.fedex.com:443/web-services/rate' );
-                    else
-                        $config->setEndPointUrl( 'https://wsbeta.fedex.com:443/web-services/rate' );
 
                     $this->addCarrier( new FedEx( $config ) );
                     break;
@@ -233,6 +222,24 @@ class MultiShip
         }
 
         return $aggregatedResponse;
+    }
+
+    /**
+     * @return mixed
+     * @throws Exceptions\MultiShipException
+     */
+    public function processShipment()
+    {
+        $carriers = $this->getCarriers();
+
+        if( count( $carriers ) > 1 )
+            throw new MultiShipException( 'Cannot process shipment request for multiple carriers.  Submit individual requests for each carrier.' );
+
+        //isolate carrier for request
+        /** @var $carrier \MultiShip\Carrier\ICarrier */
+        $carrier = $carriers[ 0 ];
+
+        return $this->executeRequest( $carrier->getShipmentRequest(), $carrier );
     }
 
     /**

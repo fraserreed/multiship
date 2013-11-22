@@ -41,6 +41,11 @@ class Soap
     protected $wsdl;
 
     /**
+     * @var string
+     */
+    protected $endPointUrl;
+
+    /**
      * @var array
      */
     protected $options;
@@ -111,7 +116,29 @@ class Soap
      */
     public function getWsdl()
     {
+        if( $this->wsdl )
+        {
+            if( !file_exists( $this->wsdl ) )
+                $this->wsdl = dirname( __DIR__ ) . $this->wsdl;
+        }
+
         return $this->wsdl;
+    }
+
+    /**
+     * @param string $endPointUrl
+     */
+    public function setEndPointUrl( $endPointUrl )
+    {
+        $this->endPointUrl = $endPointUrl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEndPointUrl()
+    {
+        return $this->endPointUrl;
     }
 
     /**
@@ -166,11 +193,14 @@ class Soap
         if( !$this->getWsdl() )
             $this->setWsdl( $config->getWsdl() );
 
+        if( !$this->getEndPointUrl() )
+            $this->setEndPointUrl( $config->getEndPointUrl() );
+
         // initialize soap client
         $client = $this->getClient();
 
         //set endpoint url
-        $client->__setLocation( $config->getEndPointUrl() );
+        $client->__setLocation( $this->getEndPointUrl() );
 
         //set a soap header if there is one
         if( $this->getHeader() )

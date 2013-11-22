@@ -42,6 +42,16 @@ abstract class AbstractRequest
     protected $operation;
 
     /**
+     * @var string
+     */
+    protected $wsdl;
+
+    /**
+     * @var string
+     */
+    protected $urlAction;
+
+    /**
      * @var Address
      */
     protected $shipFrom;
@@ -94,6 +104,22 @@ abstract class AbstractRequest
     public function getOperation()
     {
         return $this->operation;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWsdl()
+    {
+        return $this->wsdl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrlAction()
+    {
+        return $this->urlAction;
     }
 
     /**

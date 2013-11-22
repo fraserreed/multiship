@@ -34,6 +34,11 @@ class Address
     /**
      * @var string
      */
+    protected $attentionName;
+
+    /**
+     * @var string
+     */
     protected $company;
 
     /**
@@ -42,9 +47,19 @@ class Address
     protected $number;
 
     /**
+     * @var int
+     */
+    protected $taxIdNumber;
+
+    /**
      * @var string
      */
     protected $phoneNumber;
+
+    /**
+     * @var string
+     */
+    protected $phoneExtension;
 
     /**
      * @var string
@@ -82,6 +97,11 @@ class Address
     protected $country;
 
     /**
+     * @var boolean
+     */
+    protected $residentialAddress;
+
+    /**
      * @param string $type
      */
     public function setType( $type )
@@ -111,6 +131,22 @@ class Address
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @param string $attentionName
+     */
+    public function setAttentionName( $attentionName )
+    {
+        $this->attentionName = $attentionName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAttentionName()
+    {
+        return $this->attentionName;
     }
 
     /**
@@ -146,6 +182,22 @@ class Address
     }
 
     /**
+     * @param int $taxIdNumber
+     */
+    public function setTaxIdNumber( $taxIdNumber )
+    {
+        $this->taxIdNumber = $taxIdNumber;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTaxIdNumber()
+    {
+        return $this->taxIdNumber;
+    }
+
+    /**
      * @param string $phoneNumber
      */
     public function setPhoneNumber( $phoneNumber )
@@ -159,6 +211,22 @@ class Address
     public function getPhoneNumber()
     {
         return $this->phoneNumber;
+    }
+
+    /**
+     * @param string $phoneExtension
+     */
+    public function setPhoneExtension( $phoneExtension )
+    {
+        $this->phoneExtension = $phoneExtension;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoneExtension()
+    {
+        return $this->phoneExtension;
     }
 
     /**
@@ -271,6 +339,22 @@ class Address
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * @param boolean $residentialAddress
+     */
+    public function setResidentialAddress( $residentialAddress )
+    {
+        $this->residentialAddress = $residentialAddress;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getResidentialAddress()
+    {
+        return $this->residentialAddress;
     }
 }
 
