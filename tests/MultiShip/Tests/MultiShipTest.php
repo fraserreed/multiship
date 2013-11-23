@@ -401,6 +401,27 @@ class MultiShipTest extends BaseTestCase
         $this->assertNotNull( $response );
         $this->assertEquals( 0, $response->getCount() );
     }
+
+    /**
+     * @covers \MultiShip\MultiShip::processShipment
+     * @expectedException \MultiShip\Exceptions\MultiShipException
+     */
+    public function testProcessShipmentException()
+    {
+        $object = new MultiShip( $this->options );
+        $object->processShipment();
+    }
+
+    /**
+     * @covers \MultiShip\MultiShip::processShipment
+     * @expectedException \MultiShip\Exceptions\MultiShipException
+     */
+    public function testProcessShipment()
+    {
+        unset( $this->options[ 'fedex' ] );
+        $object = new MultiShip( $this->options );
+        $object->processShipment();
+    }
 }
 
 ?>

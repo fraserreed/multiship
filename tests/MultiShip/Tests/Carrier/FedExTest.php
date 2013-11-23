@@ -29,6 +29,33 @@ class FedExTest extends BaseTestCase
     }
 
     /**
+     * @covers MultiShip\Carrier\FedEx::getCarrierCode
+     */
+    public function testGetCarrierCode()
+    {
+        $this->assertEquals( 'FedEx', $this->object->getCarrierCode() );
+    }
+
+    /**
+     * @covers MultiShip\Carrier\FedEx::getEndPointUrl
+     */
+    public function testGetEndPointUrlDebug()
+    {
+        //$this->object->setDebug( true );
+
+        $this->assertEquals( 'https://wsbeta.fedex.com:443/web-services/', $this->object->getEndPointUrl() );
+    }
+
+    /**
+     * @covers MultiShip\Carrier\FedEx::getEndPointUrl
+     */
+    public function testGetEndPointUrl()
+    {
+        $this->assertEquals( 'https://wsbeta.fedex.com:443/web-services/', $this->object->getEndPointUrl() );
+        //$this->assertEquals( 'https://ws.fedex.com:443/web-services/', $this->object->getEndPointUrl() );
+    }
+
+    /**
      * @covers MultiShip\Carrier\FedEx::getSoapHeader
      */
     public function testGetSoapHeader()
@@ -50,6 +77,16 @@ class FedExTest extends BaseTestCase
     public function testGetSimpleRateRequest()
     {
         $this->assertInstanceOf( '\MultiShip\Carrier\FedEx\SimpleRate', $this->object->getSimpleRateRequest() );
+    }
+
+    /**
+     * @covers MultiShip\Carrier\FedEx::getShipmentRequest
+     * @expectedException \MultiShip\Exceptions\MultiShipException
+     */
+    public function testGetShipmentRequest()
+    {
+        //$this->assertInstanceOf( '\MultiShip\Carrier\FedEx\Shipment', $this->object->getShipmentRequest() );
+        $this->object->getShipmentRequest();
     }
 }
 
