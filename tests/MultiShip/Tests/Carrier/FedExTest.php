@@ -81,12 +81,10 @@ class FedExTest extends BaseTestCase
 
     /**
      * @covers MultiShip\Carrier\FedEx::getShipmentRequest
-     * @expectedException \MultiShip\Exceptions\MultiShipException
      */
     public function testGetShipmentRequest()
     {
-        //$this->assertInstanceOf( '\MultiShip\Carrier\FedEx\Shipment', $this->object->getShipmentRequest() );
-        $this->object->getShipmentRequest();
+        $this->assertInstanceOf( '\MultiShip\Carrier\FedEx\Shipment', $this->object->getShipmentRequest() );
     }
 }
 

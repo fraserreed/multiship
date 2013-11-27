@@ -25,6 +25,7 @@ class ShipmentLabelTest extends BaseTestCase
         $this->object->setImageDescription( 'Graphics Interchange Format' );
         $this->object->setGraphicImage( 'base64encodedstring' );
         $this->object->setHtmlImage( 'shorter_base64encodedstring' );
+        $this->object->setPdfImage( 'pdf_image_string' );
     }
 
     /**
@@ -105,5 +106,25 @@ class ShipmentLabelTest extends BaseTestCase
     {
         $this->assertNotNull( $this->object->getHtmlImage() );
         $this->assertEquals( 'shorter_base64encodedstring', $this->object->getHtmlImage() );
+    }
+
+    /**
+     * @covers MultiShip\Label\ShipmentLabel::setPdfImage
+     */
+    public function testSetPdfImage()
+    {
+        $this->object->setPdfImage( "a really long, cryptic file message" );
+
+        $this->assertNotNull( $this->object->getHtmlImage() );
+        $this->assertEquals( "a really long, cryptic file message", $this->object->getPdfImage() );
+    }
+
+    /**
+     * @covers MultiShip\Label\ShipmentLabel::getPdfImage
+     */
+    public function testGetPdfImage()
+    {
+        $this->assertNotNull( $this->object->getPdfImage() );
+        $this->assertEquals( 'pdf_image_string', $this->object->getPdfImage() );
     }
 }

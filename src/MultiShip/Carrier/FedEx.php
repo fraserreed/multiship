@@ -77,7 +77,7 @@ class FedEx extends AbstractCarrier
      */
     public function getShipmentRequest()
     {
-        throw new \MultiShip\Exceptions\MultiShipException( 'Not implemented yet.' );
+        return new Shipment();
     }
 }
 

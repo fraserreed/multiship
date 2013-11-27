@@ -171,11 +171,46 @@ class Package
     }
 
     /**
+     * @param bool $singular
+     *
      * @return string
      */
-    public function getWeightUnitOfMeasure()
+    public function getWeightUnitOfMeasure( $singular = false )
     {
-        return $this->weightUnitOfMeasure;
+        $return = $this->weightUnitOfMeasure;
+
+        if( $singular )
+        {
+            switch( strtolower( $this->weightUnitOfMeasure ) )
+            {
+                case 'lb':
+                case 'lbs':
+                    $return = 'lb';
+                    break;
+
+                case 'kg':
+                case 'kgs':
+                    $return = 'kg';
+                    break;
+            }
+        }
+        else
+        {
+            switch( strtolower( $this->weightUnitOfMeasure ) )
+            {
+                case 'lb':
+                case 'lbs':
+                    $return = 'lbs';
+                    break;
+
+                case 'kg':
+                case 'kgs':
+                    $return = 'kgs';
+                    break;
+            }
+        }
+
+        return $return;
     }
 
     /**

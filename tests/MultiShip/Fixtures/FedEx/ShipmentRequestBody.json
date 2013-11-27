@@ -1,0 +1,84 @@
+{"WebAuthenticationDetail":{
+    "UserCredential":{
+        "Key":"aCC3$$",
+        "Password":"fedex_password"
+    }
+}, "ClientDetail":{
+    "AccountNumber":"12345678",
+    "MeterNumber":"8765432"
+}, "TransactionDetail":{
+    "CustomerTransactionId":" *** Rate Request v13 using PHP ***"
+}, "Version":{
+    "ServiceId":"ship",
+    "Major":"13",
+    "Intermediate":"0",
+    "Minor":"0"
+}, "RequestedShipment":{
+    "ShipTimestamp":"2013-11-26T19:45:59-05:00",
+    "DropoffType":"REGULAR_PICKUP",
+    "ServiceType":"FEDEX_GROUND",
+    "PackagingType":"YOUR_PACKAGING",
+    "Shipper":{
+        "Contact":{
+            "PersonName":"Imani Carr",
+            "PhoneNumber":"9056883000"
+        },
+        "Address":{
+            "StreetLines":["Southam Rd", "4 Case Cour Apt 3B"],
+            "City":"Ottawa",
+            "StateOrProvinceCode":"ON",
+            "PostalCode":"K1Y1A1",
+            "CountryCode":"CA"
+        }
+    },
+    "Recipient":{
+        "Contact":{
+            "PersonName":"Imani Imaginarium",
+            "PhoneNumber":"9056883000"
+        },
+        "Address":{
+            "StreetLines":["21 ARGONAUT SUITE B"],
+            "City":"Toronto",
+            "StateOrProvinceCode":"ON",
+            "PostalCode":"M2N5X7",
+            "CountryCode":"CA",
+            "Residential":true
+        }
+    },
+    "ShippingChargesPayment":{
+        "PaymentType":"SENDER",
+        "Payor":{
+            "ResponsibleParty":{
+                "AccountNumber":"12345678",
+                "Contact":null,
+                "Address":{
+                    "CountryCode":"CA"
+                }
+            }
+        }
+    },
+    "LabelSpecification":{
+        "LabelFormatType":"COMMON2D",
+        "ImageType":"PDF",
+        "LabelStockType":"PAPER_7X4.75"
+    },
+    "RateRequestTypes":["ACCOUNT"],
+    "PackageCount":1,
+    "PackageDetail":"INDIVIDUAL_PACKAGES",
+    "RequestedPackageLineItems":[
+        {
+            "SequenceNumber":1,
+            "GroupPackageCount":1,
+            "Weight":{
+                "Value":1,
+                "Units":"LB"
+            },
+            "Dimensions":{
+                "Length":5,
+                "Width":4,
+                "Height":10,
+                "Units":"IN"
+            }
+        }
+    ]
+}}

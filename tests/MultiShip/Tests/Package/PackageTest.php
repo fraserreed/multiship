@@ -164,7 +164,7 @@ class PackageTest extends BaseTestCase
         $this->object->setWeightUnitOfMeasure( 'kg' );
 
         $this->assertNotNull( $this->object->getWeightUnitOfMeasure() );
-        $this->assertEquals( 'kg', $this->object->getWeightUnitOfMeasure() );
+        $this->assertEquals( 'kgs', $this->object->getWeightUnitOfMeasure() );
     }
 
     /**
@@ -183,6 +183,37 @@ class PackageTest extends BaseTestCase
     {
         $this->assertNotNull( $this->object->getWeightUnitOfMeasure() );
         $this->assertEquals( 'lbs', $this->object->getWeightUnitOfMeasure() );
+    }
+
+    /**
+     * @covers MultiShip\Package\Package::getWeightUnitOfMeasure
+     */
+    public function testGetWeightUnitOfMeasureSingular()
+    {
+        $this->assertNotNull( $this->object->getWeightUnitOfMeasure( true ) );
+        $this->assertEquals( 'lb', $this->object->getWeightUnitOfMeasure( true ) );
+    }
+
+    /**
+     * @covers MultiShip\Package\Package::getWeightUnitOfMeasure
+     */
+    public function testGetWeightUnitOfMeasureKilograms()
+    {
+        $this->object->setWeightUnitOfMeasure( 'kgs' );
+
+        $this->assertNotNull( $this->object->getWeightUnitOfMeasure() );
+        $this->assertEquals( 'kgs', $this->object->getWeightUnitOfMeasure() );
+    }
+
+    /**
+     * @covers MultiShip\Package\Package::getWeightUnitOfMeasure
+     */
+    public function testGetWeightUnitOfMeasureSingularKilograms()
+    {
+        $this->object->setWeightUnitOfMeasure( 'kgs' );
+
+        $this->assertNotNull( $this->object->getWeightUnitOfMeasure( true ) );
+        $this->assertEquals( 'kg', $this->object->getWeightUnitOfMeasure( true ) );
     }
 
     /**

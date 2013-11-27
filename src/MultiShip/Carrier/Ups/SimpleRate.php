@@ -18,6 +18,7 @@ use MultiShip\Request\AbstractRate;
 
 use MultiShip\Response\Collections\Rate as RateCollection;
 use MultiShip\Response\Elements\SimpleRate as RateElement;
+use MultiShip\Response\Elements\Note;
 use MultiShip\Charge\TotalCharge;
 use MultiShip\Package\Package;
 
@@ -186,6 +187,35 @@ class SimpleRate extends AbstractRate
         }
 
         return $rateResponse;
+    }
+
+    /**
+     * Process one or more notes and apply to a target element
+     *
+     * @param $noteElement
+     * @param $targetElement
+     */
+    protected function processNote( $noteElement, $targetElement )
+    {
+        if( is_array( $noteElement ) )
+        {
+            foreach( $noteElement as $el )
+            {
+                $note = new Note();
+                $note->setCode( $el->Code );
+                $note->setDescription( $el->Description );
+
+                $targetElement->addNote( $note );
+            }
+        }
+        else
+        {
+            $note = new Note();
+            $note->setCode( $noteElement->Code );
+            $note->setDescription( $noteElement->Description );
+
+            $targetElement->addNote( $note );
+        }
     }
 }
 

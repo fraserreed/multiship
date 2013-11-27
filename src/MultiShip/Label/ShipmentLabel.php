@@ -41,6 +41,11 @@ class ShipmentLabel
     protected $htmlImage;
 
     /**
+     * @var string
+     */
+    protected $pdfImage;
+
+    /**
      * @param string $imageFormat
      */
     public function setImageFormat( $imageFormat )
@@ -102,6 +107,22 @@ class ShipmentLabel
     public function getHtmlImage()
     {
         return $this->htmlImage;
+    }
+
+    /**
+     * @param string $pdfImage
+     */
+    public function setPdfImage( $pdfImage )
+    {
+        $this->pdfImage = $pdfImage;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPdfImage()
+    {
+        return $this->pdfImage;
     }
 }
 

@@ -57,13 +57,13 @@ class SimpleRate extends AbstractRate
                 'GroupPackageCount' => 1,
                 'Weight'            => array(
                     'Value' => $package->getWeight(),
-                    'Units' => 'LB' //$package->getWeightUnitOfMeasure()
+                    'Units' => strtoupper( $package->getWeightUnitOfMeasure( true ) )
                 ),
                 'Dimensions'        => array(
                     'Length' => $package->getLength(),
                     'Width'  => $package->getWidth(),
                     'Height' => $package->getHeight(),
-                    'Units'  => 'IN' //$package->getDimensionUnitOfMeasure()
+                    'Units'  => strtoupper( $package->getDimensionUnitOfMeasure() )
                 )
             );
         }
@@ -207,13 +207,13 @@ class SimpleRate extends AbstractRate
                 $shipmentDetail = $rate->RatedShipmentDetails[ 0 ]->ShipmentRateDetail;
 
                 //set total charge
-                if( isset( $shipmentDetail->TotalNetFedExCharge ) )
-                {
-                    $rateElement->setTotal( $this->prepareCharge( new TotalCharge(), $shipmentDetail->TotalNetFedExCharge ) );
-                }
-                elseif( isset( $shipmentDetail->TotalNetCharge ) )
+                if( isset( $shipmentDetail->TotalNetCharge ) )
                 {
                     $rateElement->setTotal( $this->prepareCharge( new NetCharge(), $shipmentDetail->TotalNetCharge ) );
+                }
+                elseif( isset( $shipmentDetail->TotalNetFedExCharge ) )
+                {
+                    $rateElement->setTotal( $this->prepareCharge( new TotalCharge(), $shipmentDetail->TotalNetFedExCharge ) );
                 }
 
                 $rateResponse->addRate( $rateElement );

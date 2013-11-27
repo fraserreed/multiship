@@ -129,13 +129,13 @@ class Rate extends SimpleRate
                 }
 
                 //set total charge
-                if( !empty( $totalCharge ) )
-                {
-                    $rateElement->setTotal( $totalCharge );
-                }
-                else if( !empty( $netCharge ) )
+                if( !empty( $netCharge ) )
                 {
                     $rateElement->setTotal( $netCharge );
+                }
+                elseif( !empty( $totalCharge ) )
+                {
+                    $rateElement->setTotal( $totalCharge );
                 }
 
                 //delivery time

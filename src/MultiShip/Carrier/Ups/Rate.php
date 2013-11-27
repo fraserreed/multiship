@@ -16,7 +16,6 @@ namespace MultiShip\Carrier\Ups;
 use MultiShip\Carrier\Ups;
 
 use MultiShip\Response\Collections\Rate as RateCollection;
-use MultiShip\Response\Elements\Note;
 use MultiShip\Response\Elements\Rate as RateElement;
 use MultiShip\Charge\TransportationCharge;
 use MultiShip\Charge\ServiceCharge;
@@ -46,14 +45,7 @@ class Rate extends SimpleRate
 
         if( count( $response->Response->Alert ) > 0 )
         {
-            foreach( $response->Response->Alert as $alert )
-            {
-                $note = new Note();
-                $note->setCode( $alert->Code );
-                $note->setDescription( $alert->Description );
-
-                $rateResponse->addNote( $note );
-            }
+            $this->processNote( $response->Response->Alert, $rateResponse );
         }
 
         if( count( $response->RatedShipment ) > 0 )
@@ -74,14 +66,7 @@ class Rate extends SimpleRate
                 //rate notes
                 if( isset( $rate->RatedShipmentAlert ) )
                 {
-                    foreach( $rate->RatedShipmentAlert as $alert )
-                    {
-                        $note = new Note();
-                        $note->setCode( $alert->Code );
-                        $note->setDescription( $alert->Description );
-
-                        $rateElement->addNote( $note );
-                    }
+                    $this->processNote( $rate->RatedShipmentAlert, $rateElement );
                 }
 
                 //billing weight
@@ -175,7 +160,14 @@ class Rate extends SimpleRate
                             $ratedPackage->addCharge( $packageTotalCharges );
                         }
 
-                        $ratedPackage->setWeight( $package->Weight );
+                        if( isset( $package->Weight ) )
+                        {
+                            $ratedPackage->setWeight( $package->Weight );
+                        }
+                        elseif( is_float( $package ) )
+                        {
+                            $ratedPackage->setWeight( $package );
+                        }
 
                         if( isset( $package->BillingWeight ) )
                         {

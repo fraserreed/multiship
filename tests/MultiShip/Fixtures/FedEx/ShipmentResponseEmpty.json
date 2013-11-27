@@ -1,0 +1,14 @@
+{"HighestSeverity":"SUCCESS", "Notifications":{
+    "Severity":"SUCCESS",
+    "Source":"ship",
+    "Code":"0000",
+    "Message":"Success",
+    "LocalizedMessage":"Success"
+}, "TransactionDetail":{
+    "CustomerTransactionId":" *** Rate Request v13 using PHP ***"
+}, "Version":{
+    "ServiceId":"ship",
+    "Major":13,
+    "Intermediate":0,
+    "Minor":0
+}, "JobId":"1f3e16c5a04194q12379j359627"}
