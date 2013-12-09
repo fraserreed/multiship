@@ -1,3 +1,12 @@
 /index.php
+
+# sphinx generated documentation
+/docs/_build
+/docs/index.html
+
+# phpunit code coverage reports
 /report
+
+# composer installed packages
 /vendor
+
