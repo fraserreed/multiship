@@ -4,13 +4,32 @@
 Rate Requests
 =============
 
+One of the most common requests made to shipping carriers is to get rates for shipping a specific
+package or group of packages.  MultiShip supports making rate requests for a single carrier or multiple
+carriers.  If the request is made with multiple carriers the responses will be aggregated together.
+
+For information on how to set up the ``$client`` object, see :ref:`Getting Started <gettingStarted>`
+
+All rate requests require a ``to`` address, a ``from`` address and at least one ``package``.
+
+.. _getRates:
+
 getRates
 --------
+
+The ``getRates`` request will retrieve detailed rates for a shipment.  A more simplified response object
+for the same request is provided using the :ref:`getSimpleRates <getSimpleRates>` request.
+
 
 Request
 ~~~~~~~
 
+Below is a sample ``getRates`` request for a single package sent from one address in Maryland to another address
+in California.
+
 .. code-block:: php
+
+
 
     # populate from address
     $from = new Address();
@@ -56,6 +75,12 @@ Request
 
 Response
 ~~~~~~~~
+
+Below is the full object response returned from the above sample ``getRates`` request.
+
+The response will include a  :ref:`Rate Collection <rateCollection>` object, containing zero or
+more :ref:`Rate Element <rateElement>` objects.  The **Rate Collection** contains the summary of the
+response and each **Rate Element** will contain details of a rate option for the shipment.
 
 .. code-block:: php
 
@@ -243,12 +268,18 @@ Response
         [count:protected] => 1
     )
 
+.. _getSimpleRates:
 
 getSimpleRates
 --------------
 
+The ``getSimpleRates`` request will retrieve simplified rates for a shipment.
+
 Request
 ~~~~~~~
+
+Below is a sample ``getSimpleRates`` request for a single package sent from one address in Maryland to another address
+in California.
 
 .. code-block:: php
 
@@ -295,6 +326,13 @@ Request
 
 Response
 ~~~~~~~~
+
+Below is the full object response returned from the above sample ``getSimpleRates`` request.
+
+The response will include a  :ref:`Rate Collection <rateCollection>` object, containing zero or
+more :ref:`Simple Rate Element <simpleRateElement>` objects.  The **Rate Collection** contains the summary of the
+response and each **Simple Rate Element** will contain details of a rate option for the shipment.
+
 
 .. code-block:: php
 

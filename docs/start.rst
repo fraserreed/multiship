@@ -14,7 +14,7 @@ one carrier per request.
 Carrier Configuration Parameters
 --------------------------------
 
-Each of the parameters listed below is required for making MultiShip requests.
+Each parameter listed below is required for making MultiShip requests to the specified carrier.
 
 UPS
 ~~~~
@@ -32,7 +32,9 @@ FedEx
 Optional Params
 ~~~~~~~~~~~~~~~
 * debug (true / false)
- * will determine if requests are made to sandbox/test carrier endpoint url or production carrier endpoint url
+* will determine if requests are made to sandbox/test carrier endpoint url or production carrier endpoint url
+
+.. _gettingStarted:
 
 Example
 -------

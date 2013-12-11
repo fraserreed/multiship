@@ -31,7 +31,11 @@ Contents
 
    install
    start
-   rate
+   address
+   package
+   raterequest
+   rateresponse
+   commonresponse
    test
    copyright
 
