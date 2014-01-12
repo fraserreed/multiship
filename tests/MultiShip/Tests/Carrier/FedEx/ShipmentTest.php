@@ -52,6 +52,59 @@ class ShipmentTest extends BaseTestCase
     }
 
     /**
+     * @covers \MultiShip\Carrier\FedEx\Shipment::isShipmentComplete
+     */
+    public function testIsShipmentCompleteFail()
+    {
+        $this->assertFalse( $this->object->isShipmentComplete() );
+    }
+
+    /**
+     * @covers \MultiShip\Carrier\FedEx\Shipment::isShipmentComplete
+     */
+    public function testIsShipmentCompletePass()
+    {
+        $to = new Address();
+        $to->setName( 'Imani Imaginarium' );
+        $to->setLine1( '21 ARGONAUT SUITE B' );
+        $to->setCity( 'Toronto' );
+        $to->setRegion( 'ON' );
+        $to->setPostalCode( 'M2N5X7' );
+        $to->setCountry( 'CA' );
+        $to->setPhoneNumber( 9056883000 );
+        $to->setResidentialAddress( true );
+
+        $from = new Address();
+        $from->setName( 'Imani Carr' );
+        $from->setNumber( 222006 );
+        $from->setLine1( 'Southam Rd' );
+        $from->setLine2( '4 Case Cour' );
+        $from->setLine3( 'Apt 3B' );
+        $from->setCity( 'Ottawa' );
+        $from->setRegion( 'ON' );
+        $from->setPostalCode( 'K1Y1A1' );
+        $from->setCountry( 'CA' );
+        $from->setPhoneNumber( 9056883000 );
+
+        $this->object->setToAddress( $to );
+        $this->object->setFromAddress( $from );
+
+        $package1 = new Package();
+        $package1->setHeight( 10 );
+        $package1->setWidth( 4 );
+        $package1->setLength( 5 );
+        $package1->setDimensionUnitOfMeasure( 'in' );
+        $package1->setWeight( 1 );
+        $package1->setWeightUnitOfMeasure( 'lb' );
+
+        $this->object->addPackage( $package1 );
+
+        $this->object->getRequestBody();
+
+        $this->assertTrue( $this->object->isShipmentComplete() );
+    }
+
+    /**
      * @covers \MultiShip\Carrier\FedEx\Shipment::getRequestBody
      * @expectedException \MultiShip\Exceptions\MultiShipException
      */
@@ -173,8 +226,8 @@ class ShipmentTest extends BaseTestCase
 
         $actual = $this->object->parseResponse( $response );
 
-        /** @var $shipment \MultiShip\Response\Elements\Shipment */
-        foreach( $actual->getShipments() as $shipment )
+        /** @var $shipment \MultiShip\Response\Elements\ShipmentPackage */
+        foreach( $actual->getShipmentPackages() as $shipment )
         {
             $this->assertContains( $shipment->getTotal()->getValue(), array( 59.03 ) );
             $this->assertContains( $shipment->getTrackingNumber(), array( '794821390890' ) );
@@ -188,6 +241,41 @@ class ShipmentTest extends BaseTestCase
     /**
      * @covers \MultiShip\Carrier\FedEx\Shipment::parseResponse
      */
+    public function testParseResponseMultiplePackages()
+    {
+        $data     = $this->getFixture( 'FedEx/ShipmentResponseMultipleMasterPackage.json' );
+        $response = json_decode( $data, false );
+
+        //first pass master package
+        $this->object->parseResponse( $response );
+
+        $data     = $this->getFixture( 'FedEx/ShipmentResponseMultipleChildPackage.json' );
+        $response = json_decode( $data, false );
+
+        //second pass child package
+        $actual = $this->object->parseResponse( $response );
+
+        //validate master tracking number
+        $this->assertEquals( '794828000431', $actual->getMasterTrackingNumber() );
+
+        /** @var $shipment \MultiShip\Response\Elements\ShipmentPackage */
+        foreach( $actual->getShipmentPackages() as $shipment )
+        {
+            $this->assertContains( $shipment->getTotal()->getValue(), array( 14.98 ) );
+            $this->assertContains( $shipment->getBillingPackage()->getWeight(), array( 1.0, 2.0 ) );
+            $this->assertContains( $shipment->getTrackingNumber(), array( '794828000431', '794828000442' ) );
+        }
+
+        $this->assertEquals( 3.0, $actual->getBillingPackage()->getWeight() );
+
+        $this->assertEquals( 'SUCCESS', $actual->getStatusCode() );
+        $this->assertEquals( 'Success', $actual->getStatusDescription() );
+        $this->assertEquals( 2, $actual->getCount() );
+    }
+
+    /**
+     * @covers \MultiShip\Carrier\FedEx\Shipment::parseResponse
+     */
     public function testParseResponseNet()
     {
         $data     = $this->getFixture( 'FedEx/ShipmentResponseNet.json' );
@@ -195,8 +283,8 @@ class ShipmentTest extends BaseTestCase
 
         $actual = $this->object->parseResponse( $response );
 
-        /** @var $shipment \MultiShip\Response\Elements\Shipment */
-        foreach( $actual->getShipments() as $shipment )
+        /** @var $shipment \MultiShip\Response\Elements\ShipmentPackage */
+        foreach( $actual->getShipmentPackages() as $shipment )
         {
             $this->assertContains( $shipment->getTotal()->getValue(), array( 59.03 ) );
             $this->assertContains( $shipment->getTrackingNumber(), array( '794821390890' ) );
@@ -217,7 +305,7 @@ class ShipmentTest extends BaseTestCase
 
         $actual = $this->object->parseResponse( $response );
 
-        $this->assertEmpty( $actual->getShipments() );
+        $this->assertEmpty( $actual->getShipmentPackages() );
 
         $this->assertEquals( 'SUCCESS', $actual->getStatusCode() );
         $this->assertEquals( 'Success', $actual->getStatusDescription() );

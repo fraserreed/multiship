@@ -23,12 +23,11 @@ use MultiShip\Charge\TransportationCharge;
 use MultiShip\Charge\ServiceCharge;
 
 use MultiShip\Package\Package;
-use MultiShip\Package\ShipmentPackage;
 
 use MultiShip\Label\ShipmentLabel;
 
 use MultiShip\Response\Collections\Shipment as ShipmentCollection;
-use MultiShip\Response\Elements\Shipment as ShipmentElement;
+use MultiShip\Response\Elements\ShipmentPackage;
 
 /**
  * MultiShip shipment object
@@ -197,14 +196,12 @@ class Shipment extends AbstractShipment
 
         if( isset( $response->ShipmentResults ) && !empty( $response->ShipmentResults->ShipmentIdentificationNumber ) )
         {
+            //set collection response elements
+            $shipmentResponse->setMasterTrackingNumber( $response->ShipmentResults->ShipmentIdentificationNumber );
+            $shipmentResponse->setCarrierCode( $this->getCarrierCode() );
+            //$shipmentResponse->setCount( 1 );
 
-            $shipmentResponse->setCount( 1 );
             $shipment = $response->ShipmentResults;
-
-            $shipmentElement = new ShipmentElement();
-            $shipmentElement->setCarrierCode( $this->getCarrierCode() );
-
-            $shipmentElement->setTrackingNumber( $shipment->ShipmentIdentificationNumber );
 
             //billing weight
             if( isset( $shipment->BillingWeight ) )
@@ -213,7 +210,7 @@ class Shipment extends AbstractShipment
                 $billingPackage->setWeight( $shipment->BillingWeight->Weight );
                 $billingPackage->setWeightUnitOfMeasure( $shipment->BillingWeight->UnitOfMeasurement->Code );
 
-                $shipmentElement->setBillingPackage( $billingPackage );
+                $shipmentResponse->setBillingPackage( $billingPackage );
             }
 
             //transportation charges
@@ -223,7 +220,7 @@ class Shipment extends AbstractShipment
                 $transportationCharges->setCurrencyCode( $shipment->ShipmentCharges->TransportationCharges->CurrencyCode );
                 $transportationCharges->setValue( $shipment->ShipmentCharges->TransportationCharges->MonetaryValue );
 
-                $shipmentElement->addCharge( $transportationCharges );
+                $shipmentResponse->addCharge( $transportationCharges );
             }
 
             //service charges
@@ -233,7 +230,7 @@ class Shipment extends AbstractShipment
                 $serviceCharges->setCurrencyCode( $shipment->ShipmentCharges->ServiceOptionsCharges->CurrencyCode );
                 $serviceCharges->setValue( $shipment->ShipmentCharges->ServiceOptionsCharges->MonetaryValue );
 
-                $shipmentElement->addCharge( $serviceCharges );
+                $shipmentResponse->addCharge( $serviceCharges );
             }
 
             //total charges
@@ -243,44 +240,58 @@ class Shipment extends AbstractShipment
                 $totalCharges->setCurrencyCode( $shipment->ShipmentCharges->TotalCharges->CurrencyCode );
                 $totalCharges->setValue( $shipment->ShipmentCharges->TotalCharges->MonetaryValue );
 
-                $shipmentElement->setTotal( $totalCharges );
+                $shipmentResponse->setTotal( $totalCharges );
             }
 
-            //shipment package
             if( isset( $shipment->PackageResults ) )
             {
-                $shipmentPackage = new ShipmentPackage();
-                $shipmentPackage->setTrackingNumber( $shipment->PackageResults->TrackingNumber );
+                //shipment package
+                if( is_array( $shipment->PackageResults ) )
+                    $packages = $shipment->PackageResults;
+                else
+                    $packages = array( $shipment->PackageResults );
 
-                //service charges
-                if( isset( $shipment->PackageResults->ServiceOptionsCharges ) )
+                foreach( $packages as $package )
                 {
-                    $packageServiceCharges = new ServiceCharge();
-                    $packageServiceCharges->setCurrencyCode( $shipment->PackageResults->ServiceOptionsCharges->CurrencyCode );
-                    $packageServiceCharges->setValue( $shipment->PackageResults->ServiceOptionsCharges->MonetaryValue );
-
-                    $shipmentPackage->addCharge( $packageServiceCharges );
+                    $shipmentResponse->addShipmentPackage( $this->processPackage( $package ) );
+                    $shipmentResponse->setCount( $shipmentResponse->getCount() + 1 );
                 }
-
-                //shipping label
-                if( isset( $shipment->PackageResults->ShippingLabel ) )
-                {
-                    $shipmentLabel = new ShipmentLabel();
-                    $shipmentLabel->setImageFormat( $shipment->PackageResults->ShippingLabel->ImageFormat->Code );
-                    $shipmentLabel->setImageDescription( $shipment->PackageResults->ShippingLabel->ImageFormat->Description );
-                    $shipmentLabel->setGraphicImage( $shipment->PackageResults->ShippingLabel->GraphicImage );
-                    $shipmentLabel->setHtmlImage( $shipment->PackageResults->ShippingLabel->HTMLImage );
-
-                    $shipmentPackage->setLabel( $shipmentLabel );
-                }
-
-                $shipmentElement->setShipmentPackage( $shipmentPackage );
             }
-
-            $shipmentResponse->addShipment( $shipmentElement );
         }
 
         return $shipmentResponse;
+    }
+
+    private function processPackage( $package )
+    {
+        $shipmentPackage = new ShipmentPackage();
+
+        //set the tracking number
+        $shipmentPackage->setTrackingNumber( $package->TrackingNumber );
+
+        //service charges
+        if( isset( $package->ServiceOptionsCharges ) )
+        {
+            $packageServiceCharges = new ServiceCharge();
+            $packageServiceCharges->setCurrencyCode( $package->ServiceOptionsCharges->CurrencyCode );
+            $packageServiceCharges->setValue( $package->ServiceOptionsCharges->MonetaryValue );
+
+            $shipmentPackage->addCharge( $packageServiceCharges );
+        }
+
+        //shipping label
+        if( isset( $package->ShippingLabel ) )
+        {
+            $shipmentLabel = new ShipmentLabel();
+            $shipmentLabel->setImageFormat( $package->ShippingLabel->ImageFormat->Code );
+            $shipmentLabel->setImageDescription( $package->ShippingLabel->ImageFormat->Description );
+            $shipmentLabel->setGraphicImage( $package->ShippingLabel->GraphicImage );
+            $shipmentLabel->setHtmlImage( $package->ShippingLabel->HTMLImage );
+
+            $shipmentPackage->setLabel( $shipmentLabel );
+        }
+
+        return $shipmentPackage;
     }
 }
 

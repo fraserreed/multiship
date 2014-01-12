@@ -175,16 +175,39 @@ class ShipmentTest extends BaseTestCase
 
         $actual = $this->object->parseResponse( $response );
 
-        /** @var $shipment \MultiShip\Response\Elements\Shipment */
-        foreach( $actual->getShipments() as $shipment )
+        /** @var $shipment \MultiShip\Response\Elements\ShipmentPackage */
+        foreach( $actual->getShipmentPackages() as $shipment )
         {
-            $this->assertContains( $shipment->getTotal()->getValue(), array( 36.08 ) );
+
             $this->assertContains( $shipment->getTrackingNumber(), array( '1Z00R2E11490817406' ) );
         }
 
+        $this->assertEquals( 36.08, $actual->getTotal()->getValue() );
         $this->assertEquals( 1, $actual->getStatusCode() );
         $this->assertEquals( 'Success', $actual->getStatusDescription() );
         $this->assertEquals( 1, $actual->getCount() );
+    }
+
+    /**
+     * @covers \MultiShip\Carrier\Ups\Shipment::parseResponse
+     */
+    public function testParseResponseMultiplePackages()
+    {
+        $data     = $this->getFixture( 'Ups/ShipmentResponseMultiplePackage.json' );
+        $response = json_decode( $data, false );
+
+        $actual = $this->object->parseResponse( $response );
+
+        /** @var $shipment \MultiShip\Response\Elements\ShipmentPackage */
+        foreach( $actual->getShipmentPackages() as $shipment )
+        {
+            $this->assertContains( $shipment->getTrackingNumber(), array( '1Z00R2E11493933374', '1Z00R2E11492694189' ) );
+        }
+
+        $this->assertEquals( 38.48, $actual->getTotal()->getValue() );
+        $this->assertEquals( 1, $actual->getStatusCode() );
+        $this->assertEquals( 'Success', $actual->getStatusDescription() );
+        $this->assertEquals( 2, $actual->getCount() );
     }
 
     /**
@@ -197,7 +220,7 @@ class ShipmentTest extends BaseTestCase
 
         $actual = $this->object->parseResponse( $response );
 
-        $this->assertEmpty( $actual->getShipments() );
+        $this->assertEmpty( $actual->getShipmentPackages() );
 
         $this->assertEquals( 1, $actual->getStatusCode() );
         $this->assertEquals( 'Success', $actual->getStatusDescription() );

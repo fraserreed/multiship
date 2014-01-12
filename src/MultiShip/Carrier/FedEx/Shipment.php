@@ -22,8 +22,6 @@ use MultiShip\Address\Address;
 
 use MultiShip\Charge\ICharge;
 use MultiShip\Charge\TotalCharge;
-use MultiShip\Charge\TransportationCharge;
-use MultiShip\Charge\ServiceCharge;
 use MultiShip\Charge\BaseCharge;
 use MultiShip\Charge\FreightDiscountCharge;
 use MultiShip\Charge\FreightCharge;
@@ -32,12 +30,11 @@ use MultiShip\Charge\TaxCharge;
 use MultiShip\Charge\NetCharge;
 
 use MultiShip\Package\Package;
-use MultiShip\Package\ShipmentPackage;
 
 use MultiShip\Label\ShipmentLabel;
 
 use MultiShip\Response\Collections\Shipment as ShipmentCollection;
-use MultiShip\Response\Elements\Shipment as ShipmentElement;
+use MultiShip\Response\Elements\ShipmentPackage;
 
 /**
  * MultiShip shipment object
@@ -46,18 +43,57 @@ use MultiShip\Response\Elements\Shipment as ShipmentElement;
  */
 class Shipment extends AbstractShipment
 {
+    const STATUS_STARTED  = 'started';
+    const STATUS_COMPLETE = 'complete';
+
     protected $operation = "ProcessShipment";
 
     protected $wsdl = "/Schema/Wsdl/FedEx/ShipService_v13.wsdl";
 
     protected $urlAction = 'ship';
 
+    protected $shipmentStatus = null;
+
+    protected $masterPackageTrackingNumber;
+
+    protected $sequenceNumber = 0;
+
+    protected $remainingPackages = array();
+
+    /**
+     * @var ShipmentCollection
+     */
+    protected $shipmentResponse;
+
+    /**
+     * @return bool
+     */
+    public function isShipmentComplete()
+    {
+        if( $this->shipmentStatus !== self::STATUS_COMPLETE )
+            return false;
+
+        return true;
+    }
+
+    /**
+     * @return \MultiShip\Response\Collections\Shipment
+     */
+    public function getShipmentResponse()
+    {
+        if( !$this->shipmentResponse )
+            $this->shipmentResponse = new ShipmentCollection();
+
+        return $this->shipmentResponse;
+    }
+
     public function getRequestBody()
     {
+        //mark shipment as started, in case there are multiple packages
+        $this->shipmentStatus = self::STATUS_STARTED;
+
         $fromAddress = $this->getFromAddress();
         $toAddress   = $this->getToAddress();
-
-        $packages = array();
 
         if( empty( $this->packages ) )
             throw new MultiShipException( 'At least one package must be provided for all shipment requests.' );
@@ -65,48 +101,18 @@ class Shipment extends AbstractShipment
         //get configuration for shipping number
         $config = $this->getConfiguration();
 
-        /** @var $package \MultiShip\Package\Package */
-        foreach( $this->packages as $index => $package )
-        {
-            $packages[ ] = array(
-                'SequenceNumber'    => ( $index + 1 ),
-                'GroupPackageCount' => count( $this->packages ),
-                'Weight'            => array(
-                    'Value' => $package->getWeight(),
-                    'Units' => strtoupper( $package->getWeightUnitOfMeasure( true ) )
-                ),
-                'Dimensions'        => array(
-                    'Length' => $package->getLength(),
-                    'Width'  => $package->getWidth(),
-                    'Height' => $package->getHeight(),
-                    'Units'  => strtoupper( $package->getDimensionUnitOfMeasure() )
-                ),
-                //'CustomerReferences'       => array(
-                //    '0' => array(
-                //        'CustomerReferenceType' => 'CUSTOMER_REFERENCE', // valid values CUSTOMER_REFERENCE, INVOICE_NUMBER, P_O_NUMBER and SHIPMENT_INTEGRITY
-                //        'Value'                 => 'GR4567892'
-                //    ),
-                //    '1' => array(
-                //        'CustomerReferenceType' => 'INVOICE_NUMBER',
-                //        'Value'                 => 'INV4567892'
-                //    ),
-                //    '2' => array(
-                //        'CustomerReferenceType' => 'P_O_NUMBER',
-                //        'Value'                 => 'PO4567892'
-                //    )
-                //),
-                //'SpecialServicesRequested' => array(
-                //    'SpecialServiceTypes' => array( 'COD' ),
-                //    'CodDetail'           => array(
-                //        'CodCollectionAmount' => array(
-                //            'Currency' => 'USD',
-                //            'Amount'   => 150
-                //        ),
-                //        'CollectionType'      => 'ANY' // ANY, GUARANTEED_FUNDS
-                //    )
-                //)
-            );
-        }
+        //if the master package has not been set yet, initialize the package list
+        if( empty( $this->masterPackageTrackingNumber ) )
+            $this->remainingPackages = $this->packages;
+
+        //retrieve the current package for sending
+        $currentPackage = array_shift( $this->remainingPackages );
+
+        if( count( $this->remainingPackages ) == 0 )
+            $this->shipmentStatus = self::STATUS_COMPLETE;
+
+        //increment the sequence number
+        $this->sequenceNumber++;
 
         $request = array(
             'WebAuthenticationDetail' => array(
@@ -196,11 +202,52 @@ class Shipment extends AbstractShipment
                 ),
                 */
                 'RateRequestTypes'          => array( 'ACCOUNT' ), // valid values ACCOUNT and LIST
-                'PackageCount'              => 1,
+                'PackageCount'              => count( $this->packages ),
                 'PackageDetail'             => 'INDIVIDUAL_PACKAGES',
-                'RequestedPackageLineItems' => $packages
+                'RequestedPackageLineItems' => array(
+                    'SequenceNumber'    => $this->sequenceNumber,
+                    'GroupPackageCount' => 1, //$this->sequenceNumber,
+                    'Weight'            => array(
+                        'Value' => $currentPackage->getWeight(),
+                        'Units' => strtoupper( $currentPackage->getWeightUnitOfMeasure( true ) )
+                    ),
+                    'Dimensions'        => array(
+                        'Length' => $currentPackage->getLength(),
+                        'Width'  => $currentPackage->getWidth(),
+                        'Height' => $currentPackage->getHeight(),
+                        'Units'  => strtoupper( $currentPackage->getDimensionUnitOfMeasure() )
+                    ),
+                    //'CustomerReferences'       => array(
+                    //    '0' => array(
+                    //        'CustomerReferenceType' => 'CUSTOMER_REFERENCE', // valid values CUSTOMER_REFERENCE, INVOICE_NUMBER, P_O_NUMBER and SHIPMENT_INTEGRITY
+                    //        'Value'                 => 'GR4567892'
+                    //    ),
+                    //    '1' => array(
+                    //        'CustomerReferenceType' => 'INVOICE_NUMBER',
+                    //        'Value'                 => 'INV4567892'
+                    //    ),
+                    //    '2' => array(
+                    //        'CustomerReferenceType' => 'P_O_NUMBER',
+                    //        'Value'                 => 'PO4567892'
+                    //    )
+                    //),
+                    //'SpecialServicesRequested' => array(
+                    //    'SpecialServiceTypes' => array( 'COD' ),
+                    //    'CodDetail'           => array(
+                    //        'CodCollectionAmount' => array(
+                    //            'Currency' => 'USD',
+                    //            'Amount'   => 150
+                    //        ),
+                    //        'CollectionType'      => 'ANY' // ANY, GUARANTEED_FUNDS
+                    //    )
+                    //)
+                )
             )
         );
+
+        //add master tracking information, if it is needed
+        if( !empty( $this->masterPackageTrackingNumber ) )
+            $request[ 'RequestedShipment' ][ 'MasterTrackingId' ] = $this->masterPackageTrackingNumber;
 
         return $request;
     }
@@ -212,7 +259,7 @@ class Shipment extends AbstractShipment
      */
     public function parseResponse( $response )
     {
-        $shipmentResponse = new ShipmentCollection();
+        $shipmentResponse = $this->getShipmentResponse();
 
         $shipmentResponse->setStatusCode( $response->HighestSeverity );
         $shipmentResponse->setStatusDescription( $response->Notifications->Message );
@@ -220,106 +267,184 @@ class Shipment extends AbstractShipment
 
         if( isset( $response->CompletedShipmentDetail ) && isset( $response->CompletedShipmentDetail->CompletedPackageDetails ) )
         {
-            $shipmentResponse->setCount( 1 );
-            $shipment     = $response->CompletedShipmentDetail->CompletedPackageDetails;
-            $shipmentRate = $response->CompletedShipmentDetail->ShipmentRating->ShipmentRateDetails;
-            $package      = $shipment->PackageRating->PackageRateDetails;
-
-            $shipmentElement = new ShipmentElement();
-            $shipmentElement->setCarrierCode( $this->getCarrierCode() );
-
-            if( isset( $shipment->TrackingIds->TrackingNumber ) )
-                $shipmentElement->setTrackingNumber( $shipment->TrackingIds->TrackingNumber );
-
-            //billing weight
-            if( isset( $shipmentRate->TotalBillingWeight ) )
+            //if there is a master package, it is a multiple package shipment
+            if( isset( $response->CompletedShipmentDetail->MasterTrackingId ) )
             {
-                $billingPackage = new Package();
-                $billingPackage->setWeight( $shipmentRate->TotalBillingWeight->Value );
-                $billingPackage->setWeightUnitOfMeasure( $shipmentRate->TotalBillingWeight->Units );
+                $shipmentResponse->setMasterTrackingNumber( $response->CompletedShipmentDetail->MasterTrackingId->TrackingNumber );
 
-                $shipmentElement->setBillingPackage( $billingPackage );
+                $this->masterPackageTrackingNumber = array(
+                    'TrackingIdType' => $response->CompletedShipmentDetail->MasterTrackingId->TrackingIdType,
+                    'TrackingNumber' => $response->CompletedShipmentDetail->MasterTrackingId->TrackingNumber
+                );
             }
 
-            //base charges
-            if( isset( $shipmentRate->TotalBaseCharge ) )
-                $shipmentElement->addCharge( $this->prepareCharge( new BaseCharge(), $shipmentRate->TotalBaseCharge ) );
+            $shipmentResponse->setCarrierCode( $this->getCarrierCode() );
 
-            //freight discounts
-            if( isset( $shipmentRate->TotalFreightDiscounts ) )
-                $shipmentElement->addCharge( $this->prepareCharge( new FreightDiscountCharge(), $shipmentRate->TotalFreightDiscounts ) );
-
-            //freight charges
-            if( isset( $shipmentRate->TotalNetFreight ) )
-                $shipmentElement->addCharge( $this->prepareCharge( new FreightCharge(), $shipmentRate->TotalNetFreight ) );
-
-            //surcharges
-            if( isset( $shipmentRate->TotalSurcharges ) )
-                $shipmentElement->addCharge( $this->prepareCharge( new SurchargeCharge(), $shipmentRate->TotalSurcharges ) );
-
-            //net fedex charges
-            if( isset( $shipmentRate->TotalNetFedExCharge ) )
-            {
-                $totalCharge = $this->prepareCharge( new TotalCharge(), $shipmentRate->TotalNetFedExCharge );
-                $shipmentElement->addCharge( $totalCharge );
-            }
-
-            //tax charges
-            if( isset( $shipmentRate->TotalTaxes ) )
-                $shipmentElement->addCharge( $this->prepareCharge( new TaxCharge(), $shipmentRate->TotalTaxes ) );
-
-            //net charges
-            if( isset( $shipmentRate->TotalNetCharge ) )
-            {
-                $netCharge = $this->prepareCharge( new NetCharge(), $shipmentRate->TotalNetCharge );
-                $shipmentElement->addCharge( $netCharge );
-            }
-
-            //set total charge
-            if( !empty( $netCharge ) )
-            {
-                $shipmentElement->setTotal( $netCharge );
-            }
-            else if( !empty( $totalCharge ) )
-            {
-                $shipmentElement->setTotal( $totalCharge );
-            }
+            $shipmentResponse->setCount( $shipmentResponse->getCount() + 1 );
+            $shipment = $response->CompletedShipmentDetail->CompletedPackageDetails;
 
             //shipment package
-            if( isset( $package ) )
+            if( isset( $shipment->PackageRating->PackageRateDetails ) )
             {
-                $shipmentPackage = new ShipmentPackage();
-                $shipmentPackage->setTrackingNumber( $shipment->TrackingIds->TrackingNumber );
-
-                //shipping label
-                if( isset( $shipment->Label ) )
-                {
-                    $shipmentLabel = new ShipmentLabel();
-                    $shipmentLabel->setImageFormat( $shipment->Label->ImageType );
-                    $shipmentLabel->setImageDescription( $shipment->Label->Type );
-
-                    switch( $shipmentLabel->getImageFormat() )
-                    {
-                        case 'PDF':
-                            $shipmentLabel->setPdfImage( $shipment->Label->Parts->Image );
-                            break;
-
-                        case 'GIF':
-                        case 'ZPL':
-                            $shipmentLabel->setGraphicImage( $shipment->Label->Parts->Image );
-                            break;
-                    }
-
-                    $shipmentPackage->setLabel( $shipmentLabel );
-                }
-
-                $shipmentElement->setShipmentPackage( $shipmentPackage );
+                //add package to shipment
+                $shipmentResponse->addShipmentPackage( $this->processPackage( $shipment ) );
             }
 
-            $shipmentResponse->addShipment( $shipmentElement );
+            //if the shipment also include charges, set them as they show the aggregate
+            if( isset( $response->CompletedShipmentDetail->ShipmentRating->ShipmentRateDetails ) )
+            {
+                $shipmentRateDetails = $response->CompletedShipmentDetail->ShipmentRating->ShipmentRateDetails;
+
+                //set the overall billing package
+                if( isset( $shipmentRateDetails->TotalBillingWeight ) )
+                {
+                    $billingPackage = new Package();
+                    $billingPackage->setWeight( $shipmentRateDetails->TotalBillingWeight->Value );
+                    $billingPackage->setWeightUnitOfMeasure( $shipmentRateDetails->TotalBillingWeight->Units );
+                    $shipmentResponse->setBillingPackage( $billingPackage );
+                }
+
+                //base charges
+                if( isset( $shipmentRateDetails->TotalBaseCharge ) )
+                    $shipmentResponse->addCharge( $this->prepareCharge( new BaseCharge(), $shipmentRateDetails->TotalBaseCharge ) );
+
+                //freight discounts
+                if( isset( $shipmentRateDetails->TotalFreightDiscounts ) )
+                    $shipmentResponse->addCharge( $this->prepareCharge( new FreightDiscountCharge(), $shipmentRateDetails->TotalFreightDiscounts ) );
+
+                //freight charges
+                if( isset( $shipmentRateDetails->TotalNetFreight ) )
+                    $shipmentResponse->addCharge( $this->prepareCharge( new FreightCharge(), $shipmentRateDetails->TotalNetFreight ) );
+
+                //surcharges
+                if( isset( $shipmentRateDetails->TotalSurcharges ) )
+                    $shipmentResponse->addCharge( $this->prepareCharge( new SurchargeCharge(), $shipmentRateDetails->TotalSurcharges ) );
+
+                //net fedex charges
+                if( isset( $shipmentRateDetails->TotalNetFedExCharge ) )
+                {
+                    $totalCharge = $this->prepareCharge( new TotalCharge(), $shipmentRateDetails->TotalNetFedExCharge );
+                    $shipmentResponse->addCharge( $totalCharge );
+                }
+
+                //tax charges
+                if( isset( $shipmentRateDetails->TotalTaxes ) )
+                    $shipmentResponse->addCharge( $this->prepareCharge( new TaxCharge(), $shipmentRateDetails->TotalTaxes ) );
+
+                //net charges
+                if( isset( $shipmentRateDetails->TotalNetCharge ) )
+                {
+                    $netCharge = $this->prepareCharge( new NetCharge(), $shipmentRateDetails->TotalNetCharge );
+                    $shipmentResponse->addCharge( $netCharge );
+                }
+
+                //set total charge
+                if( !empty( $netCharge ) )
+                {
+                    $shipmentResponse->setTotal( $netCharge );
+                }
+                else if( !empty( $totalCharge ) )
+                {
+                    $shipmentResponse->setTotal( $totalCharge );
+                }
+            }
         }
 
         return $shipmentResponse;
+    }
+
+    /**
+     * @param $shipment
+     *
+     * @return \MultiShip\Response\Elements\ShipmentPackage
+     */
+    private function processPackage( $shipment )
+    {
+        $shipmentPackage = new ShipmentPackage();
+        $shipmentPackage->setTrackingNumber( $shipment->TrackingIds->TrackingNumber );
+
+        $package = $shipment->PackageRating->PackageRateDetails;
+
+        //billing weight
+        if( isset( $package->BillingWeight ) )
+        {
+            $billingPackage = new Package();
+            $billingPackage->setWeight( $package->BillingWeight->Value );
+            $billingPackage->setWeightUnitOfMeasure( $package->BillingWeight->Units );
+            $shipmentPackage->setBillingPackage( $billingPackage );
+
+            //set the dimensions of the package
+            $shipmentPackage->setWeight( $package->BillingWeight->Value );
+            $shipmentPackage->setWeightUnitOfMeasure( $package->BillingWeight->Units );
+        }
+
+        //base charges
+        if( isset( $package->BaseCharge ) )
+            $shipmentPackage->addCharge( $this->prepareCharge( new BaseCharge(), $package->BaseCharge ) );
+
+        //freight discounts
+        if( isset( $package->TotalFreightDiscounts ) )
+            $shipmentPackage->addCharge( $this->prepareCharge( new FreightDiscountCharge(), $package->TotalFreightDiscounts ) );
+
+        //freight charges
+        if( isset( $package->NetFreight ) )
+            $shipmentPackage->addCharge( $this->prepareCharge( new FreightCharge(), $package->NetFreight ) );
+
+        //surcharges
+        if( isset( $package->TotalSurcharges ) )
+            $shipmentPackage->addCharge( $this->prepareCharge( new SurchargeCharge(), $package->TotalSurcharges ) );
+
+        //net fedex charges
+        if( isset( $package->NetFedExCharge ) )
+        {
+            $totalCharge = $this->prepareCharge( new TotalCharge(), $package->NetFedExCharge );
+            $shipmentPackage->addCharge( $totalCharge );
+        }
+
+        //tax charges
+        if( isset( $package->TotalTaxes ) )
+            $shipmentPackage->addCharge( $this->prepareCharge( new TaxCharge(), $package->TotalTaxes ) );
+
+        //net charges
+        if( isset( $package->NetCharge ) )
+        {
+            $netCharge = $this->prepareCharge( new NetCharge(), $package->NetCharge );
+            $shipmentPackage->addCharge( $netCharge );
+        }
+
+        //set total charge
+        if( !empty( $netCharge ) )
+        {
+            $shipmentPackage->setTotal( $netCharge );
+        }
+        else if( !empty( $totalCharge ) )
+        {
+            $shipmentPackage->setTotal( $totalCharge );
+        }
+
+        //shipping label
+        if( isset( $shipment->Label ) )
+        {
+            $shipmentLabel = new ShipmentLabel();
+            $shipmentLabel->setImageFormat( $shipment->Label->ImageType );
+            $shipmentLabel->setImageDescription( $shipment->Label->Type );
+
+            switch( $shipmentLabel->getImageFormat() )
+            {
+                case 'PDF':
+                    $shipmentLabel->setPdfImage( $shipment->Label->Parts->Image );
+                    break;
+
+                case 'GIF':
+                case 'ZPL':
+                    $shipmentLabel->setGraphicImage( $shipment->Label->Parts->Image );
+                    break;
+            }
+
+            $shipmentPackage->setLabel( $shipmentLabel );
+        }
+
+        return $shipmentPackage;
     }
 
     /**

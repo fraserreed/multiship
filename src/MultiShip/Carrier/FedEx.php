@@ -13,6 +13,9 @@
 namespace MultiShip\Carrier;
 
 
+use MultiShip\Exceptions\MultiShipException;
+use MultiShip\Request\IRequest;
+
 use MultiShip\Carrier\FedEx\Rate;
 use MultiShip\Carrier\FedEx\SimpleRate;
 use MultiShip\Carrier\FedEx\Shipment;
@@ -78,6 +81,38 @@ class FedEx extends AbstractCarrier
     public function getShipmentRequest()
     {
         return new Shipment();
+    }
+
+    /**
+     * @param IRequest $request
+     *
+     * @throws \MultiShip\Exceptions\MultiShipException
+     * @return mixed
+     */
+    public function request( IRequest $request )
+    {
+        //if the request is a shipment, there may be multiple packages
+        // requiring multiple requests
+        if( $request instanceof Shipment )
+        {
+            //set threshold for loop to prevent a runaway
+            for( $i = 0; $i < 1000; $i++ )
+            {
+                //only make requests until shipment is complete
+                if( $request->isShipmentComplete() == true )
+                    break;
+
+                $response = parent::request( $request );
+            }
+
+            //if there is a valid response, return it
+            if( isset( $response ) )
+                return $response;
+
+            throw new MultiShipException( 'Error completing shipment request.' );
+        }
+
+        return parent::request( $request );
     }
 }
 

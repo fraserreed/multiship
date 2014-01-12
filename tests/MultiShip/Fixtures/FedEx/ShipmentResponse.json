@@ -11,161 +11,33 @@
     "Major":13,
     "Intermediate":0,
     "Minor":0
-}, "JobId":"1f3e16c5a04194q12379j359627", "CompletedShipmentDetail":{
-    "UsDomestic":true,
-    "CarrierCode":"FDXG",
-    "ServiceTypeDescription":"GROUND",
-    "PackagingDescription":"YOUR_PACKAGING",
-    "OperationalDetail":{
-        "OriginLocationNumber":786,
-        "DestinationLocationNumber":221,
-        "TransitTime":"THREE_DAYS",
-        "IneligibleForMoneyBackGuarantee":false,
-        "DeliveryEligibilities":"SATURDAY_DELIVERY",
-        "ServiceCode":"92"
-    },
-    "ShipmentRating":{
-        "ActualRateType":"PAYOR_ACCOUNT_PACKAGE",
-        "ShipmentRateDetails":{
-            "RateType":"PAYOR_ACCOUNT_PACKAGE",
-            "RateZone":"6",
-            "RatedWeightMethod":"ACTUAL",
-            "DimDivisor":0,
-            "FuelSurchargePercent":"7.0",
-            "TotalBillingWeight":{
-                "Units":"LB",
-                "Value":"50.0"
-            },
-            "TotalBaseCharge":{
-                "Currency":"USD",
-                "Amount":"33.75"
-            },
-            "TotalFreightDiscounts":{
-                "Currency":"USD",
-                "Amount":"0.0"
-            },
-            "TotalNetFreight":{
-                "Currency":"USD",
-                "Amount":"33.75"
-            },
-            "TotalSurcharges":{
-                "Currency":"USD",
-                "Amount":"25.28"
-            },
-            "TotalNetFedExCharge":{
-                "Currency":"USD",
-                "Amount":"59.03"
-            },
-            "TotalTaxes":{
-                "Currency":"USD",
-                "Amount":"0.0"
-            },
-            "TotalNetCharge":{
-                "Currency":"USD",
-                "Amount":"59.03"
-            },
-            "TotalRebates":{
-                "Currency":"USD",
-                "Amount":"0.0"
-            },
-            "Surcharges":[
-                {
-                    "SurchargeType":"RESIDENTIAL_DELIVERY",
-                    "Level":"PACKAGE",
-                    "Description":"Residential delivery",
-                    "Amount":{
-                        "Currency":"USD",
-                        "Amount":"3.2"
-                    }
-                },
-                {
-                    "SurchargeType":"COD",
-                    "Level":"PACKAGE",
-                    "Description":"Payment on delivery",
-                    "Amount":{
-                        "Currency":"USD",
-                        "Amount":"11.0"
-                    }
-                },
-                {
-                    "SurchargeType":"ADDITIONAL_HANDLING",
-                    "Level":"PACKAGE",
-                    "Description":"Additional handling surcharge - dimension",
-                    "Amount":{
-                        "Currency":"USD",
-                        "Amount":"8.5"
-                    }
-                },
-                {
-                    "SurchargeType":"FUEL",
-                    "Level":"PACKAGE",
-                    "Description":"FedEx Ground Fuel",
-                    "Amount":{
-                        "Currency":"USD",
-                        "Amount":"2.58"
-                    }
-                }
-            ]
-        }
-    },
-    "AssociatedShipments":{
-        "Type":"COD_RETURN",
-        "Sender":{
-            "Contact":{
-                "PersonName":"Recipient Name",
-                "CompanyName":"Recipient Company Name",
-                "PhoneNumber":"1234567890"
-            },
-            "Address":{
-                "StreetLines":"Address Line 1",
-                "City":"Herndon",
-                "StateOrProvinceCode":"VA",
-                "PostalCode":"20171",
-                "CountryCode":"US",
-                "Residential":true
-            }
+}, "JobId":"1f3e16c5a04194q12379j359627",
+    "CompletedShipmentDetail":{
+        "UsDomestic":true,
+        "CarrierCode":"FDXG",
+        "ServiceTypeDescription":"GROUND",
+        "PackagingDescription":"YOUR_PACKAGING",
+        "OperationalDetail":{
+            "OriginLocationNumber":786,
+            "DestinationLocationNumber":221,
+            "TransitTime":"THREE_DAYS",
+            "IneligibleForMoneyBackGuarantee":false,
+            "DeliveryEligibilities":"SATURDAY_DELIVERY",
+            "ServiceCode":"92"
         },
-        "Recipient":{
-            "AccountNumber":"510087402",
-            "Contact":{
-                "PersonName":"Sender Name",
-                "CompanyName":"Sender Company Name",
-                "PhoneNumber":"1234567890"
-            },
-            "Address":{
-                "StreetLines":"Address Line 1",
-                "City":"Austin",
-                "StateOrProvinceCode":"TX",
-                "PostalCode":"73301",
-                "CountryCode":"US",
-                "Residential":false
-            }
-        }
-    },
-    "CompletedCodDetail":{
-        "CollectionAmount":{
-            "Currency":"USD",
-            "Amount":"150.0"
-        },
-        "AdjustmentType":"NONE"
-    },
-    "CompletedPackageDetails":{
-        "SequenceNumber":1,
-        "TrackingIds":{
-            "TrackingIdType":"FEDEX",
-            "TrackingNumber":"794821390890"
-        },
-        "GroupNumber":0,
-        "PackageRating":{
+        "ShipmentRating":{
             "ActualRateType":"PAYOR_ACCOUNT_PACKAGE",
-            "PackageRateDetails":{
+            "ShipmentRateDetails":{
                 "RateType":"PAYOR_ACCOUNT_PACKAGE",
+                "RateZone":"6",
                 "RatedWeightMethod":"ACTUAL",
-                "BillingWeight":{
+                "DimDivisor":0,
+                "FuelSurchargePercent":"7.0",
+                "TotalBillingWeight":{
                     "Units":"LB",
                     "Value":"50.0"
                 },
-                "BaseCharge":{
+                "TotalBaseCharge":{
                     "Currency":"USD",
                     "Amount":"33.75"
                 },
@@ -173,7 +45,7 @@
                     "Currency":"USD",
                     "Amount":"0.0"
                 },
-                "NetFreight":{
+                "TotalNetFreight":{
                     "Currency":"USD",
                     "Amount":"33.75"
                 },
@@ -181,7 +53,7 @@
                     "Currency":"USD",
                     "Amount":"25.28"
                 },
-                "NetFedExCharge":{
+                "TotalNetFedExCharge":{
                     "Currency":"USD",
                     "Amount":"59.03"
                 },
@@ -189,7 +61,7 @@
                     "Currency":"USD",
                     "Amount":"0.0"
                 },
-                "NetCharge":{
+                "TotalNetCharge":{
                     "Currency":"USD",
                     "Amount":"59.03"
                 },
@@ -237,85 +109,214 @@
                 ]
             }
         },
-        "OperationalDetail":{
-            "AstraHandlingText":"COD",
-            "OperationalInstructions":[
-                {
-                    "Number":2,
-                    "Content":"TRK#"
+        "AssociatedShipments":{
+            "Type":"COD_RETURN",
+            "Sender":{
+                "Contact":{
+                    "PersonName":"Recipient Name",
+                    "CompanyName":"Recipient Company Name",
+                    "PhoneNumber":"1234567890"
                 },
-                {
-                    "Number":7,
-                    "Content":"9622001670008000272100794821390890"
-                },
-                {
-                    "Number":8,
-                    "Content":"51AG1\/D5E6\/1A9E"
-                },
-                {
-                    "Number":10,
-                    "Content":"7948 2139 0890"
-                },
-                {
-                    "Number":14,
-                    "Content":"COD"
-                },
-                {
-                    "Number":15,
-                    "Content":"20171"
-                },
-                {
-                    "Number":18,
-                    "Content":"9622 0016 7 (000 800 0272) 1 00 7948 2139 0890"
-                }
-            ],
-            "Barcodes":{
-                "BinaryBarcodes":{
-                    "Type":"COMMON_2D",
-                    "Value":"[)>\u001e01\u001d0220171\u001d840\u001d016\u001d000000000000\u001dFDEG\u001d008000272\u001d326\u001d\u001d1\/1\u001d50.0LB\u001dN\u001dAddress Line 1\u001dHerndon\u001dVA\u001dRecipient Name\u001e06\u001d10ZGD007\u001d11ZRecipient Company Name\u001d12Z1234567890\u001d14Z**TEST LABEL - DO NOT SHIP**\u001d23ZY\u001d22Z\u001cY\u001d20Z150.00\u001c0\u001d31Z9622001670008000272100000000000000\u001d33Z  \u001d34Z01\u001d9KGR4567892\u001d26Zff85\u001c\u001d\u001e\u0004"
-                },
-                "StringBarcodes":{
-                    "Type":"FEDEX_1D",
-                    "Value":"9622001670008000272100794821390890"
+                "Address":{
+                    "StreetLines":"Address Line 1",
+                    "City":"Herndon",
+                    "StateOrProvinceCode":"VA",
+                    "PostalCode":"20171",
+                    "CountryCode":"US",
+                    "Residential":true
                 }
             },
-            "GroundServiceCode":"016"
-        },
-        "Label":{
-            "Type":"OUTBOUND_LABEL",
-            "ShippingDocumentDisposition":"RETURNED",
-            "ImageType":"PDF",
-            "Resolution":200,
-            "CopiesToPrint":1,
-            "Parts":{
-                "DocumentPartSequenceNumber":1,
-                "Image":"%PDF-1.4\n1 0 obj\n<<\n\/Type \/Catalog\n\/Pages 3 0 R\n>>\nendobj\n2 0 obj\n<<\n\/Type \/Outlines\n\/Count 0\n>>\nendobj\n3 0 obj\n<<\n\/Type \/Pages\n\/Count 1\n\/Kids [18 0 R]\n>>\nendobj\n4 0 obj\n[\/PDF \/Text \/ImageB \/ImageC \/ImageI]\nendobj\n5 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n6 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica-Bold\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n7 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica-Oblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n8 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica-BoldOblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n9 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n10 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier-Bold\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n11 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier-Oblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n12 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier-BoldOblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n13 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-Roman\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n14 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-Bold\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n15 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-Italic\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n16 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-BoldItalic\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n17 0 obj \n<<\n\/CreationDate (D:2003)\n\/Producer (FedEx Services)\n\/Title (FedEx Shipping Label)\r\/Creator (FedEx Customer Automation)\r\/Author (CLS Version 5120135)\n>>\nendobj\n18 0 obj\n<<\n\/Type \/Page\r\/Parent 3 0 R\n\/Resources << \/ProcSet 4 0 R \n \/Font << \/F1 5 0 R \n\/F2 6 0 R \n\/F3 7 0 R \n\/F4 8 0 R \n\/F5 9 0 R \n\/F6 10 0 R \n\/F7 11 0 R \n\/F8 12 0 R \n\/F9 13 0 R \n\/F10 14 0 R \n\/F11 15 0 R \n\/F12 16 0 R \n >>\n\/XObject << \/FedExGround 20 0 R\n\/GroundG 21 0 R\n\/barcode0 22 0 R\n>>\n>>\n\/MediaBox [0 0 612 792]\n\/TrimBox[0 0 612 792]\n\/Contents 19 0 R\n\/Rotate 0>>\nendobj\n19 0 obj\n<< \/Length 2543\n\/Filter [\/ASCII85Decode \/FlateDecode] \n>>\nstream\nGatU6>B<b&&q6H&re%6A!`X2:G=sMFD[&;A].Q1'B*f*]Y^!J>XgLl^Z^:UdD+XGG(nCkHQmu@j3M6\/3\nqC_#oT=eYWrJQc8SA\"Zb,t0I9\\an0SY8\/c,(qQ%76sg`9\"^2#-4GZ#b+>@4VUBDsq(B@.ca%Th]`9;C^\nPX67PiriHg&IRinNBo4`Me>8+bAR.A,\"9!=A)Y5fC@s7!.C\"d%LcK+h`%K$'JE=be4oY!JlJf@$ZM`nF\n@\/2)t0i&tf9('M#cZ)n+]>oHomYM=6In3`?fB(9%.YKm\/VlS\"Ie[7JfJ$I^%'_.KfQWFtFhd?BO)an\/H\n'=i=1G.mbEaW6pZXrQdT%J$'s*QS'MCjuD+F+3qu>JAX!X)W<HkM]1m?V`U,i'Sf0^:2rpLHiE4aldP!\n08S(V>hqd>kUH>;.Ha?1Kb!U''2.Yf]j?+Hs*28h]]n3Z5[;OH\\2!Hh#YhCX\"Gr_V>&GqbjkfuX#EU0W\n&:X>rl.\\Q>s+$3\"'8uj=ZG4!>*[!jL@?'laA;J?_9d-]HX\"Dg8\\D(h-D2H0RIp\\ar=RA\/E%7\/$Q^1g1\\\nmj.jZZKl<bAUM[3=OsXi^\\W2]j)d2Tlo#5'1O\"EJO7SG#E.>?2gl(uU4O8rkagJL$euBR-ehE<\\n3:X#\no3-;SZNoQp-P_SKi\\DN3\"Hrh$oidhuq>\/FpD+20gQji\\0$aRdQ'eg>]\";-Ik>ne\/Jq)BgsXuD!q##nA-\nl]S]+Idp!.K[9(gMtPudn^`rA\"-ZlT2:=`J,lDsg*\"W?j*Beh^4?-WXUV.HK8+$VkJ)ZJaQEHI<Vb_LN\nmai3OVq(J%fp*>t2g\\;J\/+#=P-u#Jl6BWZ>C8;057%;`p`So4,4$>R[5BskG.Z<8l\\D;XaZ[2$NO&+U4\nm3_A[jn:mnr:9TOk:W&;3-qi6@S(:Wfm[->XbJ_Z9QPJ%WJ?YV&XNVCOb3ILTqn`qKE&Zs^A@g!bjAah\nr_b%V.o@VCs3+%)U!>&Y-4MWj.]E`\"eYM!SNZOQeOLNen'3#M4=^-2XEfTQPNu\")s=1]Fo:nXm5HB#Nl\n3Ud_+1.HIB$Oe>q4pV)QdGjfG!k+2Z?n,0JdUkjX12Z&F,-#@YAg6mQ:REV\/V?n_:l*cEn=@=0IF@E%3\n@!sTFC4T*V%VSaoM(2C*T@L2E>EZd$T6_!3[#m87HJn\"]1iGY0C\/0pK$\/8E\"d%iFe:TI6n&gV7>NFFY[\nis%Yu8pJn,OGdSeo\">q!T__1m\\^YeT1`@O,6sHl]eWG$CW>HO?'L4>geDZ.=_B`B=0rM*edRk',^gS^\\\n0NZlX,,@ggRC7+12F<j[SZ6p+KVjkmgo0,p^7<=Kct=IMNKul;N>kk<6$nV_TU\"DlU`MIp3XX,MO`Ca?\n.lm73i>&1idP0nQ3f>#a4`GL;JYlPWT<pDi5j\"eei971m)S52uVl1*eD5n(*8u:oOI8%4WT7RqT*H%68\n9jLX*Bfm`\"d3RGcNS5iDQCNdc$AfWp*H%*4G>l&RPQF*Z\/NOYG%ihY9`3H.OQ)'CI2WM6`N>a63CH46l\n-#dBNNVC4sWmG!P'3Rd)2RV-=LT,;WWqNHA<Bb]WpNkb2.bA8eQKNfaq[k[&WPa^u8UJGA.3Yor\\nDkW\n%QE\\7g+(\\I2lJg$LoIur2nC1>mF!+&VP6nNBH&mF,McF@R6V>1ElquNFgs`f\"cnk3k>>;!30QYXis&L\"\n4Q#SLOWl\/GEuf(]VOZ;*?R-+Ila=9r*]Qi9Rg>dHn4B]DeDl:?EpF*Bo%K%K.unr2-kSde>CFR9ZUr[*\nL5EG-mIXZg9pm?U2K\"b8r\"SJm\"=\/+sM,jhQ!=i%*o3Bjp:lOOKZc<LgjVH\"=H>i8=3nPiT^j=Z\"R3UoZ\naQt3cJAY?k3A)](@2R3Zl>XX\/dWTf8].M5]REFiHUK#qleu`3Ze8gYd>Z;4RVFo*W[?jB!ZRYXX;'La<\nHBEes).G9=j;Hl0't<A;0kT6tMj_V4i%UEQs%Ng-?A\"W*h?-9I'\"-j\\A`8\/MSl*c5LT*-.lTqO7ni<)\/\nhVgq\\1,T$]\/mJ2S[=cHJ\",EjbgYce+ahdCMHe`$+'uWnA*ihd8\"u%:%_i;*36>_@A=`f2M(3R,aeOc2r\n<PHIaA8a>i4`6?0H>)1SM!@rh<o!DY5oW7bVGs,pC1@h\"]igC8Zr,=JZ*qB@>MX=\/@M*am;:P]TXds>R\nb7#rrmVsT$h+cYZD\/c.k&#,(WlFdgDk-!eR\\&m`b\\b*;&-Ihua.cpI))hnWFYMe)_4Q'kV-O10lq88.K\nk<[K[LbI:)XY203DpAiD`;0BOQ.^LdiV\":Y(0FSB2F-W2CY8IQc0lcga-O8Xh0J^0,%J8d^36tj5#os3\n8m59`^QEN*^R$>F>68I)`P)XP:_)3e#.\\u.)-I-f>dDY(AQD-lW$Y0WS5XFl5fVO?VG`#TSgNVgU:tMk\nNcAo#j#Y\/YDZpCk]&K&\/\\Ta+\"`i5<9E`Dl&8J0q;X>BdOo$q>T2Lb%nZ<[\/b]%n?O;L9Ub=DG%C-J!TJ\nU]fe+MK2kq\\+eJrY0L(^h,aLsI<cl]~>\nendstream\nendobj\n20 0 obj\n<< \/Type \/XObject\n\/Subtype \/Image\n\/Width 118\n\/Height 47\n\/ColorSpace \/DeviceRGB\n\/BitsPerComponent 8\n\/Length 692\n\/Filter [\/ASCII85Decode \/FlateDecode]\n>>stream\nGb\"\/&99+][%.!jFbq)=N9M8V<:((OjeY=D[LT9iIMr<6AOLjUdlP<eZmr@$lKu`;ok,_BM;HLa$:^O<p\n-+k.'9)(QT)-)`R),U^D7Ng[7$E'hU=!K#\"E<p7UE5DV3p+SQVaRXr'HL'#n<lBoI`4R(\/T9$IcE[G*=\niGbP5Dt>%SUN-nL;s'qM\\eAS1[GR!bfpnorAI5U,Ah?0=-Cp(%a^bQ'@dL\\ZWLg8OSD^5RCbgp`lhh<W\n>),;seK1KllM7*?8lCq`?:9[`!6\\?W[1(Z_=C>CPO<P3r_A#TC1LIUB,\"3Oo2%:^QAiE#b\/0[M(*ects\nG@P-dm@r^eF?!\\\/d)F)gD2'WEopb1Y'.3AWSAm+1Q5,@]X;FiInLtF^P'Rh1Q*@*7X9#k+<AF&pB\"ZPh\n]5F\/Cf?)Yu,<,\\.SWman[Os.=dlH6dl]3sY:5n+M\/?sA)*_s_D^sq:cCJN**R#\/<.\/'j*lC*2%.Olbg'\nUM5)M8e_bgl\/F-i&5Y?@h#9K0Z<,..f'[sB3`=a-#:a*a1VN%i$ACg?YRYf%Y<s,m,9_R3a]`%DqdjSU\ngkM.tH\\m[r^t-N\/leCIR\\no960l-Q6:>!,\\7sF\\e>V4i#kBbpg\\!>bVhSZL^n);jOl@e'aDV^%>GW#!B\n>+H9T!8e\"YS*p\";<XGC3\"3u%i'!*kqO\/,^:5O+=-D?~>\nendstream\nendobj\n21 0 obj\n<< \/Type \/XObject\n\/Subtype \/Image\n\/Width 54\n\/Height 54\n\/ColorSpace \/DeviceRGB\n\/BitsPerComponent 8\n\/Length 250\n\/Filter [\/ASCII85Decode \/FlateDecode]\n>>stream\nGb\"0J_#]0B$q!nc?b-ZmP\/re++I2BjIW-90Q>O7[:$WJ(C3CaA\"Ns7X@70$,Tu%b@YQuhnX\"1d.aSU6R\n'G=3AY7r-g,G')b&KY8OKfTb2G_K.(T?tRSY2Q\"W;Mb4Z&[(1`(nk#e+%\"7A(u\\,A;rgOor>SE)rtNo&\n%cK8A=<WH9'\"X1R8;@aEK'*gkIKb41(R>E))20)%\/j9gbO\\0mMe<,'#.\\rW<+=IBQQA@0#CaWYWAXRro\n=Ijj]~>\nendstream\nendobj\n22 0 obj\n<< \/Type \/XObject\n\/Subtype \/Image\n\/Width 277\n\/Height 76\n\/ColorSpace \/DeviceRGB\n\/BitsPerComponent 8\n\/Length 5716\n\/Filter [\/ASCII85Decode \/FlateDecode]\n>>stream\nGb\"\/abAJh'&d\/%2Ip0\/qi1S=#ZHDn+!nP6PQ888lo]Pi?q>:)<r]Yh(^X(g#n+6;LO+!Vjq>X7\\2cbsR\n`g?^sF].$_UqOd*.T#W5q+lcP_rrF^\\@dg.b>!]#LaolAHbNo3V3WfoQsjB\"Ocef4MCuO0VjsM2lo]-^\n'lVo<E`?_oGK2FfWVK>F?GktRC:Lp9`k?PL\\;2WD@!fUr+f1JYN0n$];3@\"(#`:7Hn#)\\N.I906VA4%*\n@rbO^a`kc[J#W6>LL.m^->L''NQ\/YTKt)pg[pXQs@3MJ50T;B-?r<&Kk6Qqt]C2YfUFGOlD\/:HV>uZA!\n>Z@N:,rgSN%qZZ-&1\/CYh]UefLbU1eMsR2(Xm^m<&C?NZ[+^G9@>c'@-+8_.+l$'`$gNWC@`K(j0l4T[\najHqN<n!NUL*)'T8,5*b2[!S`$,e%\"k^)Rli\"H5Mj>!e1ib@')`^PaO,#ehl<R??\/U:o3!\"E\"Y&Y=rtY\nBopm;Aqo7L@DYn@%IssZ(fLL@a=b'\\qEFZW!=a<JX1``r[^^<S@_2m\\_Hdn`i$AiXO8K)QF4=R).:kH:\nmIbp.U_MG'XDiir9GgbO7^'h0Q+G'kLp<9^=#_@tZrJ].*6CFb9s6Gh[-:\\$::bD8B0*2\/$VJBI9?s'F\n\/\"!@jG?L=KNpr;?U[#b\\ebHLL2]2fSp<qq--Ua3-WWeJ\/q8^#0eV8Z6*@o?*(U!@'`t`GWWE<uYR<*TV\nF7nWI\/$m))^+s+rI2KX9T2t5(_]Zs*>$U$>Lsf>3!-0@b(cT.^:sc(VL#T_5[c!)K%Ya[)IaYNZALMAW\nGCV*oSjt4BHOhs.cW>YnTG_3Zf@_Zkju4p?M^q1VJrMDQiSl8d$5$U.W#Z8+b%'`Y_YY;6dpBF&'t21F\n5SS%\\UD\/Qu#Fa''.mSO0$o,<Ym$0L#)jfd-'d=[77[NmhEKjIW#d6hLNWhr7Z#pT9rJgA^YM,!D>N?eI\n$F]+pMT\"?Rc04a6TK[%DR+uiX8t5X99D%3NOcEhE9746\/b,Rd]++i3XcknAeQm.Cg%7B79U,j3F,dgUQ\n>S>\\X\/Xu`-lOQ0DF8='0S%])*a8u=hL!&,$X;GFIe-n\\u<^sLS0]1\\j(b-%4e^53ZWMO(cP\/,Xbg%6Xq\nJ+39%bAU\/\/oJN\"&%euAC<7Vgq`>A]MAf--)191;-q<m+V:jKRLNlE25\/JTe&\"L_pcVE`K)K?qkKIWNZ\/\nYJCon^qXubZF1l+`Y\\\\5!sLX-Yh&L'7?t:+-(27K\"\"40[7k(jUE='J>p7!\\)A-P3DW;h7Ya@P\/Cn6&WD\n6Om-JfSk\">V]]HoU$rb$\"6hOQXLIAdXEE1WLg:*2!=fY8,Vr[l0Y%(Y$R_?.%lEQ9?S=0t[g[Xb'_d]A\n'alpph>\/RVQuaZ<\"kQ\"cbSfa6GpmGKFua$`!(qdZ\"$Xg8QOjRC^ZiU,B$^X>qTmcON8uPmT,#=.jC#rY\nc\"OS8$6nUP$;\\K\\\/BCn!TuBjRD6dStJ&t6Mp@It+lkIN8G6WllFg44r,5lC5k1!I\\BZ#e)[#]Ef!%b20\nPmQWkPjY5!L^fIc_81\\q=q'NG-C%040Tr:Zde9\\CNnkQq^=U=.q2\"[T_3e\/.oq;gNP0uPN,m(<PL0#^l\n%o^&p_B:a)D?L1LJnd$)B:DjIiPJ-SQ:Tc2@QAUEJG<Fe)rr6lmfm8sIFX*2bXbA'GaA]OZ5R&;E'?t[\n*X[PP&5badC'i!*cuK%pC`-W^ljOg@;1-)aVe+U59\"P*ari2o>L\"-lh#,BR?r]SVWC+ahWbPX(Q>]_\\O\n87!#T'a7)u\/c\/<BJ@<<$$OndjG(u!1.,O9khZ@b\/F)JUbEn&SR<`98BN(,c%pH\\VT\\`bn(o>fL&dD`=4\nGu]Z\"'HA:(loY\"Fg'T2Y1r*5H))`8)Gd\"H&$c&1T\\a>F\";,^Ou9d+1()VsK3\"7<#KU=['%+(N2W(W1jc\n<?Y7;E9)D%jS-fVC#<L4];oY^&OX`\"8%h?tBVd\\`A2^:8Kf]-p_3A&[f9CElh5)D;NhcA_g@SC);5m#c\n3u%p[;8_^%3RY>l0g)LN_%B&X2TM3<(9J9`Pg$#S\\kn\/h17\/\\inX?c\/\\%B##_f6A49q\/ks0e1_pC8[fa\n0ktqR.nA<:-AH.j\/N@3Qg#a,-gS0tmN0;kY=r6Jn9*S=(\/RDB,q0&*jE&`m;UM81Y2+FD\\=m]0&CgXWp\n%>EXk>hZd'WnNh;)Q_Ck1NOLK[u2+*jF\"2FYJsWYfenhi55=X2j+pR)5aiCDBl[c+i\\;*!\/Z4Jb^7%I5\nnpsBl9<&R]?WCse-k4aAXdQ^\/kXB@hE^&.4=6$?=m$bso++\/>*EQ\"eO+AIa31q>@PnX'WLQ;^4A?VR8+\nq7n9G-.Rg?YGsKmPQpH\\f$)nRoHH3o3?N)+X791YG0ONs%mE,P3+CAbO=!D*RTu89Gg(h6bGc\\fD[YIf\n1i]'`_.^c1,?Rl@QhK-Rnh_<)Qt]X6!Q\"kp1jUaC_ANH8gCY>\/`pbrd\/#$6anJLs2%%(6e\"\\2<^5\/_S5\n\"eu[aNF5IH?.s);aYRcJA#<Q!\"pbG^dce)T$>0c(DF\\@[(rPB-Xb^l\"`FIOf0OSc1'c]4kq%2-q'oYUu\n2hEmjF_S$2-dT.sN1\"js)^$,n8>FeB.@`->\\\/h8_?jr)P[3E3$(6;l7_19'b<,gT+M[r\"`D!O%phQKEl\n\"\"#B_MCsIK3L(Z9#\"G`G<\\Ckgrm\"!RdIC='FJ?(XA>r&\"obpqS4n;\"(\/TR&QTkgNY[Wbk](#H,a+JHSl\nN*pbd;'MpdUY<M^e_81-QIasHkVtUEl\\A57<gYGgLp^OkMloRA8?t[%nhbI5PgK+Vl`7o\"o`ufWG`EAp\n\/j)be<-hL_(q!OO\\_PX03u]21a(,(pM960hV&HViCLGQ_a:h.RaAFY*5Q8#C6DVMc=4$+@fWo#!fB@7>\nD=opHPgq\/d!ooF.Ghq]_mZET*2=h*n?:s[uiYmtXXgR:2,\"FqRgcn51SWA?a)`-mW?'ESC1NYH=PATtQ\nhiuY>\"p3hIl?M.NqsKT.9f;MJ`a2:+]Aa`l;Q[@h*$Rm=L>5!^=e1V)jr6,Dq-B31$o;u^5a-'X3T$(O\n-jBb5Om72Ilhg+4OA.V(#f^1Cn%7QtP#AEijr>QpfSnO,F=$'l=.:74p+Vnqek`iq@,@tDA9OYA9WCY\\\nZ3>#No(CFB6e9Dlrc<K(?$W&mNVLo?GLU%^!]MkDH^Jh\"k&m!t2_057_X,i^0jI\\-XDB,`&<eTl^21X>\nQ[HJgfoWW4Y5_ba79A=n?mC,BnJub>NkgWJ_]G[[M0[pR_Tg4EN\\J(f=:?\"r+\"Q):\/&\\6@ZnGXfp*F'!\n>rH5q]^%f6GL;]M$.t%U?$o-_VB`=.d9`NAXQW*hQKLETC.%0:cV\\sXeXRj^b<p::dLN02\")k[hZUGL<\n&k,uK[2qRW_k9\/[O(u:%'Aj\/cQ\"\/JaCB^=DIgWVHKWm1O7H(39NiG*0Uj^:.(fsY,Ql1.djd7W_.$H(-\n_Q3>0&fCo@_0f5:Fdi)+Gcr+1``ObdSG6$ejWT;:OXgc\/Q$63P3?miP`l#<TlGUo^)_T0IO[PU*OVV9*\n#E[\"\\BFj7#g9\/oC\\&*K'P\\\"7)WR,gT(uW:@o6.3iKt]%;,\\_\\eXu0GF+jqhghP_Om%72l$)\"F]M,O25I\nfClG0(eg;h\/$r\\O6j:U_W#7gR8<[oV7g6m2(cpfiO]@RO^2_bnXn!$;'bkT9&,c^+R;.\\*<ojp9<9%b@\nfLH>s9ViJ-YT]`mitg.'T0f?q[e6DI@Xee,oA%D:8Qt#]CX#n*LpRMH2sQ0IK@!:L7QdaBLcVR+[6<k$\n\"r!l^$8'mA;8MDF?Bp[_Cqbiu10WZ#6:(RX\/VX<7[U>)F^A`Z8nP\\+1>I<Cl<;Rb^%lCJ%d1G^An!,dB\n;A#L7Rt<E+4Gpic>!p\\b)=Naad=m24=PDu@^k+.?,G;5)+EkEIG0q)-GUq>D#MoR-X'%8I]Dd\/R%>7]6\nBA05U9J2C#YCtJ'1ge87A:AWoi&I#\\H7Q4-$e>UIlOSdl0=>)m74[4e[JtgP5kA_+%FM?Y?>0Kb(#bRh\n.4>im@Y5>#,L8?Dno&'m5eBm\/2s+U]VkVn*f3B\/,]223rol\"ND:'B<%KGfslRk'q%O]&aKdXlRRaJ\/f&\n.3]OAgd[l9n:h\\F31t$?0sJ$0&Z2D!g5aci(hpTY9hk;!BW=f1gFIppP8]o@RSAoB\\`(tgFD&[i!^S7Z\n(2;PnSlY?8(%!uRC>(DH[!31[V4u\\(f3B\/,]223rol\"ND:'B<%KGfslRk'q%O]&aKdXlRRaJ\/f&2+5SQ\nC$[EpN9A#\/IN%)PSVY\\9&kf8s'K95nT8P:$j0,Wqnc6c-C8\\g%p0cVd0ic+N!k6CkNoZ6.mhHR:<_\\u7\ngkoJ!\"Bm2>(nb;=SH`5L[FcIZ0#t)mcc)3Mn^l@sGlVB'[F8J#Ha%@CR&XR7JQq8F8+K0(pPK;-X\/8Q,\nDT\/f!!j*,Z%+)5Z:4oXa>&4[=QfD,rk@.*7q!2^J492\\$g?Gf\"4kMY\\9[thW^b,\/^,Pe+OHUS*BYD2QJ\n<HV8knbiYL\"?4kj:?t+eff1(KZLX,OF4jDJo,u7_Frqne!uo5V)pM\/9%W%<Q94bS]$VUVjQG8\/F<4Jp)\nT]5X!'o0ht32=EdGiO11b0!40c\"0Dqb_%TnfmS\\3$u?XHD_s]\/33Yt409tAi\/MIKE>5fEa;;nC@Jr8\/!\n<ZE\/nif\"M.if3Oa.OuU_1m]4_1Cq@XAbR?g1U'`h^X;sYj1m\"p]Ms(?\\%mme7[#^afXm8\\*fUklMEG:L\n3Z;=-WP6r%W4AY4e>r6\\Bj:+UST&CTD2*8in]%o<[\/(`RIS\\78(KFkl<oL\"!CAU8\"6\"?hpZ)C2=D`SeC\n=fK-dDlC4@\\C@SP)JNFGI@Y=n@r6sEh!rCjY-e$E]7*Q$H5BRhdoPG+a_L]<>!ZYs!jS[p,]>^^?<O8A\neo.LtU:A^RobqOKnU6sICh%=:GMM`.Z`^\\3)nUPpc?^:,?rIe><`*B]Nrerk!%Fa$<,I.pYSK]dZ]rlW\n8\/94TlF2l\"89&W5*#g=)Bs\\gh4Cr>KJ<LmFku\"HL*<9)M#X4f)Eu>)M'-2iBq(O)k2B$s[?g^faD]i%&\nhl>R#2C$2[q\/C\/CoV^)SN:E.;`;r_K0Vq:=(3KUVOWjLAk07HG`(tIp;WP`Wm+Z4C[=,SY.D::3JUFMI\n$e^IQ([&]@J^U\/[].q<(`YJe=WPOf?V-;@L:dn?&<')GAahtEd\\?b*dX<2A#]YYdOet^*EQl_(LlnXUO\n''`('*5O6<d@+g.&8ZR*JK\/121(Yn5V@Z0#?KPe,,AQ@$StJZ_PuqZ\\2H&X-W$KE0<&bN>\"*'l;`j&]6\n?&=.Xf]=8[;f*+umHuop@n]r.+pHL2U<(-nSBQ.Ebrj#[1o[nrlYOU2WZ2>1jB.HM7q-ceY-Z;2<_KAA\n;\/cZM4@Etb\/OH\\tr<@;$l,l8eTUJ1]f`@NOh#kO=Z,SdB%4W@PNG?ZQ0siS9N%Ua+TC#:CqW1R+IT;;,\n:nLrAjj:\">b7:3.@*%<$276D^W?t&5n<bd3U(h;E'6P;\\%ID0U?<W?A,)5f&JC3KMos9(g;nkGp`NO%(\n$L2\\*V&WYr@bCeS*\"4i4[&0,r2:\\LY$6HOm5a3IP@%rZk]n%3WfLr8\">K\"n&$o#8?^4*LDH0U_d[J3`R\n>![RSWK]cN7P$WOSqA2AMq6BUU%\\6Vqttkkr:qGhK_WU~>\nendstream\nendobj\nxref\n0 23\n0000000000 65535 f \n0000000009 00000 n \n0000000058 00000 n \n0000000104 00000 n \n0000000162 00000 n \n0000000214 00000 n \n0000000312 00000 n \n0000000415 00000 n \n0000000521 00000 n \n0000000631 00000 n \n0000000727 00000 n \n0000000829 00000 n \n0000000934 00000 n \n0000001043 00000 n \n0000001144 00000 n \n0000001244 00000 n \n0000001346 00000 n \n0000001452 00000 n \n0000001622 00000 n \n0000001999 00000 n \n0000004634 00000 n \n0000005511 00000 n \n0000005945 00000 n \ntrailer\n<<\n\/Info 17 0 R\n\/Size 23\n\/Root 1 0 R\n>>\nstartxref\n11847\n%%EOF\n"
+            "Recipient":{
+                "AccountNumber":"510087402",
+                "Contact":{
+                    "PersonName":"Sender Name",
+                    "CompanyName":"Sender Company Name",
+                    "PhoneNumber":"1234567890"
+                },
+                "Address":{
+                    "StreetLines":"Address Line 1",
+                    "City":"Austin",
+                    "StateOrProvinceCode":"TX",
+                    "PostalCode":"73301",
+                    "CountryCode":"US",
+                    "Residential":false
+                }
             }
         },
-        "CodReturnDetail":{
+        "CompletedCodDetail":{
             "CollectionAmount":{
                 "Currency":"USD",
                 "Amount":"150.0"
             },
-            "AdjustmentType":"NONE",
-            "Electronic":false,
-            "Barcodes":{
-                "BinaryBarcodes":{
-                    "Type":"COMMON_2D",
-                    "Value":"[)>\u001e01\u001d0220171\u001d840\u001d016\u001d000000000000\u001dFDEG\u001d008000272\u001d326\u001d\u001d1\/1\u001d50.0LB\u001dN\u001dAddress Line 1\u001dHerndon\u001dVA\u001dRecipient Name\u001e06\u001d10ZGD007\u001d11ZRecipient Company Name\u001d12Z1234567890\u001d23ZY\u001d22Z\u001cY\u001d20Z150.00\u001c0\u001d31Z9622001670008000272100000000000000\u001d33Z  \u001d34Z01\u001d9KGR4567892\u001d26Z569b\u001c\u001d\u001e\u0004"
+            "AdjustmentType":"NONE"
+        },
+        "CompletedPackageDetails":{
+            "SequenceNumber":1,
+            "TrackingIds":{
+                "TrackingIdType":"FEDEX",
+                "TrackingNumber":"794821390890"
+            },
+            "GroupNumber":0,
+            "PackageRating":{
+                "ActualRateType":"PAYOR_ACCOUNT_PACKAGE",
+                "PackageRateDetails":{
+                    "RateType":"PAYOR_ACCOUNT_PACKAGE",
+                    "RatedWeightMethod":"ACTUAL",
+                    "BillingWeight":{
+                        "Units":"LB",
+                        "Value":"50.0"
+                    },
+                    "BaseCharge":{
+                        "Currency":"USD",
+                        "Amount":"33.75"
+                    },
+                    "TotalFreightDiscounts":{
+                        "Currency":"USD",
+                        "Amount":"0.0"
+                    },
+                    "NetFreight":{
+                        "Currency":"USD",
+                        "Amount":"33.75"
+                    },
+                    "TotalSurcharges":{
+                        "Currency":"USD",
+                        "Amount":"25.28"
+                    },
+                    "NetFedExCharge":{
+                        "Currency":"USD",
+                        "Amount":"59.03"
+                    },
+                    "TotalTaxes":{
+                        "Currency":"USD",
+                        "Amount":"0.0"
+                    },
+                    "NetCharge":{
+                        "Currency":"USD",
+                        "Amount":"59.03"
+                    },
+                    "TotalRebates":{
+                        "Currency":"USD",
+                        "Amount":"0.0"
+                    },
+                    "Surcharges":[
+                        {
+                            "SurchargeType":"RESIDENTIAL_DELIVERY",
+                            "Level":"PACKAGE",
+                            "Description":"Residential delivery",
+                            "Amount":{
+                                "Currency":"USD",
+                                "Amount":"3.2"
+                            }
+                        },
+                        {
+                            "SurchargeType":"COD",
+                            "Level":"PACKAGE",
+                            "Description":"Payment on delivery",
+                            "Amount":{
+                                "Currency":"USD",
+                                "Amount":"11.0"
+                            }
+                        },
+                        {
+                            "SurchargeType":"ADDITIONAL_HANDLING",
+                            "Level":"PACKAGE",
+                            "Description":"Additional handling surcharge - dimension",
+                            "Amount":{
+                                "Currency":"USD",
+                                "Amount":"8.5"
+                            }
+                        },
+                        {
+                            "SurchargeType":"FUEL",
+                            "Level":"PACKAGE",
+                            "Description":"FedEx Ground Fuel",
+                            "Amount":{
+                                "Currency":"USD",
+                                "Amount":"2.58"
+                            }
+                        }
+                    ]
                 }
             },
+            "OperationalDetail":{
+                "AstraHandlingText":"COD",
+                "OperationalInstructions":[
+                    {
+                        "Number":2,
+                        "Content":"TRK#"
+                    },
+                    {
+                        "Number":7,
+                        "Content":"9622001670008000272100794821390890"
+                    },
+                    {
+                        "Number":8,
+                        "Content":"51AG1\/D5E6\/1A9E"
+                    },
+                    {
+                        "Number":10,
+                        "Content":"7948 2139 0890"
+                    },
+                    {
+                        "Number":14,
+                        "Content":"COD"
+                    },
+                    {
+                        "Number":15,
+                        "Content":"20171"
+                    },
+                    {
+                        "Number":18,
+                        "Content":"9622 0016 7 (000 800 0272) 1 00 7948 2139 0890"
+                    }
+                ],
+                "Barcodes":{
+                    "BinaryBarcodes":{
+                        "Type":"COMMON_2D",
+                        "Value":"[)>\u001e01\u001d0220171\u001d840\u001d016\u001d000000000000\u001dFDEG\u001d008000272\u001d326\u001d\u001d1\/1\u001d50.0LB\u001dN\u001dAddress Line 1\u001dHerndon\u001dVA\u001dRecipient Name\u001e06\u001d10ZGD007\u001d11ZRecipient Company Name\u001d12Z1234567890\u001d14Z**TEST LABEL - DO NOT SHIP**\u001d23ZY\u001d22Z\u001cY\u001d20Z150.00\u001c0\u001d31Z9622001670008000272100000000000000\u001d33Z  \u001d34Z01\u001d9KGR4567892\u001d26Zff85\u001c\u001d\u001e\u0004"
+                    },
+                    "StringBarcodes":{
+                        "Type":"FEDEX_1D",
+                        "Value":"9622001670008000272100794821390890"
+                    }
+                },
+                "GroundServiceCode":"016"
+            },
             "Label":{
-                "Type":"COD_RETURN_LABEL",
+                "Type":"OUTBOUND_LABEL",
                 "ShippingDocumentDisposition":"RETURNED",
-                "Resolution":0,
+                "ImageType":"PDF",
+                "Resolution":200,
                 "CopiesToPrint":1,
                 "Parts":{
                     "DocumentPartSequenceNumber":1,
-                    "Image":"%PDF-1.4\n1 0 obj\n<<\n\/Type \/Catalog\n\/Pages 3 0 R\n>>\nendobj\n2 0 obj\n<<\n\/Type \/Outlines\n\/Count 0\n>>\nendobj\n3 0 obj\n<<\n\/Type \/Pages\n\/Count 1\n\/Kids [18 0 R]\n>>\nendobj\n4 0 obj\n[\/PDF \/Text \/ImageB \/ImageC \/ImageI]\nendobj\n5 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n6 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica-Bold\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n7 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica-Oblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n8 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica-BoldOblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n9 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n10 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier-Bold\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n11 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier-Oblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n12 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier-BoldOblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n13 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-Roman\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n14 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-Bold\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n15 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-Italic\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n16 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-BoldItalic\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n17 0 obj \n<<\n\/CreationDate (D:2003)\n\/Producer (FedEx Services)\n\/Title (FedEx Shipping Label)\r\/Creator (FedEx Customer Automation)\r\/Author (CLS Version 5120135)\n>>\nendobj\n18 0 obj\n<<\n\/Type \/Page\r\/Parent 3 0 R\n\/Resources << \/ProcSet 4 0 R \n \/Font << \/F1 5 0 R \n\/F2 6 0 R \n\/F3 7 0 R \n\/F4 8 0 R \n\/F5 9 0 R \n\/F6 10 0 R \n\/F7 11 0 R \n\/F8 12 0 R \n\/F9 13 0 R \n\/F10 14 0 R \n\/F11 15 0 R \n\/F12 16 0 R \n >>\n\/XObject << \/FedExGround 20 0 R\n\/GroundG 21 0 R\n\/barcode0 22 0 R\n>>\n>>\n\/MediaBox [0 0 612 792]\n\/TrimBox[0 0 612 792]\n\/Contents 19 0 R\n\/Rotate 0>>\nendobj\n19 0 obj\n<< \/Length 920\n\/Filter [\/ASCII85Decode \/FlateDecode] \n>>\nstream\nGatUrgMY_1&;KZP'I3:JPq$EYcc[=0RSp!\/(?]Z&Jj\\;rP<,LSqt-GuN?R3eMlo$1l^_s+BBJ*Z:aX19\nS9>O)EuL!90nO@^rI@EfKq98,cU+$gVifUj;Be45?`?H,:kf;:_h=[G)r+SO#M1gm[R)'lp,%V$h@V_<\nDBc,)q&KJ:a3)\/[D,meRr39eZnErXXaWc>g?O\"4&Vr;$JF<Cu);JBX3a#D,LBTQ2$_=LB3)f$,.'%qn;\n\"NFm[cDLD)SeWamV2O\\\"R^W+#hK&.J(;Kj$Wq8*T4.DMgj!1)W70[iR:\"H<!Yug>ZaZ\\CnccT_*\/De6T\n(BfnL&Q!OcKlXG>Ti[2^)SNOd[<`$PDY\"+sVlQm$6B&pN,`a1m3lG@6hZ4qARilWEXsVafi=V-g;I,&d\nnRIt_1O.FOjE58U7&[L>X'Tg9QW<d;j!$grl*m.`b_k5D\">j+YTSl7;W^TE+=d[4\\0mt1d`FL,\"LL-@7\n[$H$oWp.P\\^PCZ_2SF`Rff?^irJn4Rrh!`?\/1^Ije=%Z-%d@?[CeYW;YVo_'2UZ?&omLoRFY$=LX.4m3\n>k=O5mR0F>M9\"uuGU*^t$)@=A0l#0Do;DJMo+d>HI_=-<NSubQ2V[PWqo:S,WXIIMY--of%d7k^T:[\/N\n`\/T.`C[<;SgP'6eI?TW5I%D\/=4X=T\"]uu<o%\/CTPE:H'mAReS'R0[?j3bt[b$!>^C_i.](L0.eX'>\\e,\nJRu1(ca.Zf<6V#MN'7K2n?LemJoV<<QmP=grn3V_jTMJJ`.G[9ci#%N]![mI_-,mYDm`$oJYH]ZFIWoV\n#l$%\"Z<\"uVBqY?CI)3:8Mb?R&Xkk\"a@D-k_Dpp+6*8tAThdhk^N1JiEDN1qW]_]]!V+=3&kDs%<`o4_]\n8nmCKnR8b2drN$iAQ\\?n%r&'N*W~>\nendstream\nendobj\n20 0 obj\n<< \/Type \/XObject\n\/Subtype \/Image\n\/Width 118\n\/Height 47\n\/ColorSpace \/DeviceRGB\n\/BitsPerComponent 8\n\/Length 692\n\/Filter [\/ASCII85Decode \/FlateDecode]\n>>stream\nGb\"\/&99+][%.!jFbq)=N9M8V<:((OjeY=D[LT9iIMr<6AOLjUdlP<eZmr@$lKu`;ok,_BM;HLa$:^O<p\n-+k.'9)(QT)-)`R),U^D7Ng[7$E'hU=!K#\"E<p7UE5DV3p+SQVaRXr'HL'#n<lBoI`4R(\/T9$IcE[G*=\niGbP5Dt>%SUN-nL;s'qM\\eAS1[GR!bfpnorAI5U,Ah?0=-Cp(%a^bQ'@dL\\ZWLg8OSD^5RCbgp`lhh<W\n>),;seK1KllM7*?8lCq`?:9[`!6\\?W[1(Z_=C>CPO<P3r_A#TC1LIUB,\"3Oo2%:^QAiE#b\/0[M(*ects\nG@P-dm@r^eF?!\\\/d)F)gD2'WEopb1Y'.3AWSAm+1Q5,@]X;FiInLtF^P'Rh1Q*@*7X9#k+<AF&pB\"ZPh\n]5F\/Cf?)Yu,<,\\.SWman[Os.=dlH6dl]3sY:5n+M\/?sA)*_s_D^sq:cCJN**R#\/<.\/'j*lC*2%.Olbg'\nUM5)M8e_bgl\/F-i&5Y?@h#9K0Z<,..f'[sB3`=a-#:a*a1VN%i$ACg?YRYf%Y<s,m,9_R3a]`%DqdjSU\ngkM.tH\\m[r^t-N\/leCIR\\no960l-Q6:>!,\\7sF\\e>V4i#kBbpg\\!>bVhSZL^n);jOl@e'aDV^%>GW#!B\n>+H9T!8e\"YS*p\";<XGC3\"3u%i'!*kqO\/,^:5O+=-D?~>\nendstream\nendobj\n21 0 obj\n<< \/Type \/XObject\n\/Subtype \/Image\n\/Width 54\n\/Height 54\n\/ColorSpace \/DeviceRGB\n\/BitsPerComponent 8\n\/Length 250\n\/Filter [\/ASCII85Decode \/FlateDecode]\n>>stream\nGb\"0J_#]0B$q!nc?b-ZmP\/re++I2BjIW-90Q>O7[:$WJ(C3CaA\"Ns7X@70$,Tu%b@YQuhnX\"1d.aSU6R\n'G=3AY7r-g,G')b&KY8OKfTb2G_K.(T?tRSY2Q\"W;Mb4Z&[(1`(nk#e+%\"7A(u\\,A;rgOor>SE)rtNo&\n%cK8A=<WH9'\"X1R8;@aEK'*gkIKb41(R>E))20)%\/j9gbO\\0mMe<,'#.\\rW<+=IBQQA@0#CaWYWAXRro\n=Ijj]~>\nendstream\nendobj\n22 0 obj\n<< \/Type \/XObject\n\/Subtype \/Image\n\/Width 277\n\/Height 73\n\/ColorSpace \/DeviceRGB\n\/BitsPerComponent 8\n\/Length 5347\n\/Filter [\/ASCII85Decode \/FlateDecode]\n>>stream\nGb\"\/`bDHBn&d7P#Ip.2$(aM%]cg:(2?pSoHV5srP=MA,!kPKY!n+1tAchI6!hrk%+H-5a9:[oASa00LX\ncat7<<[dHj_dP:^0\/`dWBu\/<_->L'')ekY.$?7;jgk+qhL4tjq6G7K\\<\\,^Unf0sCAbUV<lY$Ve:Rc(;\n>B`tVlr!f8EQhd)rhIqo[ECU#%@;:6EF6=Egk[Gh@!fUr+f1K$0:f?_Mi*HU7o4<\\I:)(sR_mA!Am4`U\nSQ$JRe3A*ro9YpGkd4abZAqf\"jkXV*f<,ZDU<5(?So7_%W?p%eB5GP]+sYDG'O>n>=1O?gYk.'Pdq?^0\nUn\"uo8;BiW#jYjA0`3'+q5DenXHd9h$,e%\"k^)Rli!BH'nsEI)nS6_9`^PaO,#ehl<R??<RoTFF\\W&pG\n^G<pYV*S\/2Ri-r&KJt!<)N_@IN%'<[A\/ANiI31R;5XQUAC+im&>MQ_:Z!E\"iiN<Mkn9D:>+$@#0kic(p\n3P%&gC3h\\Rn:U5mUJ_3\"<fSm\\&<#nLl`KW.-O=D,@p89=X'po*(F?MJ:a+Uo5mq#Ii;CY\\YV\\lKW_FqS\n6#Eh\"^P\\98>+$+cn<F<TlHADApp<pX)$Vhhdc(T]7$KS]g@.(ON18\\X:sc(LKph2BF^EO:79`S<(0bhA\n*+$HdIC[PDXDiir9Ggc:7^'h0Q+G'kLp<9^=#_@tZt[pBa8'6#o[\\bK2B=<l9Gal'RZ8oPJl8l+Ou):j\n$KgWs>ukQk,CF(>W;88q2*S.l9nkrm]sP;d#na\".M`*]C+606-2AEN4>G6;Bp7?YM[D8J$9!?Qr_hr\"R\nCm\"GlH8Qr@<oA9[H@5kE(X3MT]?X_s1OjD$?<eZ%&SuQGLPqq\/.R\\MUU38(I.Z^]Y#k'.`Vu>.h<7iD`\n!MWtK+\/MNpI@qIk4osr,Ar+Q7B<S\\1^UQZbXq9h'2S-iE`DKYN,.o7\"3u\/g$a4<D,pClZ;rb=MECm\"Gl\n;6[`p;C(s\"d#;;'!;\/c:`8n)-=5(l*>bW$9Li`b=?\/ji&.'![e?B^>\"`546\/csVap-3f`jMs=u7#:-_,\n\"(F1l[V!^[T4n2?o\/i;R>\\2C9?j\\pP?b0':>EBS0%\"OdtJck-`]3SUEA+pakb\/6Yj1r]W\\>3Z-n)Zj6M\nA^aG^Ic:*nb?qEXl\"_u,*:PUeW2qSlMD5<#bs9)GF-PK5\/_I=TMa?I`U,j4Q!D+m9JCk<^XkC#E-X+:S\nr6FCW=5!4'QpM;XQS)7g(1bB$\"\/'8!i.`-#]\"YeTZIZQ3'0!c.8q=fV8hFpc685qJV$eZ=5qcp$Im.d]\n,]=RqXsi]]#HJV_PgY,\\+C`XIQPh3]F6`\/2H@$aV>)-CDfJS0li:,\"9hRKq>s*GPW14ro[W;h8%a@P\/C\nn6JoH6Om-Kl6rJ2:I2phXY2J,E9Ga*M=pR+PdM\"5*3j8Z-,AK\/S%WfUp\\sn>S7Di;TMbab]TJ>hA`11p\n\\;)'*>1?DA#G-O'3Eoj&3!qQ-FQ(1J!jni.G%m0tmHa@XFpd<-3s3F3\/iLd@Ud#=.SGH;og+Xa#mGklJ\n!1)1)b(T@p9(u.!`.l?mi8?js\/V`h4PKG.U(eN0hC&=r5NnkQqc?6BX4sKr>0]pm\"qU1*98SK:8,m(<P\nL0#^l%o^&p_B:a)D?L1LJnd$)B:DjIiPJ-SQ:Tb;`H(=j!-,0\"%It+q:P1C\"rmd>nbXbA'GV9YZAMq+U\niI%$@4VS+*+ejSRe``,_TGoCb5B_1'R`]!T'?0;\/G$;>fU9kl$j4>*=[_cbd6%dSK-N>-#T:1\\pk%4N\/\n)_S]=(*p'jOc\"`8Uc*Wsrda]EdGhF3\/(C@c$VqK*l`AtFE+X0\/];'Dre.l\"_#TAXk2u325qp\\mC2D=[B\nfPo6WYTS3kLf>'.+gpQ]ncuPBMAD7Y?(iT6>'Qcd?YB<QJ2<[9gDuQSVQR.l6I9*s]#h\\lg8F)-[s=B+\n`eKC(L'>]\"6DU@6aS?m?kK8cuhog%a=4;aGL6c\\:H5Fi#Q\/[acfp#YVlL9nOPZWjqP]a^r91q5a8+Fuk\nqEp6>WCBoM'a9XqG>;2![-a;!T%14+LnSCLA'AbI<f\/\\*AlEGMW5Ct,;dq=b;qCbf0.l.%*5tEHl45aA\nV&EM(<\"qGah)SUud^Eq#GZN:F,DMM$N\\Rjl=t.`FR8'Z'TahSN9Sp0%9j-Z6]sNI1E>0KhWB\\lLQ\"jj;\n;c0b>[`f27hHdXuFoA@U@n(1::2A+uD*W%#\"sE)]m<pkk<KUSYR-KB\\QTd#Vl4Z^P+u)fpbX4L)_PQ?n\nOjR6oBN`&'8K:WfW;0NF`f\/>RS^s6tgOS\/%%7&2Dg\\Ya`X!51<1\"?XB07@)7e0g>)7:M]jR>6%2KM0Lf\n,,;=gdB\\..OuT6U;=gukN>\\S\/3it7q[fO1))h=Fh[eJ>I=%.;WA#^=d?M_1MW)\"O1MSq?^1(WoB$($rV\n77Q0?D<029*+3,S(i&qk>4NH#0$S_Bh)!c#7#bViL.J)kZ72:ue$oj;UV=_h233j:L_[9c#Y(gGZE]?X\n>Z(%cPOV^G11\\ROIhs\\!?(1Hc]4\\M&L`41\\%$=#_AQ(QuVK!OT7t$@[C*\"OR&M%OQ&<'RmA7HL:\\>&!O\n-f_CnAB:)(r[qB!\\hraOGL's+&N,<B)'Y&HbGK6u9]J#2NqsZ@e3$&-,?E\/,+W.2e8Aha,%9'D\/Hua,o\n>B+*lWE?pk%`OM*a8.%m3pQ9BD0-YW@uNr;eQCU7+'aJ\"k&)CZ;1fM3Ft'T'!Ocn=8&tKhX[QG)1Ad\/?\nW>\"ll8h[\"iZbk9XegH$q;4%#lUW\\0-@mmo-`o74\"i$,N`G8mfC)O.2\/96%WSY][!23o9%6\/_YN4fn]Jt\nSXA#.H7;RV't4+H4pcn&]\"D)`>mB@,,LT:D(,skN(SR,)gPA;JTL?1nMX,,0X]tbOE=:WIf-FnJ?n^;+\n_pZE&`GWN,OeIV%.MB?bU)*TL-nnXpmRoZoV9;&\"1<c^P)@CV$V9\"2uk6E_A+K-I)OSXge!_?OP(p1E]\nCl@,$Ij7;oO&RBJP=.\"pmndDlR,\"$Q\"A>)0U1BWi@l+nbdRoW(+3kC+W^'BJO<O91ZNZH!&i!R6FkIPB\n\"oh&H-6B-Wlm@Qmkhi)L<&(p:nHbF5qaAO[VoEBue>8ES#<nY\"`)M;\\(gpFl7O15M6],C-,sG1\/\"dK_0\n=A!#1$nX0BGYW@&C%7F5$PkuoYRr,4NI$(cg4?*:@0X]\"ZhT&o\"5<nC8diY\/$Aq9,'Z[RRI%mnR.OAu;\nPeq5S>$u7<SET1bi[OI7\/:`C],=\\mVp&<+@\"&\"9a%#Y!qnH&\"][KY6I(5t6g'T3AKNbOjT6tI*49&*l)\nL\"S5g^tdp0dF\"f0;s#Z6!\"$J2N*nU0rKV(%Q3N*^'`6\/7\"543#$`nT\\(I@S^?;6NA2^6D.*85d-Xc'e6\nLKiY*9XA`E\"lT1u+odR)(m2g6M6RYPL4pDm7917]6=_@8^?VqkH8RuLhM;SL2hZHlMM5R*)oJdr,Gs-R\nf`L[@O-\"i]\/<!-[Vo75D7`.P#l67_e6m4=K:g\\?I9tcu<*H+=MYoCQm29!Eeoo7q][h7)*S884Nr^Y&E\n,8NbEnP`n57&+1a\"a,qB#,2[>JOWn\/)Tna3>ad>GmJm8XZ08`)'=VHA_0+rM+h%HADj?e:75X(EiC^^2\n]f;UrJ6gd;bKPTO,;sjFHn.U0\"f:$XYRtPf[S-5j?SOd:a$mA;R!`in3^^t?!9[SJk\"$'n3F')BDFuRB\n-SJlZFm_$Vi7WpG?529(&RIb;G8=ut)P$3CI\/d9lO6:KpD(?qT>_gT9EXT\\Y<k14g6phG#Y-a\\HMrVne\nfQEasbWL,.@\\XaY[mGaL;!On.@mq.+DPR&W_L`c#8.5$:?3`'\\[W`['NS8!ol[Fc.1kXZ.0[blhloo[n\nBOq8`\"(@n\/1u0?;Pm[)qXf0+n<OOX(JfLFS$hJb\/VZkWEDW@fqgPgI7D_[Vkd!HX\"H4cM\"#L=KoC`m41\n\/6%q4>@aX06,'fC<S4q+2C;Rg!u,HXSknpaT\\A7>S2G&N;6TjK#1F!,0>g=6ij\/I>q4j2aA.4-Fb0kBi\nN)ZQdGjX-'riZ0g.l#W)6<5ZTJ6jBi09(2OpXj?oBFAirO=AV^m&8))(H;4sq%m(@XJpoT=tfri6BGLl\nn+,qPh&aoYjOPGPUg_qRQ2*(Np:KlKXMe4>$X'lF!.'>A]enU-hda8]TIn6e6)I2j_UqTY8+;;&p1dm?\n1.c6C8A\\.b]GuhTC:'c(\/iu;TO!<rCMC8ocX-\"68cO=9_TU[*NPZ>o%$:0`)0rBpe%i=n,e[\/EDU6T5]\nAQINEm8+XT_e;Qr?$:\\2+%=he'i>lQ<[0?OSf,IG5rh1'.'&Y('nRJ1@n[hU*\\Q`7WbJZf74ZDDbH\/&i\ngS$;2LXD-n]BoHC5Dl[T\/#\"l-X@?['4YqnnJoZ>,;-#90.KhmAhGi-O8%[Bc$Z9[MGZV*Y$g6Q3?^58F\n)7V:BCNmK7Mt\"F1^N$gN&rS?orlV0s>#R:-c4&C.:Q\\,!;C\"Ni8rp[FI5\"_@.`LCuL%B<*YKF2^$s]-\\\n[6*9,7JPa)hmcp7M8^6HIq;SJXf7a'B85d(Vb!RK.2!bEV8lp45+!i0Q\"':!_YH1P=68+?#-LV?g7@]Q\n,(+>%Dd4p,`*s+_^G;g`el5A$1IH?O;ks`VP71pCn:g$2Z]\/[1.VMf84bYna[&s%eiXF`,2l.aMG.uWZ\nLOa?V5+Neg=o:ak7GUimX!Es['5<&bRZTm3@X[k*j>D\"R7qLC;jY\"WMD7-P]BD=C\".3\/`%o?C;r\"GGh.\nl27L+i\\tU(lBYm^-)pg38\/&YcN!t\"Fl^Ro$YF-=m.b!f7G<mQmX*pg(_mfG9kt%J<Dmme3+<7R\\k=9q9\n^JScD[hR\"88`ehtL>]j<(Rbi`&WAQ8n*BSuGan@9XJm,7*Gir9#Y2qd=7ru#P5eD\"W-MmKiH\\eNa`]`J\nk,-j?WWHD*@&1Bu31)O*neo0FcUY_kX`n\/IeL9fm@qJ(f3juc&Y>(;[O#fbT)^>g<q`7K\\gDM\\(eHSqe\nfNJG'eP4*#UreeGn9o^KqXnO8\")Fo+Ba5S5)oC\"-oi6EWWoSZZ0l#P^BmALdEO+EGJ@VX;R&[sQXMD1P\nGXE1'b^!_6^8$;Bf)S0WU`HH0:57Je\"=V]!e@I)B,jI<)`b>#e]7i_20lC%!!e#3fjWq<)K-HZ$7t(A:\neBH#dr>I=m61\\lB+ZRo1<.$&\\D+XjDBe*rS'JpHqRgW`5qN'H!UVn!..p@M<]$bV^>GFKHbMo9\\s!hdG\njHb7S(TjA+28BbCBh'YePG'l\\!K+6![;H<iM>GJN0j=OrDP9p:N11Qa5[Rf23Q^[cI%Tm!QfgS?':\\k~\n>\nendstream\nendobj\nxref\n0 23\n0000000000 65535 f \n0000000009 00000 n \n0000000058 00000 n \n0000000104 00000 n \n0000000162 00000 n \n0000000214 00000 n \n0000000312 00000 n \n0000000415 00000 n \n0000000521 00000 n \n0000000631 00000 n \n0000000727 00000 n \n0000000829 00000 n \n0000000934 00000 n \n0000001043 00000 n \n0000001144 00000 n \n0000001244 00000 n \n0000001346 00000 n \n0000001452 00000 n \n0000001622 00000 n \n0000001999 00000 n \n0000003010 00000 n \n0000003887 00000 n \n0000004321 00000 n \ntrailer\n<<\n\/Info 17 0 R\n\/Size 23\n\/Root 1 0 R\n>>\nstartxref\n9854\n%%EOF\n"
+                    "Image":"%PDF-1.4\n1 0 obj\n<<\n\/Type \/Catalog\n\/Pages 3 0 R\n>>\nendobj\n2 0 obj\n<<\n\/Type \/Outlines\n\/Count 0\n>>\nendobj\n3 0 obj\n<<\n\/Type \/Pages\n\/Count 1\n\/Kids [18 0 R]\n>>\nendobj\n4 0 obj\n[\/PDF \/Text \/ImageB \/ImageC \/ImageI]\nendobj\n5 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n6 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica-Bold\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n7 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica-Oblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n8 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica-BoldOblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n9 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n10 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier-Bold\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n11 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier-Oblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n12 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier-BoldOblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n13 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-Roman\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n14 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-Bold\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n15 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-Italic\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n16 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-BoldItalic\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n17 0 obj \n<<\n\/CreationDate (D:2003)\n\/Producer (FedEx Services)\n\/Title (FedEx Shipping Label)\r\/Creator (FedEx Customer Automation)\r\/Author (CLS Version 5120135)\n>>\nendobj\n18 0 obj\n<<\n\/Type \/Page\r\/Parent 3 0 R\n\/Resources << \/ProcSet 4 0 R \n \/Font << \/F1 5 0 R \n\/F2 6 0 R \n\/F3 7 0 R \n\/F4 8 0 R \n\/F5 9 0 R \n\/F6 10 0 R \n\/F7 11 0 R \n\/F8 12 0 R \n\/F9 13 0 R \n\/F10 14 0 R \n\/F11 15 0 R \n\/F12 16 0 R \n >>\n\/XObject << \/FedExGround 20 0 R\n\/GroundG 21 0 R\n\/barcode0 22 0 R\n>>\n>>\n\/MediaBox [0 0 612 792]\n\/TrimBox[0 0 612 792]\n\/Contents 19 0 R\n\/Rotate 0>>\nendobj\n19 0 obj\n<< \/Length 2543\n\/Filter [\/ASCII85Decode \/FlateDecode] \n>>\nstream\nGatU6>B<b&&q6H&re%6A!`X2:G=sMFD[&;A].Q1'B*f*]Y^!J>XgLl^Z^:UdD+XGG(nCkHQmu@j3M6\/3\nqC_#oT=eYWrJQc8SA\"Zb,t0I9\\an0SY8\/c,(qQ%76sg`9\"^2#-4GZ#b+>@4VUBDsq(B@.ca%Th]`9;C^\nPX67PiriHg&IRinNBo4`Me>8+bAR.A,\"9!=A)Y5fC@s7!.C\"d%LcK+h`%K$'JE=be4oY!JlJf@$ZM`nF\n@\/2)t0i&tf9('M#cZ)n+]>oHomYM=6In3`?fB(9%.YKm\/VlS\"Ie[7JfJ$I^%'_.KfQWFtFhd?BO)an\/H\n'=i=1G.mbEaW6pZXrQdT%J$'s*QS'MCjuD+F+3qu>JAX!X)W<HkM]1m?V`U,i'Sf0^:2rpLHiE4aldP!\n08S(V>hqd>kUH>;.Ha?1Kb!U''2.Yf]j?+Hs*28h]]n3Z5[;OH\\2!Hh#YhCX\"Gr_V>&GqbjkfuX#EU0W\n&:X>rl.\\Q>s+$3\"'8uj=ZG4!>*[!jL@?'laA;J?_9d-]HX\"Dg8\\D(h-D2H0RIp\\ar=RA\/E%7\/$Q^1g1\\\nmj.jZZKl<bAUM[3=OsXi^\\W2]j)d2Tlo#5'1O\"EJO7SG#E.>?2gl(uU4O8rkagJL$euBR-ehE<\\n3:X#\no3-;SZNoQp-P_SKi\\DN3\"Hrh$oidhuq>\/FpD+20gQji\\0$aRdQ'eg>]\";-Ik>ne\/Jq)BgsXuD!q##nA-\nl]S]+Idp!.K[9(gMtPudn^`rA\"-ZlT2:=`J,lDsg*\"W?j*Beh^4?-WXUV.HK8+$VkJ)ZJaQEHI<Vb_LN\nmai3OVq(J%fp*>t2g\\;J\/+#=P-u#Jl6BWZ>C8;057%;`p`So4,4$>R[5BskG.Z<8l\\D;XaZ[2$NO&+U4\nm3_A[jn:mnr:9TOk:W&;3-qi6@S(:Wfm[->XbJ_Z9QPJ%WJ?YV&XNVCOb3ILTqn`qKE&Zs^A@g!bjAah\nr_b%V.o@VCs3+%)U!>&Y-4MWj.]E`\"eYM!SNZOQeOLNen'3#M4=^-2XEfTQPNu\")s=1]Fo:nXm5HB#Nl\n3Ud_+1.HIB$Oe>q4pV)QdGjfG!k+2Z?n,0JdUkjX12Z&F,-#@YAg6mQ:REV\/V?n_:l*cEn=@=0IF@E%3\n@!sTFC4T*V%VSaoM(2C*T@L2E>EZd$T6_!3[#m87HJn\"]1iGY0C\/0pK$\/8E\"d%iFe:TI6n&gV7>NFFY[\nis%Yu8pJn,OGdSeo\">q!T__1m\\^YeT1`@O,6sHl]eWG$CW>HO?'L4>geDZ.=_B`B=0rM*edRk',^gS^\\\n0NZlX,,@ggRC7+12F<j[SZ6p+KVjkmgo0,p^7<=Kct=IMNKul;N>kk<6$nV_TU\"DlU`MIp3XX,MO`Ca?\n.lm73i>&1idP0nQ3f>#a4`GL;JYlPWT<pDi5j\"eei971m)S52uVl1*eD5n(*8u:oOI8%4WT7RqT*H%68\n9jLX*Bfm`\"d3RGcNS5iDQCNdc$AfWp*H%*4G>l&RPQF*Z\/NOYG%ihY9`3H.OQ)'CI2WM6`N>a63CH46l\n-#dBNNVC4sWmG!P'3Rd)2RV-=LT,;WWqNHA<Bb]WpNkb2.bA8eQKNfaq[k[&WPa^u8UJGA.3Yor\\nDkW\n%QE\\7g+(\\I2lJg$LoIur2nC1>mF!+&VP6nNBH&mF,McF@R6V>1ElquNFgs`f\"cnk3k>>;!30QYXis&L\"\n4Q#SLOWl\/GEuf(]VOZ;*?R-+Ila=9r*]Qi9Rg>dHn4B]DeDl:?EpF*Bo%K%K.unr2-kSde>CFR9ZUr[*\nL5EG-mIXZg9pm?U2K\"b8r\"SJm\"=\/+sM,jhQ!=i%*o3Bjp:lOOKZc<LgjVH\"=H>i8=3nPiT^j=Z\"R3UoZ\naQt3cJAY?k3A)](@2R3Zl>XX\/dWTf8].M5]REFiHUK#qleu`3Ze8gYd>Z;4RVFo*W[?jB!ZRYXX;'La<\nHBEes).G9=j;Hl0't<A;0kT6tMj_V4i%UEQs%Ng-?A\"W*h?-9I'\"-j\\A`8\/MSl*c5LT*-.lTqO7ni<)\/\nhVgq\\1,T$]\/mJ2S[=cHJ\",EjbgYce+ahdCMHe`$+'uWnA*ihd8\"u%:%_i;*36>_@A=`f2M(3R,aeOc2r\n<PHIaA8a>i4`6?0H>)1SM!@rh<o!DY5oW7bVGs,pC1@h\"]igC8Zr,=JZ*qB@>MX=\/@M*am;:P]TXds>R\nb7#rrmVsT$h+cYZD\/c.k&#,(WlFdgDk-!eR\\&m`b\\b*;&-Ihua.cpI))hnWFYMe)_4Q'kV-O10lq88.K\nk<[K[LbI:)XY203DpAiD`;0BOQ.^LdiV\":Y(0FSB2F-W2CY8IQc0lcga-O8Xh0J^0,%J8d^36tj5#os3\n8m59`^QEN*^R$>F>68I)`P)XP:_)3e#.\\u.)-I-f>dDY(AQD-lW$Y0WS5XFl5fVO?VG`#TSgNVgU:tMk\nNcAo#j#Y\/YDZpCk]&K&\/\\Ta+\"`i5<9E`Dl&8J0q;X>BdOo$q>T2Lb%nZ<[\/b]%n?O;L9Ub=DG%C-J!TJ\nU]fe+MK2kq\\+eJrY0L(^h,aLsI<cl]~>\nendstream\nendobj\n20 0 obj\n<< \/Type \/XObject\n\/Subtype \/Image\n\/Width 118\n\/Height 47\n\/ColorSpace \/DeviceRGB\n\/BitsPerComponent 8\n\/Length 692\n\/Filter [\/ASCII85Decode \/FlateDecode]\n>>stream\nGb\"\/&99+][%.!jFbq)=N9M8V<:((OjeY=D[LT9iIMr<6AOLjUdlP<eZmr@$lKu`;ok,_BM;HLa$:^O<p\n-+k.'9)(QT)-)`R),U^D7Ng[7$E'hU=!K#\"E<p7UE5DV3p+SQVaRXr'HL'#n<lBoI`4R(\/T9$IcE[G*=\niGbP5Dt>%SUN-nL;s'qM\\eAS1[GR!bfpnorAI5U,Ah?0=-Cp(%a^bQ'@dL\\ZWLg8OSD^5RCbgp`lhh<W\n>),;seK1KllM7*?8lCq`?:9[`!6\\?W[1(Z_=C>CPO<P3r_A#TC1LIUB,\"3Oo2%:^QAiE#b\/0[M(*ects\nG@P-dm@r^eF?!\\\/d)F)gD2'WEopb1Y'.3AWSAm+1Q5,@]X;FiInLtF^P'Rh1Q*@*7X9#k+<AF&pB\"ZPh\n]5F\/Cf?)Yu,<,\\.SWman[Os.=dlH6dl]3sY:5n+M\/?sA)*_s_D^sq:cCJN**R#\/<.\/'j*lC*2%.Olbg'\nUM5)M8e_bgl\/F-i&5Y?@h#9K0Z<,..f'[sB3`=a-#:a*a1VN%i$ACg?YRYf%Y<s,m,9_R3a]`%DqdjSU\ngkM.tH\\m[r^t-N\/leCIR\\no960l-Q6:>!,\\7sF\\e>V4i#kBbpg\\!>bVhSZL^n);jOl@e'aDV^%>GW#!B\n>+H9T!8e\"YS*p\";<XGC3\"3u%i'!*kqO\/,^:5O+=-D?~>\nendstream\nendobj\n21 0 obj\n<< \/Type \/XObject\n\/Subtype \/Image\n\/Width 54\n\/Height 54\n\/ColorSpace \/DeviceRGB\n\/BitsPerComponent 8\n\/Length 250\n\/Filter [\/ASCII85Decode \/FlateDecode]\n>>stream\nGb\"0J_#]0B$q!nc?b-ZmP\/re++I2BjIW-90Q>O7[:$WJ(C3CaA\"Ns7X@70$,Tu%b@YQuhnX\"1d.aSU6R\n'G=3AY7r-g,G')b&KY8OKfTb2G_K.(T?tRSY2Q\"W;Mb4Z&[(1`(nk#e+%\"7A(u\\,A;rgOor>SE)rtNo&\n%cK8A=<WH9'\"X1R8;@aEK'*gkIKb41(R>E))20)%\/j9gbO\\0mMe<,'#.\\rW<+=IBQQA@0#CaWYWAXRro\n=Ijj]~>\nendstream\nendobj\n22 0 obj\n<< \/Type \/XObject\n\/Subtype \/Image\n\/Width 277\n\/Height 76\n\/ColorSpace \/DeviceRGB\n\/BitsPerComponent 8\n\/Length 5716\n\/Filter [\/ASCII85Decode \/FlateDecode]\n>>stream\nGb\"\/abAJh'&d\/%2Ip0\/qi1S=#ZHDn+!nP6PQ888lo]Pi?q>:)<r]Yh(^X(g#n+6;LO+!Vjq>X7\\2cbsR\n`g?^sF].$_UqOd*.T#W5q+lcP_rrF^\\@dg.b>!]#LaolAHbNo3V3WfoQsjB\"Ocef4MCuO0VjsM2lo]-^\n'lVo<E`?_oGK2FfWVK>F?GktRC:Lp9`k?PL\\;2WD@!fUr+f1JYN0n$];3@\"(#`:7Hn#)\\N.I906VA4%*\n@rbO^a`kc[J#W6>LL.m^->L''NQ\/YTKt)pg[pXQs@3MJ50T;B-?r<&Kk6Qqt]C2YfUFGOlD\/:HV>uZA!\n>Z@N:,rgSN%qZZ-&1\/CYh]UefLbU1eMsR2(Xm^m<&C?NZ[+^G9@>c'@-+8_.+l$'`$gNWC@`K(j0l4T[\najHqN<n!NUL*)'T8,5*b2[!S`$,e%\"k^)Rli\"H5Mj>!e1ib@')`^PaO,#ehl<R??\/U:o3!\"E\"Y&Y=rtY\nBopm;Aqo7L@DYn@%IssZ(fLL@a=b'\\qEFZW!=a<JX1``r[^^<S@_2m\\_Hdn`i$AiXO8K)QF4=R).:kH:\nmIbp.U_MG'XDiir9GgbO7^'h0Q+G'kLp<9^=#_@tZrJ].*6CFb9s6Gh[-:\\$::bD8B0*2\/$VJBI9?s'F\n\/\"!@jG?L=KNpr;?U[#b\\ebHLL2]2fSp<qq--Ua3-WWeJ\/q8^#0eV8Z6*@o?*(U!@'`t`GWWE<uYR<*TV\nF7nWI\/$m))^+s+rI2KX9T2t5(_]Zs*>$U$>Lsf>3!-0@b(cT.^:sc(VL#T_5[c!)K%Ya[)IaYNZALMAW\nGCV*oSjt4BHOhs.cW>YnTG_3Zf@_Zkju4p?M^q1VJrMDQiSl8d$5$U.W#Z8+b%'`Y_YY;6dpBF&'t21F\n5SS%\\UD\/Qu#Fa''.mSO0$o,<Ym$0L#)jfd-'d=[77[NmhEKjIW#d6hLNWhr7Z#pT9rJgA^YM,!D>N?eI\n$F]+pMT\"?Rc04a6TK[%DR+uiX8t5X99D%3NOcEhE9746\/b,Rd]++i3XcknAeQm.Cg%7B79U,j3F,dgUQ\n>S>\\X\/Xu`-lOQ0DF8='0S%])*a8u=hL!&,$X;GFIe-n\\u<^sLS0]1\\j(b-%4e^53ZWMO(cP\/,Xbg%6Xq\nJ+39%bAU\/\/oJN\"&%euAC<7Vgq`>A]MAf--)191;-q<m+V:jKRLNlE25\/JTe&\"L_pcVE`K)K?qkKIWNZ\/\nYJCon^qXubZF1l+`Y\\\\5!sLX-Yh&L'7?t:+-(27K\"\"40[7k(jUE='J>p7!\\)A-P3DW;h7Ya@P\/Cn6&WD\n6Om-JfSk\">V]]HoU$rb$\"6hOQXLIAdXEE1WLg:*2!=fY8,Vr[l0Y%(Y$R_?.%lEQ9?S=0t[g[Xb'_d]A\n'alpph>\/RVQuaZ<\"kQ\"cbSfa6GpmGKFua$`!(qdZ\"$Xg8QOjRC^ZiU,B$^X>qTmcON8uPmT,#=.jC#rY\nc\"OS8$6nUP$;\\K\\\/BCn!TuBjRD6dStJ&t6Mp@It+lkIN8G6WllFg44r,5lC5k1!I\\BZ#e)[#]Ef!%b20\nPmQWkPjY5!L^fIc_81\\q=q'NG-C%040Tr:Zde9\\CNnkQq^=U=.q2\"[T_3e\/.oq;gNP0uPN,m(<PL0#^l\n%o^&p_B:a)D?L1LJnd$)B:DjIiPJ-SQ:Tc2@QAUEJG<Fe)rr6lmfm8sIFX*2bXbA'GaA]OZ5R&;E'?t[\n*X[PP&5badC'i!*cuK%pC`-W^ljOg@;1-)aVe+U59\"P*ari2o>L\"-lh#,BR?r]SVWC+ahWbPX(Q>]_\\O\n87!#T'a7)u\/c\/<BJ@<<$$OndjG(u!1.,O9khZ@b\/F)JUbEn&SR<`98BN(,c%pH\\VT\\`bn(o>fL&dD`=4\nGu]Z\"'HA:(loY\"Fg'T2Y1r*5H))`8)Gd\"H&$c&1T\\a>F\";,^Ou9d+1()VsK3\"7<#KU=['%+(N2W(W1jc\n<?Y7;E9)D%jS-fVC#<L4];oY^&OX`\"8%h?tBVd\\`A2^:8Kf]-p_3A&[f9CElh5)D;NhcA_g@SC);5m#c\n3u%p[;8_^%3RY>l0g)LN_%B&X2TM3<(9J9`Pg$#S\\kn\/h17\/\\inX?c\/\\%B##_f6A49q\/ks0e1_pC8[fa\n0ktqR.nA<:-AH.j\/N@3Qg#a,-gS0tmN0;kY=r6Jn9*S=(\/RDB,q0&*jE&`m;UM81Y2+FD\\=m]0&CgXWp\n%>EXk>hZd'WnNh;)Q_Ck1NOLK[u2+*jF\"2FYJsWYfenhi55=X2j+pR)5aiCDBl[c+i\\;*!\/Z4Jb^7%I5\nnpsBl9<&R]?WCse-k4aAXdQ^\/kXB@hE^&.4=6$?=m$bso++\/>*EQ\"eO+AIa31q>@PnX'WLQ;^4A?VR8+\nq7n9G-.Rg?YGsKmPQpH\\f$)nRoHH3o3?N)+X791YG0ONs%mE,P3+CAbO=!D*RTu89Gg(h6bGc\\fD[YIf\n1i]'`_.^c1,?Rl@QhK-Rnh_<)Qt]X6!Q\"kp1jUaC_ANH8gCY>\/`pbrd\/#$6anJLs2%%(6e\"\\2<^5\/_S5\n\"eu[aNF5IH?.s);aYRcJA#<Q!\"pbG^dce)T$>0c(DF\\@[(rPB-Xb^l\"`FIOf0OSc1'c]4kq%2-q'oYUu\n2hEmjF_S$2-dT.sN1\"js)^$,n8>FeB.@`->\\\/h8_?jr)P[3E3$(6;l7_19'b<,gT+M[r\"`D!O%phQKEl\n\"\"#B_MCsIK3L(Z9#\"G`G<\\Ckgrm\"!RdIC='FJ?(XA>r&\"obpqS4n;\"(\/TR&QTkgNY[Wbk](#H,a+JHSl\nN*pbd;'MpdUY<M^e_81-QIasHkVtUEl\\A57<gYGgLp^OkMloRA8?t[%nhbI5PgK+Vl`7o\"o`ufWG`EAp\n\/j)be<-hL_(q!OO\\_PX03u]21a(,(pM960hV&HViCLGQ_a:h.RaAFY*5Q8#C6DVMc=4$+@fWo#!fB@7>\nD=opHPgq\/d!ooF.Ghq]_mZET*2=h*n?:s[uiYmtXXgR:2,\"FqRgcn51SWA?a)`-mW?'ESC1NYH=PATtQ\nhiuY>\"p3hIl?M.NqsKT.9f;MJ`a2:+]Aa`l;Q[@h*$Rm=L>5!^=e1V)jr6,Dq-B31$o;u^5a-'X3T$(O\n-jBb5Om72Ilhg+4OA.V(#f^1Cn%7QtP#AEijr>QpfSnO,F=$'l=.:74p+Vnqek`iq@,@tDA9OYA9WCY\\\nZ3>#No(CFB6e9Dlrc<K(?$W&mNVLo?GLU%^!]MkDH^Jh\"k&m!t2_057_X,i^0jI\\-XDB,`&<eTl^21X>\nQ[HJgfoWW4Y5_ba79A=n?mC,BnJub>NkgWJ_]G[[M0[pR_Tg4EN\\J(f=:?\"r+\"Q):\/&\\6@ZnGXfp*F'!\n>rH5q]^%f6GL;]M$.t%U?$o-_VB`=.d9`NAXQW*hQKLETC.%0:cV\\sXeXRj^b<p::dLN02\")k[hZUGL<\n&k,uK[2qRW_k9\/[O(u:%'Aj\/cQ\"\/JaCB^=DIgWVHKWm1O7H(39NiG*0Uj^:.(fsY,Ql1.djd7W_.$H(-\n_Q3>0&fCo@_0f5:Fdi)+Gcr+1``ObdSG6$ejWT;:OXgc\/Q$63P3?miP`l#<TlGUo^)_T0IO[PU*OVV9*\n#E[\"\\BFj7#g9\/oC\\&*K'P\\\"7)WR,gT(uW:@o6.3iKt]%;,\\_\\eXu0GF+jqhghP_Om%72l$)\"F]M,O25I\nfClG0(eg;h\/$r\\O6j:U_W#7gR8<[oV7g6m2(cpfiO]@RO^2_bnXn!$;'bkT9&,c^+R;.\\*<ojp9<9%b@\nfLH>s9ViJ-YT]`mitg.'T0f?q[e6DI@Xee,oA%D:8Qt#]CX#n*LpRMH2sQ0IK@!:L7QdaBLcVR+[6<k$\n\"r!l^$8'mA;8MDF?Bp[_Cqbiu10WZ#6:(RX\/VX<7[U>)F^A`Z8nP\\+1>I<Cl<;Rb^%lCJ%d1G^An!,dB\n;A#L7Rt<E+4Gpic>!p\\b)=Naad=m24=PDu@^k+.?,G;5)+EkEIG0q)-GUq>D#MoR-X'%8I]Dd\/R%>7]6\nBA05U9J2C#YCtJ'1ge87A:AWoi&I#\\H7Q4-$e>UIlOSdl0=>)m74[4e[JtgP5kA_+%FM?Y?>0Kb(#bRh\n.4>im@Y5>#,L8?Dno&'m5eBm\/2s+U]VkVn*f3B\/,]223rol\"ND:'B<%KGfslRk'q%O]&aKdXlRRaJ\/f&\n.3]OAgd[l9n:h\\F31t$?0sJ$0&Z2D!g5aci(hpTY9hk;!BW=f1gFIppP8]o@RSAoB\\`(tgFD&[i!^S7Z\n(2;PnSlY?8(%!uRC>(DH[!31[V4u\\(f3B\/,]223rol\"ND:'B<%KGfslRk'q%O]&aKdXlRRaJ\/f&2+5SQ\nC$[EpN9A#\/IN%)PSVY\\9&kf8s'K95nT8P:$j0,Wqnc6c-C8\\g%p0cVd0ic+N!k6CkNoZ6.mhHR:<_\\u7\ngkoJ!\"Bm2>(nb;=SH`5L[FcIZ0#t)mcc)3Mn^l@sGlVB'[F8J#Ha%@CR&XR7JQq8F8+K0(pPK;-X\/8Q,\nDT\/f!!j*,Z%+)5Z:4oXa>&4[=QfD,rk@.*7q!2^J492\\$g?Gf\"4kMY\\9[thW^b,\/^,Pe+OHUS*BYD2QJ\n<HV8knbiYL\"?4kj:?t+eff1(KZLX,OF4jDJo,u7_Frqne!uo5V)pM\/9%W%<Q94bS]$VUVjQG8\/F<4Jp)\nT]5X!'o0ht32=EdGiO11b0!40c\"0Dqb_%TnfmS\\3$u?XHD_s]\/33Yt409tAi\/MIKE>5fEa;;nC@Jr8\/!\n<ZE\/nif\"M.if3Oa.OuU_1m]4_1Cq@XAbR?g1U'`h^X;sYj1m\"p]Ms(?\\%mme7[#^afXm8\\*fUklMEG:L\n3Z;=-WP6r%W4AY4e>r6\\Bj:+UST&CTD2*8in]%o<[\/(`RIS\\78(KFkl<oL\"!CAU8\"6\"?hpZ)C2=D`SeC\n=fK-dDlC4@\\C@SP)JNFGI@Y=n@r6sEh!rCjY-e$E]7*Q$H5BRhdoPG+a_L]<>!ZYs!jS[p,]>^^?<O8A\neo.LtU:A^RobqOKnU6sICh%=:GMM`.Z`^\\3)nUPpc?^:,?rIe><`*B]Nrerk!%Fa$<,I.pYSK]dZ]rlW\n8\/94TlF2l\"89&W5*#g=)Bs\\gh4Cr>KJ<LmFku\"HL*<9)M#X4f)Eu>)M'-2iBq(O)k2B$s[?g^faD]i%&\nhl>R#2C$2[q\/C\/CoV^)SN:E.;`;r_K0Vq:=(3KUVOWjLAk07HG`(tIp;WP`Wm+Z4C[=,SY.D::3JUFMI\n$e^IQ([&]@J^U\/[].q<(`YJe=WPOf?V-;@L:dn?&<')GAahtEd\\?b*dX<2A#]YYdOet^*EQl_(LlnXUO\n''`('*5O6<d@+g.&8ZR*JK\/121(Yn5V@Z0#?KPe,,AQ@$StJZ_PuqZ\\2H&X-W$KE0<&bN>\"*'l;`j&]6\n?&=.Xf]=8[;f*+umHuop@n]r.+pHL2U<(-nSBQ.Ebrj#[1o[nrlYOU2WZ2>1jB.HM7q-ceY-Z;2<_KAA\n;\/cZM4@Etb\/OH\\tr<@;$l,l8eTUJ1]f`@NOh#kO=Z,SdB%4W@PNG?ZQ0siS9N%Ua+TC#:CqW1R+IT;;,\n:nLrAjj:\">b7:3.@*%<$276D^W?t&5n<bd3U(h;E'6P;\\%ID0U?<W?A,)5f&JC3KMos9(g;nkGp`NO%(\n$L2\\*V&WYr@bCeS*\"4i4[&0,r2:\\LY$6HOm5a3IP@%rZk]n%3WfLr8\">K\"n&$o#8?^4*LDH0U_d[J3`R\n>![RSWK]cN7P$WOSqA2AMq6BUU%\\6Vqttkkr:qGhK_WU~>\nendstream\nendobj\nxref\n0 23\n0000000000 65535 f \n0000000009 00000 n \n0000000058 00000 n \n0000000104 00000 n \n0000000162 00000 n \n0000000214 00000 n \n0000000312 00000 n \n0000000415 00000 n \n0000000521 00000 n \n0000000631 00000 n \n0000000727 00000 n \n0000000829 00000 n \n0000000934 00000 n \n0000001043 00000 n \n0000001144 00000 n \n0000001244 00000 n \n0000001346 00000 n \n0000001452 00000 n \n0000001622 00000 n \n0000001999 00000 n \n0000004634 00000 n \n0000005511 00000 n \n0000005945 00000 n \ntrailer\n<<\n\/Info 17 0 R\n\/Size 23\n\/Root 1 0 R\n>>\nstartxref\n11847\n%%EOF\n"
                 }
-            }
-        },
-        "SignatureOption":"SERVICE_DEFAULT"
-    }
-}}
+            },
+            "CodReturnDetail":{
+                "CollectionAmount":{
+                    "Currency":"USD",
+                    "Amount":"150.0"
+                },
+                "AdjustmentType":"NONE",
+                "Electronic":false,
+                "Barcodes":{
+                    "BinaryBarcodes":{
+                        "Type":"COMMON_2D",
+                        "Value":"[)>\u001e01\u001d0220171\u001d840\u001d016\u001d000000000000\u001dFDEG\u001d008000272\u001d326\u001d\u001d1\/1\u001d50.0LB\u001dN\u001dAddress Line 1\u001dHerndon\u001dVA\u001dRecipient Name\u001e06\u001d10ZGD007\u001d11ZRecipient Company Name\u001d12Z1234567890\u001d23ZY\u001d22Z\u001cY\u001d20Z150.00\u001c0\u001d31Z9622001670008000272100000000000000\u001d33Z  \u001d34Z01\u001d9KGR4567892\u001d26Z569b\u001c\u001d\u001e\u0004"
+                    }
+                },
+                "Label":{
+                    "Type":"COD_RETURN_LABEL",
+                    "ShippingDocumentDisposition":"RETURNED",
+                    "Resolution":0,
+                    "CopiesToPrint":1,
+                    "Parts":{
+                        "DocumentPartSequenceNumber":1,
+                        "Image":"%PDF-1.4\n1 0 obj\n<<\n\/Type \/Catalog\n\/Pages 3 0 R\n>>\nendobj\n2 0 obj\n<<\n\/Type \/Outlines\n\/Count 0\n>>\nendobj\n3 0 obj\n<<\n\/Type \/Pages\n\/Count 1\n\/Kids [18 0 R]\n>>\nendobj\n4 0 obj\n[\/PDF \/Text \/ImageB \/ImageC \/ImageI]\nendobj\n5 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n6 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica-Bold\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n7 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica-Oblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n8 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Helvetica-BoldOblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n9 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n10 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier-Bold\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n11 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier-Oblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n12 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Courier-BoldOblique\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n13 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-Roman\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n14 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-Bold\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n15 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-Italic\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n16 0 obj\n<<\n\/Type \/Font\n\/Subtype \/Type1\n\/BaseFont \/Times-BoldItalic\n\/Encoding \/MacRomanEncoding\n>>\nendobj\n17 0 obj \n<<\n\/CreationDate (D:2003)\n\/Producer (FedEx Services)\n\/Title (FedEx Shipping Label)\r\/Creator (FedEx Customer Automation)\r\/Author (CLS Version 5120135)\n>>\nendobj\n18 0 obj\n<<\n\/Type \/Page\r\/Parent 3 0 R\n\/Resources << \/ProcSet 4 0 R \n \/Font << \/F1 5 0 R \n\/F2 6 0 R \n\/F3 7 0 R \n\/F4 8 0 R \n\/F5 9 0 R \n\/F6 10 0 R \n\/F7 11 0 R \n\/F8 12 0 R \n\/F9 13 0 R \n\/F10 14 0 R \n\/F11 15 0 R \n\/F12 16 0 R \n >>\n\/XObject << \/FedExGround 20 0 R\n\/GroundG 21 0 R\n\/barcode0 22 0 R\n>>\n>>\n\/MediaBox [0 0 612 792]\n\/TrimBox[0 0 612 792]\n\/Contents 19 0 R\n\/Rotate 0>>\nendobj\n19 0 obj\n<< \/Length 920\n\/Filter [\/ASCII85Decode \/FlateDecode] \n>>\nstream\nGatUrgMY_1&;KZP'I3:JPq$EYcc[=0RSp!\/(?]Z&Jj\\;rP<,LSqt-GuN?R3eMlo$1l^_s+BBJ*Z:aX19\nS9>O)EuL!90nO@^rI@EfKq98,cU+$gVifUj;Be45?`?H,:kf;:_h=[G)r+SO#M1gm[R)'lp,%V$h@V_<\nDBc,)q&KJ:a3)\/[D,meRr39eZnErXXaWc>g?O\"4&Vr;$JF<Cu);JBX3a#D,LBTQ2$_=LB3)f$,.'%qn;\n\"NFm[cDLD)SeWamV2O\\\"R^W+#hK&.J(;Kj$Wq8*T4.DMgj!1)W70[iR:\"H<!Yug>ZaZ\\CnccT_*\/De6T\n(BfnL&Q!OcKlXG>Ti[2^)SNOd[<`$PDY\"+sVlQm$6B&pN,`a1m3lG@6hZ4qARilWEXsVafi=V-g;I,&d\nnRIt_1O.FOjE58U7&[L>X'Tg9QW<d;j!$grl*m.`b_k5D\">j+YTSl7;W^TE+=d[4\\0mt1d`FL,\"LL-@7\n[$H$oWp.P\\^PCZ_2SF`Rff?^irJn4Rrh!`?\/1^Ije=%Z-%d@?[CeYW;YVo_'2UZ?&omLoRFY$=LX.4m3\n>k=O5mR0F>M9\"uuGU*^t$)@=A0l#0Do;DJMo+d>HI_=-<NSubQ2V[PWqo:S,WXIIMY--of%d7k^T:[\/N\n`\/T.`C[<;SgP'6eI?TW5I%D\/=4X=T\"]uu<o%\/CTPE:H'mAReS'R0[?j3bt[b$!>^C_i.](L0.eX'>\\e,\nJRu1(ca.Zf<6V#MN'7K2n?LemJoV<<QmP=grn3V_jTMJJ`.G[9ci#%N]![mI_-,mYDm`$oJYH]ZFIWoV\n#l$%\"Z<\"uVBqY?CI)3:8Mb?R&Xkk\"a@D-k_Dpp+6*8tAThdhk^N1JiEDN1qW]_]]!V+=3&kDs%<`o4_]\n8nmCKnR8b2drN$iAQ\\?n%r&'N*W~>\nendstream\nendobj\n20 0 obj\n<< \/Type \/XObject\n\/Subtype \/Image\n\/Width 118\n\/Height 47\n\/ColorSpace \/DeviceRGB\n\/BitsPerComponent 8\n\/Length 692\n\/Filter [\/ASCII85Decode \/FlateDecode]\n>>stream\nGb\"\/&99+][%.!jFbq)=N9M8V<:((OjeY=D[LT9iIMr<6AOLjUdlP<eZmr@$lKu`;ok,_BM;HLa$:^O<p\n-+k.'9)(QT)-)`R),U^D7Ng[7$E'hU=!K#\"E<p7UE5DV3p+SQVaRXr'HL'#n<lBoI`4R(\/T9$IcE[G*=\niGbP5Dt>%SUN-nL;s'qM\\eAS1[GR!bfpnorAI5U,Ah?0=-Cp(%a^bQ'@dL\\ZWLg8OSD^5RCbgp`lhh<W\n>),;seK1KllM7*?8lCq`?:9[`!6\\?W[1(Z_=C>CPO<P3r_A#TC1LIUB,\"3Oo2%:^QAiE#b\/0[M(*ects\nG@P-dm@r^eF?!\\\/d)F)gD2'WEopb1Y'.3AWSAm+1Q5,@]X;FiInLtF^P'Rh1Q*@*7X9#k+<AF&pB\"ZPh\n]5F\/Cf?)Yu,<,\\.SWman[Os.=dlH6dl]3sY:5n+M\/?sA)*_s_D^sq:cCJN**R#\/<.\/'j*lC*2%.Olbg'\nUM5)M8e_bgl\/F-i&5Y?@h#9K0Z<,..f'[sB3`=a-#:a*a1VN%i$ACg?YRYf%Y<s,m,9_R3a]`%DqdjSU\ngkM.tH\\m[r^t-N\/leCIR\\no960l-Q6:>!,\\7sF\\e>V4i#kBbpg\\!>bVhSZL^n);jOl@e'aDV^%>GW#!B\n>+H9T!8e\"YS*p\";<XGC3\"3u%i'!*kqO\/,^:5O+=-D?~>\nendstream\nendobj\n21 0 obj\n<< \/Type \/XObject\n\/Subtype \/Image\n\/Width 54\n\/Height 54\n\/ColorSpace \/DeviceRGB\n\/BitsPerComponent 8\n\/Length 250\n\/Filter [\/ASCII85Decode \/FlateDecode]\n>>stream\nGb\"0J_#]0B$q!nc?b-ZmP\/re++I2BjIW-90Q>O7[:$WJ(C3CaA\"Ns7X@70$,Tu%b@YQuhnX\"1d.aSU6R\n'G=3AY7r-g,G')b&KY8OKfTb2G_K.(T?tRSY2Q\"W;Mb4Z&[(1`(nk#e+%\"7A(u\\,A;rgOor>SE)rtNo&\n%cK8A=<WH9'\"X1R8;@aEK'*gkIKb41(R>E))20)%\/j9gbO\\0mMe<,'#.\\rW<+=IBQQA@0#CaWYWAXRro\n=Ijj]~>\nendstream\nendobj\n22 0 obj\n<< \/Type \/XObject\n\/Subtype \/Image\n\/Width 277\n\/Height 73\n\/ColorSpace \/DeviceRGB\n\/BitsPerComponent 8\n\/Length 5347\n\/Filter [\/ASCII85Decode \/FlateDecode]\n>>stream\nGb\"\/`bDHBn&d7P#Ip.2$(aM%]cg:(2?pSoHV5srP=MA,!kPKY!n+1tAchI6!hrk%+H-5a9:[oASa00LX\ncat7<<[dHj_dP:^0\/`dWBu\/<_->L'')ekY.$?7;jgk+qhL4tjq6G7K\\<\\,^Unf0sCAbUV<lY$Ve:Rc(;\n>B`tVlr!f8EQhd)rhIqo[ECU#%@;:6EF6=Egk[Gh@!fUr+f1K$0:f?_Mi*HU7o4<\\I:)(sR_mA!Am4`U\nSQ$JRe3A*ro9YpGkd4abZAqf\"jkXV*f<,ZDU<5(?So7_%W?p%eB5GP]+sYDG'O>n>=1O?gYk.'Pdq?^0\nUn\"uo8;BiW#jYjA0`3'+q5DenXHd9h$,e%\"k^)Rli!BH'nsEI)nS6_9`^PaO,#ehl<R??<RoTFF\\W&pG\n^G<pYV*S\/2Ri-r&KJt!<)N_@IN%'<[A\/ANiI31R;5XQUAC+im&>MQ_:Z!E\"iiN<Mkn9D:>+$@#0kic(p\n3P%&gC3h\\Rn:U5mUJ_3\"<fSm\\&<#nLl`KW.-O=D,@p89=X'po*(F?MJ:a+Uo5mq#Ii;CY\\YV\\lKW_FqS\n6#Eh\"^P\\98>+$+cn<F<TlHADApp<pX)$Vhhdc(T]7$KS]g@.(ON18\\X:sc(LKph2BF^EO:79`S<(0bhA\n*+$HdIC[PDXDiir9Ggc:7^'h0Q+G'kLp<9^=#_@tZt[pBa8'6#o[\\bK2B=<l9Gal'RZ8oPJl8l+Ou):j\n$KgWs>ukQk,CF(>W;88q2*S.l9nkrm]sP;d#na\".M`*]C+606-2AEN4>G6;Bp7?YM[D8J$9!?Qr_hr\"R\nCm\"GlH8Qr@<oA9[H@5kE(X3MT]?X_s1OjD$?<eZ%&SuQGLPqq\/.R\\MUU38(I.Z^]Y#k'.`Vu>.h<7iD`\n!MWtK+\/MNpI@qIk4osr,Ar+Q7B<S\\1^UQZbXq9h'2S-iE`DKYN,.o7\"3u\/g$a4<D,pClZ;rb=MECm\"Gl\n;6[`p;C(s\"d#;;'!;\/c:`8n)-=5(l*>bW$9Li`b=?\/ji&.'![e?B^>\"`546\/csVap-3f`jMs=u7#:-_,\n\"(F1l[V!^[T4n2?o\/i;R>\\2C9?j\\pP?b0':>EBS0%\"OdtJck-`]3SUEA+pakb\/6Yj1r]W\\>3Z-n)Zj6M\nA^aG^Ic:*nb?qEXl\"_u,*:PUeW2qSlMD5<#bs9)GF-PK5\/_I=TMa?I`U,j4Q!D+m9JCk<^XkC#E-X+:S\nr6FCW=5!4'QpM;XQS)7g(1bB$\"\/'8!i.`-#]\"YeTZIZQ3'0!c.8q=fV8hFpc685qJV$eZ=5qcp$Im.d]\n,]=RqXsi]]#HJV_PgY,\\+C`XIQPh3]F6`\/2H@$aV>)-CDfJS0li:,\"9hRKq>s*GPW14ro[W;h8%a@P\/C\nn6JoH6Om-Kl6rJ2:I2phXY2J,E9Ga*M=pR+PdM\"5*3j8Z-,AK\/S%WfUp\\sn>S7Di;TMbab]TJ>hA`11p\n\\;)'*>1?DA#G-O'3Eoj&3!qQ-FQ(1J!jni.G%m0tmHa@XFpd<-3s3F3\/iLd@Ud#=.SGH;og+Xa#mGklJ\n!1)1)b(T@p9(u.!`.l?mi8?js\/V`h4PKG.U(eN0hC&=r5NnkQqc?6BX4sKr>0]pm\"qU1*98SK:8,m(<P\nL0#^l%o^&p_B:a)D?L1LJnd$)B:DjIiPJ-SQ:Tb;`H(=j!-,0\"%It+q:P1C\"rmd>nbXbA'GV9YZAMq+U\niI%$@4VS+*+ejSRe``,_TGoCb5B_1'R`]!T'?0;\/G$;>fU9kl$j4>*=[_cbd6%dSK-N>-#T:1\\pk%4N\/\n)_S]=(*p'jOc\"`8Uc*Wsrda]EdGhF3\/(C@c$VqK*l`AtFE+X0\/];'Dre.l\"_#TAXk2u325qp\\mC2D=[B\nfPo6WYTS3kLf>'.+gpQ]ncuPBMAD7Y?(iT6>'Qcd?YB<QJ2<[9gDuQSVQR.l6I9*s]#h\\lg8F)-[s=B+\n`eKC(L'>]\"6DU@6aS?m?kK8cuhog%a=4;aGL6c\\:H5Fi#Q\/[acfp#YVlL9nOPZWjqP]a^r91q5a8+Fuk\nqEp6>WCBoM'a9XqG>;2![-a;!T%14+LnSCLA'AbI<f\/\\*AlEGMW5Ct,;dq=b;qCbf0.l.%*5tEHl45aA\nV&EM(<\"qGah)SUud^Eq#GZN:F,DMM$N\\Rjl=t.`FR8'Z'TahSN9Sp0%9j-Z6]sNI1E>0KhWB\\lLQ\"jj;\n;c0b>[`f27hHdXuFoA@U@n(1::2A+uD*W%#\"sE)]m<pkk<KUSYR-KB\\QTd#Vl4Z^P+u)fpbX4L)_PQ?n\nOjR6oBN`&'8K:WfW;0NF`f\/>RS^s6tgOS\/%%7&2Dg\\Ya`X!51<1\"?XB07@)7e0g>)7:M]jR>6%2KM0Lf\n,,;=gdB\\..OuT6U;=gukN>\\S\/3it7q[fO1))h=Fh[eJ>I=%.;WA#^=d?M_1MW)\"O1MSq?^1(WoB$($rV\n77Q0?D<029*+3,S(i&qk>4NH#0$S_Bh)!c#7#bViL.J)kZ72:ue$oj;UV=_h233j:L_[9c#Y(gGZE]?X\n>Z(%cPOV^G11\\ROIhs\\!?(1Hc]4\\M&L`41\\%$=#_AQ(QuVK!OT7t$@[C*\"OR&M%OQ&<'RmA7HL:\\>&!O\n-f_CnAB:)(r[qB!\\hraOGL's+&N,<B)'Y&HbGK6u9]J#2NqsZ@e3$&-,?E\/,+W.2e8Aha,%9'D\/Hua,o\n>B+*lWE?pk%`OM*a8.%m3pQ9BD0-YW@uNr;eQCU7+'aJ\"k&)CZ;1fM3Ft'T'!Ocn=8&tKhX[QG)1Ad\/?\nW>\"ll8h[\"iZbk9XegH$q;4%#lUW\\0-@mmo-`o74\"i$,N`G8mfC)O.2\/96%WSY][!23o9%6\/_YN4fn]Jt\nSXA#.H7;RV't4+H4pcn&]\"D)`>mB@,,LT:D(,skN(SR,)gPA;JTL?1nMX,,0X]tbOE=:WIf-FnJ?n^;+\n_pZE&`GWN,OeIV%.MB?bU)*TL-nnXpmRoZoV9;&\"1<c^P)@CV$V9\"2uk6E_A+K-I)OSXge!_?OP(p1E]\nCl@,$Ij7;oO&RBJP=.\"pmndDlR,\"$Q\"A>)0U1BWi@l+nbdRoW(+3kC+W^'BJO<O91ZNZH!&i!R6FkIPB\n\"oh&H-6B-Wlm@Qmkhi)L<&(p:nHbF5qaAO[VoEBue>8ES#<nY\"`)M;\\(gpFl7O15M6],C-,sG1\/\"dK_0\n=A!#1$nX0BGYW@&C%7F5$PkuoYRr,4NI$(cg4?*:@0X]\"ZhT&o\"5<nC8diY\/$Aq9,'Z[RRI%mnR.OAu;\nPeq5S>$u7<SET1bi[OI7\/:`C],=\\mVp&<+@\"&\"9a%#Y!qnH&\"][KY6I(5t6g'T3AKNbOjT6tI*49&*l)\nL\"S5g^tdp0dF\"f0;s#Z6!\"$J2N*nU0rKV(%Q3N*^'`6\/7\"543#$`nT\\(I@S^?;6NA2^6D.*85d-Xc'e6\nLKiY*9XA`E\"lT1u+odR)(m2g6M6RYPL4pDm7917]6=_@8^?VqkH8RuLhM;SL2hZHlMM5R*)oJdr,Gs-R\nf`L[@O-\"i]\/<!-[Vo75D7`.P#l67_e6m4=K:g\\?I9tcu<*H+=MYoCQm29!Eeoo7q][h7)*S884Nr^Y&E\n,8NbEnP`n57&+1a\"a,qB#,2[>JOWn\/)Tna3>ad>GmJm8XZ08`)'=VHA_0+rM+h%HADj?e:75X(EiC^^2\n]f;UrJ6gd;bKPTO,;sjFHn.U0\"f:$XYRtPf[S-5j?SOd:a$mA;R!`in3^^t?!9[SJk\"$'n3F')BDFuRB\n-SJlZFm_$Vi7WpG?529(&RIb;G8=ut)P$3CI\/d9lO6:KpD(?qT>_gT9EXT\\Y<k14g6phG#Y-a\\HMrVne\nfQEasbWL,.@\\XaY[mGaL;!On.@mq.+DPR&W_L`c#8.5$:?3`'\\[W`['NS8!ol[Fc.1kXZ.0[blhloo[n\nBOq8`\"(@n\/1u0?;Pm[)qXf0+n<OOX(JfLFS$hJb\/VZkWEDW@fqgPgI7D_[Vkd!HX\"H4cM\"#L=KoC`m41\n\/6%q4>@aX06,'fC<S4q+2C;Rg!u,HXSknpaT\\A7>S2G&N;6TjK#1F!,0>g=6ij\/I>q4j2aA.4-Fb0kBi\nN)ZQdGjX-'riZ0g.l#W)6<5ZTJ6jBi09(2OpXj?oBFAirO=AV^m&8))(H;4sq%m(@XJpoT=tfri6BGLl\nn+,qPh&aoYjOPGPUg_qRQ2*(Np:KlKXMe4>$X'lF!.'>A]enU-hda8]TIn6e6)I2j_UqTY8+;;&p1dm?\n1.c6C8A\\.b]GuhTC:'c(\/iu;TO!<rCMC8ocX-\"68cO=9_TU[*NPZ>o%$:0`)0rBpe%i=n,e[\/EDU6T5]\nAQINEm8+XT_e;Qr?$:\\2+%=he'i>lQ<[0?OSf,IG5rh1'.'&Y('nRJ1@n[hU*\\Q`7WbJZf74ZDDbH\/&i\ngS$;2LXD-n]BoHC5Dl[T\/#\"l-X@?['4YqnnJoZ>,;-#90.KhmAhGi-O8%[Bc$Z9[MGZV*Y$g6Q3?^58F\n)7V:BCNmK7Mt\"F1^N$gN&rS?orlV0s>#R:-c4&C.:Q\\,!;C\"Ni8rp[FI5\"_@.`LCuL%B<*YKF2^$s]-\\\n[6*9,7JPa)hmcp7M8^6HIq;SJXf7a'B85d(Vb!RK.2!bEV8lp45+!i0Q\"':!_YH1P=68+?#-LV?g7@]Q\n,(+>%Dd4p,`*s+_^G;g`el5A$1IH?O;ks`VP71pCn:g$2Z]\/[1.VMf84bYna[&s%eiXF`,2l.aMG.uWZ\nLOa?V5+Neg=o:ak7GUimX!Es['5<&bRZTm3@X[k*j>D\"R7qLC;jY\"WMD7-P]BD=C\".3\/`%o?C;r\"GGh.\nl27L+i\\tU(lBYm^-)pg38\/&YcN!t\"Fl^Ro$YF-=m.b!f7G<mQmX*pg(_mfG9kt%J<Dmme3+<7R\\k=9q9\n^JScD[hR\"88`ehtL>]j<(Rbi`&WAQ8n*BSuGan@9XJm,7*Gir9#Y2qd=7ru#P5eD\"W-MmKiH\\eNa`]`J\nk,-j?WWHD*@&1Bu31)O*neo0FcUY_kX`n\/IeL9fm@qJ(f3juc&Y>(;[O#fbT)^>g<q`7K\\gDM\\(eHSqe\nfNJG'eP4*#UreeGn9o^KqXnO8\")Fo+Ba5S5)oC\"-oi6EWWoSZZ0l#P^BmALdEO+EGJ@VX;R&[sQXMD1P\nGXE1'b^!_6^8$;Bf)S0WU`HH0:57Je\"=V]!e@I)B,jI<)`b>#e]7i_20lC%!!e#3fjWq<)K-HZ$7t(A:\neBH#dr>I=m61\\lB+ZRo1<.$&\\D+XjDBe*rS'JpHqRgW`5qN'H!UVn!..p@M<]$bV^>GFKHbMo9\\s!hdG\njHb7S(TjA+28BbCBh'YePG'l\\!K+6![;H<iM>GJN0j=OrDP9p:N11Qa5[Rf23Q^[cI%Tm!QfgS?':\\k~\n>\nendstream\nendobj\nxref\n0 23\n0000000000 65535 f \n0000000009 00000 n \n0000000058 00000 n \n0000000104 00000 n \n0000000162 00000 n \n0000000214 00000 n \n0000000312 00000 n \n0000000415 00000 n \n0000000521 00000 n \n0000000631 00000 n \n0000000727 00000 n \n0000000829 00000 n \n0000000934 00000 n \n0000001043 00000 n \n0000001144 00000 n \n0000001244 00000 n \n0000001346 00000 n \n0000001452 00000 n \n0000001622 00000 n \n0000001999 00000 n \n0000003010 00000 n \n0000003887 00000 n \n0000004321 00000 n \ntrailer\n<<\n\/Info 17 0 R\n\/Size 23\n\/Root 1 0 R\n>>\nstartxref\n9854\n%%EOF\n"
+                    }
+                }
+            },
+            "SignatureOption":"SERVICE_DEFAULT"
+        }
+    }}

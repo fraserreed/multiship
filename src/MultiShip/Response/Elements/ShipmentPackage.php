@@ -10,10 +10,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace MultiShip\Package;
+namespace MultiShip\Response\Elements;
 
 
+use MultiShip\Package\Package;
 use MultiShip\Charge\ICharge;
+use MultiShip\Charge\TotalCharge;
 use MultiShip\Label\ShipmentLabel;
 
 /**
@@ -32,6 +34,21 @@ class ShipmentPackage extends Package
      * @var array
      */
     protected $charges;
+
+    /**
+     * @var TotalCharge
+     */
+    protected $total;
+
+    /**
+     * @var string
+     */
+    protected $packageType;
+
+    /**
+     * @var Package
+     */
+    protected $billingPackage;
 
     /**
      * @var ShipmentLabel
@@ -68,6 +85,54 @@ class ShipmentPackage extends Package
     public function getCharges()
     {
         return $this->charges;
+    }
+
+    /**
+     * @param \MultiShip\Charge\TotalCharge $total
+     */
+    public function setTotal( $total )
+    {
+        $this->total = $total;
+    }
+
+    /**
+     * @return \MultiShip\Charge\TotalCharge
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /**
+     * @param string $packageType
+     */
+    public function setPackageType( $packageType )
+    {
+        $this->packageType = $packageType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPackageType()
+    {
+        return $this->packageType;
+    }
+
+    /**
+     * @param \MultiShip\Package\Package $billingPackage
+     */
+    public function setBillingPackage( $billingPackage )
+    {
+        $this->billingPackage = $billingPackage;
+    }
+
+    /**
+     * @return \MultiShip\Package\Package
+     */
+    public function getBillingPackage()
+    {
+        return $this->billingPackage;
     }
 
     /**

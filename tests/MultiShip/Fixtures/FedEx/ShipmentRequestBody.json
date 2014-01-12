@@ -65,20 +65,19 @@
     "RateRequestTypes":["ACCOUNT"],
     "PackageCount":1,
     "PackageDetail":"INDIVIDUAL_PACKAGES",
-    "RequestedPackageLineItems":[
-        {
-            "SequenceNumber":1,
-            "GroupPackageCount":1,
-            "Weight":{
-                "Value":1,
-                "Units":"LB"
-            },
-            "Dimensions":{
-                "Length":5,
-                "Width":4,
-                "Height":10,
-                "Units":"IN"
-            }
+    "RequestedPackageLineItems":{
+        "SequenceNumber":1,
+        "GroupPackageCount":1,
+        "Weight":{
+            "Value":1,
+            "Units":"LB"
+        },
+        "Dimensions":{
+            "Length":5,
+            "Width":4,
+            "Height":10,
+            "Units":"IN"
         }
-    ]
+    }
+
 }}

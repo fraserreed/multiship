@@ -13,7 +13,10 @@
 namespace MultiShip\Response\Collections;
 
 
-use MultiShip\Response\Elements\Shipment as ShipmentElement;
+use MultiShip\Response\Elements\ShipmentPackage;
+use MultiShip\Charge\TotalCharge;
+use MultiShip\Package\Package;
+use MultiShip\Charge\ICharge;
 
 /**
  * MultiShip shipment collection object
@@ -24,32 +27,179 @@ class Shipment extends AbstractCollection
 {
 
     /**
-     * @var array
+     * @var string
      */
-    protected $shipments;
+    protected $carrierCode;
 
     /**
-     * @param ShipmentElement $shipment
+     * @var string
      */
-    public function addShipment( ShipmentElement $shipment )
+    protected $masterTrackingNumber;
+
+    /**
+     * @var string
+     */
+    protected $serviceCode;
+
+    /**
+     * @var string
+     */
+    protected $serviceDescription;
+
+    /**
+     * @var array
+     */
+    protected $shipmentPackages;
+
+    /**
+     * @var Package
+     */
+    protected $billingPackage;
+
+    /**
+     * @var array
+     */
+    protected $charges = array();
+
+    /**
+     * @var TotalCharge
+     */
+    protected $total;
+
+    /**
+     * @param string $carrierCode
+     */
+    public function setCarrierCode( $carrierCode )
     {
-        $this->shipments[ ] = $shipment;
+        $this->carrierCode = $carrierCode;
     }
 
     /**
-     * @param array $shipments
+     * @return string
      */
-    public function setShipments( $shipments )
+    public function getCarrierCode()
     {
-        $this->shipments = $shipments;
+        return $this->carrierCode;
+    }
+
+    /**
+     * @param string $masterTrackingNumber
+     */
+    public function setMasterTrackingNumber( $masterTrackingNumber )
+    {
+        $this->masterTrackingNumber = $masterTrackingNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMasterTrackingNumber()
+    {
+        return $this->masterTrackingNumber;
+    }
+
+    /**
+     * @param string $serviceCode
+     */
+    public function setServiceCode( $serviceCode )
+    {
+        $this->serviceCode = $serviceCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServiceCode()
+    {
+        return $this->serviceCode;
+    }
+
+    /**
+     * @param string $serviceDescription
+     */
+    public function setServiceDescription( $serviceDescription )
+    {
+        $this->serviceDescription = $serviceDescription;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServiceDescription()
+    {
+        return $this->serviceDescription;
+    }
+
+    /**
+     * @param ShipmentPackage $shipmentPackage
+     */
+    public function addShipmentPackage( ShipmentPackage $shipmentPackage )
+    {
+        $this->shipmentPackages[ ] = $shipmentPackage;
+    }
+
+    /**
+     * @param array $shipmentPackages
+     */
+    public function setShipmentPackages( $shipmentPackages )
+    {
+        $this->shipmentPackages = $shipmentPackages;
     }
 
     /**
      * @return array
      */
-    public function getShipments()
+    public function getShipmentPackages()
     {
-        return $this->shipments;
+        return $this->shipmentPackages;
+    }
+
+    /**
+     * @param \MultiShip\Package\Package $billingPackage
+     */
+    public function setBillingPackage( $billingPackage )
+    {
+        $this->billingPackage = $billingPackage;
+    }
+
+    /**
+     * @return \MultiShip\Package\Package
+     */
+    public function getBillingPackage()
+    {
+        return $this->billingPackage;
+    }
+
+    /**
+     * @param ICharge $charge
+     */
+    public function addCharge( ICharge $charge )
+    {
+        $this->charges[ ] = $charge;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCharges()
+    {
+        return $this->charges;
+    }
+
+    /**
+     * @param \MultiShip\Charge\TotalCharge $total
+     */
+    public function setTotal( $total )
+    {
+        $this->total = $total;
+    }
+
+    /**
+     * @return \MultiShip\Charge\TotalCharge
+     */
+    public function getTotal()
+    {
+        return $this->total;
     }
 }
 
