@@ -25,6 +25,11 @@ use MultiShip\Response\Collections\Shipment;
 abstract class AbstractShipment extends AbstractRequest implements IRequest
 {
     /**
+     * @var string
+     */
+    protected $type = 'Shipment';
+
+    /**
      * Handle exception thrown from soap request
      *
      * @param $e

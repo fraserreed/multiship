@@ -61,6 +61,7 @@ class Rate extends SimpleRate
                 if( isset( $rate->Service ) )
                 {
                     $rateElement->setServiceCode( $rate->Service->Code );
+                    $rateElement->setServiceDescription( $this->getServiceName( $rateElement->getServiceCode() ) );
                 }
 
                 //rate notes

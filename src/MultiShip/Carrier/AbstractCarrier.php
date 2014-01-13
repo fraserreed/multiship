@@ -36,6 +36,11 @@ abstract class AbstractCarrier implements ICarrier
      */
     protected $soap;
 
+    /**
+     * @var array
+     */
+    protected $serviceMap = array();
+
     public function __construct( Configuration $config )
     {
         $this->setConfiguration( $config );
@@ -66,6 +71,14 @@ abstract class AbstractCarrier implements ICarrier
     public function setSoap( Soap $soap )
     {
         $this->soap = $soap;
+    }
+
+    /**
+     * @return array
+     */
+    public function getServiceMap()
+    {
+        return $this->serviceMap;
     }
 
     /**

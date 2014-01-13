@@ -262,6 +262,7 @@ class MultiShip
     private function executeRequest( AbstractRequest $request, ICarrier $carrier )
     {
         $request->setCarrierCode( $carrier->getCarrierCode() );
+        $request->setServiceMap( $carrier->getServiceMap() );
 
         $request->setConfiguration( $carrier->getConfiguration() );
 

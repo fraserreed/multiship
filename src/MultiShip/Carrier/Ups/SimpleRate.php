@@ -170,6 +170,7 @@ class SimpleRate extends AbstractRate
                 if( isset( $rate->Service ) )
                 {
                     $rateElement->setServiceCode( $rate->Service->Code );
+                    $rateElement->setServiceDescription( $this->getServiceName( $rateElement->getServiceCode() ) );
                 }
 
                 //total charges

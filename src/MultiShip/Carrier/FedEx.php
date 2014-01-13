@@ -96,7 +96,8 @@ class FedEx extends AbstractCarrier
         if( $request instanceof Shipment )
         {
             //set threshold for loop to prevent a runaway
-            for( $i = 0; $i < 1000; $i++ )
+            // fedex allows a maximum of 100 packages per shipment
+            for( $i = 0; $i < 100; $i++ )
             {
                 //only make requests until shipment is complete
                 if( $request->isShipmentComplete() == true )
@@ -114,6 +115,71 @@ class FedEx extends AbstractCarrier
 
         return parent::request( $request );
     }
+
+    protected $serviceMap = array(
+        'Rate' => array(
+            'FEDEX_1_DAY_FREIGHT'                 => array(
+                'name' => 'FedEx 1 Day Freight'
+            ),
+            'FEDEX_2_DAY'                         => array(
+                'name' => 'FedEx 2 Day'
+            ),
+            'FEDEX_2_DAY_AM'                      => array(
+                'name' => 'FedEx 2 Day AM'
+            ),
+            'FEDEX_2_DAY_FREIGHT'                 => array(
+                'name' => 'FedEx 2 Day Freight'
+            ),
+            'FEDEX_3_DAY_FREIGHT'                 => array(
+                'name' => 'FedEx 3 Day Freight'
+            ),
+            'FEDEX_EXPRESS_SAVER'                 => array(
+                'name' => 'FedEx Express Saver'
+            ),
+            'FEDEX_GROUND'                        => array(
+                'name' => 'FedEx Ground'
+            ),
+            'FIRST_OVERNIGHT'                     => array(
+                'name' => 'First Overnight'
+            ),
+            'GROUND_HOME_DELIVERY'                => array(
+                'name' => 'Ground Home Delivery'
+            ),
+            'INTERNATIONAL_ECONOMY'               => array(
+                'name' => 'International Economy'
+            ),
+            'INTERNATIONAL_ECONOMY_FREIGHT'       => array(
+                'name' => 'International Economy Freight'
+            ),
+            'INTERNATIONAL_FIRST'                 => array(
+                'name' => 'International First'
+            ),
+            'INTERNATIONAL_PRIORITY'              => array(
+                'name' => 'International Priority'
+            ),
+            'INTERNATIONAL_PRIORITY_FREIGHT'      => array(
+                'name' => 'International Priority Freight'
+            ),
+            'PRIORITY_OVERNIGHT'                  => array(
+                'name' => 'Priority Overnight'
+            ),
+            'SMART_POST'                          => array(
+                'name' => 'Smart Post'
+            ),
+            'STANDARD_OVERNIGHT'                  => array(
+                'name' => 'Standard Overnight'
+            ),
+            'FEDEX_FREIGHT'                       => array(
+                'name' => 'FedEx Freight'
+            ),
+            'FEDEX_NATIONAL_FREIGHT'              => array(
+                'name' => 'FedEx National Freight'
+            ),
+            'EUROPE_FIRST_INTERNATIONAL_PRIORITY' => array(
+                'name' => 'Europe First International Priority'
+            )
+        )
+    );
 }
 
 ?>

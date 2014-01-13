@@ -125,6 +125,103 @@ class UpsTest extends BaseTestCase
     }
 
     /**
+     * @covers MultiShip\Carrier\AbstractCarrier::getServiceMap
+     */
+    public function testGetServiceMap()
+    {
+        $serviceMap = array(
+            'Rate' => array(
+                '01' => array(
+                    'name'   => 'UPS Next Day Air®',
+                    'origin' => array(
+                        'CA' => 'UPS Express'
+                    )
+                ),
+                '02' => array(
+                    'name'   => 'UPS Second Day Air®',
+                    'origin' => array(
+                        'CA' => 'UPS Worldwide Expedited'
+                    )
+                ),
+                '03' => array(
+                    'name'   => 'UPS Ground',
+                    'origin' => array()
+                ),
+                '07' => array(
+                    'name'   => 'UPS Express',
+                    'origin' => array(
+                        'US' => 'UPS Worldwide Express',
+                        'PR' => 'UPS Worldwide Express'
+                    )
+                ),
+                '08' => array(
+                    'name'   => 'UPS Expedited',
+                    'origin' => array(
+                        'US' => 'UPS Worldwide Expedited',
+                        'PR' => 'UPS Worldwide Expedited'
+                    )
+                ),
+                '11' => array(
+                    'name'   => 'UPS Standard',
+                    'origin' => array()
+                ),
+                '12' => array(
+                    'name'   => 'UPS Three-Day Select®',
+                    'origin' => array()
+                ),
+                '13' => array(
+                    'name'   => 'UPS Next Day Air Saver®',
+                    'origin' => array(
+                        'CA' => 'UPS Saver'
+                    )
+                ),
+                '14' => array(
+                    'name'   => 'UPS Next Day Air® Early A.M.',
+                    'origin' => array(
+                        'CA' => 'UPS Express Early A.M.'
+                    )
+                ),
+                '54' => array(
+                    'name'   => 'UPS Worldwide Express Plus',
+                    'origin' => array(
+                        'MX' => 'UPS Express Plus'
+                    )
+                ),
+                '59' => array(
+                    'name'   => 'UPS Second Day Air A.M.®',
+                    'origin' => array()
+                ),
+                '65' => array(
+                    'name'   => 'UPS Saver',
+                    'origin' => array()
+                ),
+                '82' => array(
+                    'name'   => 'UPS Today Standard',
+                    'origin' => array()
+                ),
+                '83' => array(
+                    'name'   => 'UPS Today Dedicated Courrier',
+                    'origin' => array()
+                ),
+                '85' => array(
+                    'name'   => 'UPS Today Express',
+                    'origin' => array()
+                ),
+                '86' => array(
+                    'name'   => 'UPS Today Express Saver',
+                    'origin' => array()
+                ),
+                '96' => array(
+                    'name'   => 'UPS Worldwide Express Freight',
+                    'origin' => array()
+                ),
+            )
+        );
+
+        $this->assertEquals( $serviceMap, $this->object->getServiceMap() );
+    }
+
+    /**
      * @covers MultiShip\Carrier\Ups::getRateRequest
      */
     public function testGetRateRequest()

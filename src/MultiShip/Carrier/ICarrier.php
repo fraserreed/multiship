@@ -63,6 +63,13 @@ interface ICarrier
     public function request( IRequest $request );
 
     /**
+     * Get map of service code to service name
+     *
+     * @return array
+     */
+    public function getServiceMap();
+
+    /**
      * @return AbstractRate
      */
     public function getRateRequest();

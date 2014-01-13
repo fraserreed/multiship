@@ -25,6 +25,11 @@ use MultiShip\Response\Collections\Rate;
 abstract class AbstractRate extends AbstractRequest implements IRequest
 {
     /**
+     * @var string
+     */
+    protected $type = 'Rate';
+
+    /**
      * Handle exception thrown from soap request
      *
      * @param $e

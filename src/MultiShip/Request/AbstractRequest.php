@@ -27,9 +27,19 @@ use MultiShip\Exceptions\MultiShipException;
 abstract class AbstractRequest
 {
     /**
+     * @var
+     */
+    protected $type;
+
+    /**
      * @var string
      */
     protected $carrierCode;
+
+    /**
+     * @var array
+     */
+    protected $serviceMap;
 
     /**
      * @var Configuration
@@ -67,6 +77,14 @@ abstract class AbstractRequest
     protected $packages = array();
 
     /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
      * @param string $carrierCode
      */
     public function setCarrierCode( $carrierCode )
@@ -80,6 +98,27 @@ abstract class AbstractRequest
     public function getCarrierCode()
     {
         return $this->carrierCode;
+    }
+
+    /**
+     * @param array $serviceMap
+     */
+    public function setServiceMap( $serviceMap )
+    {
+        $this->serviceMap = $serviceMap;
+    }
+
+    /**
+     * @param $serviceCode
+     *
+     * @return string|null
+     */
+    public function getServiceName( $serviceCode )
+    {
+        if( isset( $this->serviceMap[ $this->getType() ][ $serviceCode ][ 'name' ] ) )
+            return $this->serviceMap[ $this->getType() ][ $serviceCode ][ 'name' ];
+
+        return null;
     }
 
     /**

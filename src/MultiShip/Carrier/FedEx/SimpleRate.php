@@ -202,6 +202,7 @@ class SimpleRate extends AbstractRate
                 if( isset( $rate->ServiceType ) )
                 {
                     $rateElement->setServiceCode( $rate->ServiceType );
+                    $rateElement->setServiceDescription( $this->getServiceName( $rateElement->getServiceCode() ) );
                 }
 
                 $shipmentDetail = $rate->RatedShipmentDetails[ 0 ]->ShipmentRateDetail;
