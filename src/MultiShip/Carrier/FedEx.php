@@ -117,7 +117,7 @@ class FedEx extends AbstractCarrier
     }
 
     protected $serviceMap = array(
-        'Rate' => array(
+        'Default' => array(
             'FEDEX_1_DAY_FREIGHT'                 => array(
                 'name' => 'FedEx 1 Day Freight'
             ),

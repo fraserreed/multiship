@@ -24,8 +24,10 @@ use MultiShip\Exceptions\MultiShipException;
  *
  * @author fraserreed
  */
-abstract class AbstractRequest
+abstract class AbstractRequest implements IRequest
 {
+    const DEFAULT_TYPE = 'Default';
+
     /**
      * @var
      */
@@ -81,7 +83,7 @@ abstract class AbstractRequest
      */
     public function getType()
     {
-        return $this->type;
+        return (string) $this->type;
     }
 
     /**
@@ -117,6 +119,12 @@ abstract class AbstractRequest
     {
         if( isset( $this->serviceMap[ $this->getType() ][ $serviceCode ][ 'name' ] ) )
             return $this->serviceMap[ $this->getType() ][ $serviceCode ][ 'name' ];
+        elseif( isset( $this->serviceMap[ self::DEFAULT_TYPE ][ $serviceCode ][ 'name' ] ) )
+        {
+
+            return $this->serviceMap[ self::DEFAULT_TYPE ][ $serviceCode ][ 'name' ];
+        }
+
 
         return null;
     }

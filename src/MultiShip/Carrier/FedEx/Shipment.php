@@ -66,6 +66,14 @@ class Shipment extends AbstractShipment
     protected $shipmentResponse;
 
     /**
+     * @param $serviceCode
+     */
+    public function setServiceCode( $serviceCode )
+    {
+        $this->serviceCode = (string) $serviceCode;
+    }
+
+    /**
      * @return bool
      */
     public function isShipmentComplete()
@@ -138,8 +146,7 @@ class Shipment extends AbstractShipment
                 'ShipTimestamp'             => date( 'c' ),
                 // valid values REGULAR_PICKUP, REQUEST_COURIER, DROP_BOX, BUSINESS_SERVICE_CENTER and STATION
                 'DropoffType'               => 'REGULAR_PICKUP',
-                // valid values STANDARD_OVERNIGHT, PRIORITY_OVERNIGHT, FEDEX_GROUND, ...
-                'ServiceType'               => 'FEDEX_GROUND',
+                'ServiceType'               => $this->getServiceCode(),
                 // valid values FEDEX_BOX, FEDEX_PAK, FEDEX_TUBE, YOUR_PACKAGING, ...
                 'PackagingType'             => 'YOUR_PACKAGING',
                 'Shipper'                   => array(

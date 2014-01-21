@@ -130,7 +130,7 @@ class UpsTest extends BaseTestCase
     public function testGetServiceMap()
     {
         $serviceMap = array(
-            'Rate' => array(
+            'Default' => array(
                 '01' => array(
                     'name'   => 'UPS Next Day Air®',
                     'origin' => array(

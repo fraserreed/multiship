@@ -45,8 +45,21 @@ class ShipmentTest extends BaseTestCase
         $configuration->setPassword( 'ups_password' );
         $configuration->setAccessKey( 'aCC3$$' );
 
+        $carrier = new Ups( $configuration );
+
         $this->object = new Shipment();
         $this->object->setConfiguration( $configuration );
+        $this->object->setCarrierCode( $carrier->getCarrierCode() );
+        $this->object->setServiceMap( $carrier->getServiceMap() );
+        $this->object->setServiceCode( '01' );
+    }
+
+    /**
+     * @covers \MultiShip\Carrier\Ups\Shipment::getServiceCode
+     */
+    public function testGetServiceCode()
+    {
+        $this->assertEquals( '01', $this->object->getServiceCode() );
     }
 
     /**
@@ -157,6 +170,8 @@ class ShipmentTest extends BaseTestCase
         $package2->setWeightUnitOfMeasure( 'lbs' );
 
         $this->object->addPackage( $package2 );
+
+        $this->object->setServiceCode( '01' );
 
         $body = $this->object->getRequestBody();
 

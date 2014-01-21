@@ -55,6 +55,11 @@ class MultiShip
     protected $packages = array();
 
     /**
+     * @var string
+     */
+    protected $serviceCode;
+
+    /**
      * Initialize carrier configuration using passed options.
      *
      * @param array $options
@@ -235,6 +240,29 @@ class MultiShip
     }
 
     /**
+     * Set the service code used for the shipment request.
+     *
+     * If this function is called for any requests other than shipment
+     * requests, the value will be ignored.
+     *
+     * @param $serviceCode
+     */
+    public function setServiceCode( $serviceCode )
+    {
+        $this->serviceCode = (string) $serviceCode;
+    }
+
+    /**
+     * Get service code used for shipment requests.
+     *
+     * @return string
+     */
+    public function getServiceCode()
+    {
+        return $this->serviceCode;
+    }
+
+    /**
      * @return mixed
      * @throws Exceptions\MultiShipException
      */
@@ -249,7 +277,13 @@ class MultiShip
         /** @var $carrier \MultiShip\Carrier\ICarrier */
         $carrier = $carriers[ 0 ];
 
-        return $this->executeRequest( $carrier->getShipmentRequest(), $carrier );
+        if( !$this->getServiceCode() )
+            throw new MultiShipException( 'Cannot process shipment request.  Service code must be set prior to executing request.' );
+
+        $request = $carrier->getShipmentRequest();
+        $request->setServiceCode( $this->getServiceCode() );
+
+        return $this->executeRequest( $request, $carrier );
     }
 
     /**

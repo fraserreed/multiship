@@ -42,6 +42,14 @@ class Shipment extends AbstractShipment
 
     protected $urlAction = 'Ship';
 
+    /**
+     * @param $serviceCode
+     */
+    public function setServiceCode( $serviceCode )
+    {
+        $this->serviceCode = (string) $serviceCode;
+    }
+
     public function getRequestBody()
     {
         $fromAddress = $this->getFromAddress();
@@ -164,8 +172,8 @@ class Shipment extends AbstractShipment
                     )
                 ),
                 'Service'            => array(
-                    'Code'        => '01',
-                    'Description' => 'Express'
+                    'Code'        => $this->getServiceCode(),
+                    'Description' => $this->getServiceName( $this->getServiceCode() )
                 ),
                 'Package'            => $packages,
                 'LabelSpecification' => array(

@@ -49,6 +49,15 @@ class ShipmentTest extends BaseTestCase
 
         $this->object = new Shipment();
         $this->object->setConfiguration( $configuration );
+        $this->object->setServiceCode( 'FEDEX_GROUND' );
+    }
+
+    /**
+     * @covers \MultiShip\Carrier\FedEx\Shipment::getServiceCode
+     */
+    public function testGetServiceCode()
+    {
+        $this->assertEquals( 'FEDEX_GROUND', $this->object->getServiceCode() );
     }
 
     /**
@@ -205,6 +214,8 @@ class ShipmentTest extends BaseTestCase
         $package1->setWeightUnitOfMeasure( 'lb' );
 
         $this->object->addPackage( $package1 );
+
+        $this->object->setServiceCode( 'FEDEX_GROUND' );
 
         $body = $this->object->getRequestBody();
 

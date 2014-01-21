@@ -414,6 +414,17 @@ class MultiShipTest extends BaseTestCase
     }
 
     /**
+     * @covers \MultiShip\MultiShip::setServiceCode
+     */
+    public function testSetServiceCode()
+    {
+        $object = new MultiShip( $this->options );
+        $object->setServiceCode( '01' );
+
+        $this->assertEquals( '01', $object->getServiceCode() );
+    }
+
+    /**
      * @covers \MultiShip\MultiShip::processShipment
      * @expectedException \MultiShip\Exceptions\MultiShipException
      */
@@ -427,10 +438,22 @@ class MultiShipTest extends BaseTestCase
      * @covers \MultiShip\MultiShip::processShipment
      * @expectedException \MultiShip\Exceptions\MultiShipException
      */
+    public function testProcessShipmentNoServiceCodeException()
+    {
+        unset( $this->options[ 'fedex' ] );
+        $object = new MultiShip( $this->options );
+        $object->processShipment();
+    }
+
+    /**
+     * @covers \MultiShip\MultiShip::processShipment
+     * @expectedException \MultiShip\Exceptions\MultiShipException
+     */
     public function testProcessShipment()
     {
         unset( $this->options[ 'fedex' ] );
         $object = new MultiShip( $this->options );
+        $object->setServiceCode( '01' );
         $object->processShipment();
     }
 }

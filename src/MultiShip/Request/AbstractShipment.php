@@ -22,12 +22,19 @@ use MultiShip\Response\Collections\Shipment;
  *
  * @author fraserreed
  */
-abstract class AbstractShipment extends AbstractRequest implements IRequest
+abstract class AbstractShipment extends AbstractRequest implements IShipment
 {
     /**
      * @var string
      */
     protected $type = 'Shipment';
+
+    protected $serviceCode;
+
+    public function getServiceCode()
+    {
+        return $this->serviceCode;
+    }
 
     /**
      * Handle exception thrown from soap request

@@ -95,7 +95,7 @@ class Ups extends AbstractCarrier
     }
 
     protected $serviceMap = array(
-        'Rate' => array(
+        'Default' => array(
             '01' => array(
                 'name'   => 'UPS Next Day Air®',
                 'origin' => array(

@@ -22,7 +22,7 @@ use MultiShip\Response\Collections\Rate;
  *
  * @author fraserreed
  */
-abstract class AbstractRate extends AbstractRequest implements IRequest
+abstract class AbstractRate extends AbstractRequest
 {
     /**
      * @var string
