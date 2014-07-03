@@ -224,13 +224,27 @@ class MultiShip
             /** @var $responseCollection \MultiShip\Response\Collections\Rate */
             foreach( $response as $responseCollection )
             {
+                if ( count( $response ) == 1 )
+                {
+                    $aggregatedResponse->setStatusCode( $responseCollection->getStatusCode() );
+                    $aggregatedResponse->setStatusDescription( $responseCollection->getStatusDescription() );
+                    $aggregatedResponse->setDetail( $responseCollection->getDetail() );
+                }
+
                 //if the carrier collection returned results, add them to the aggregate collection of rates
-                if( $responseCollection->getCount() > 0 )
+                if( $responseCollection->getRates() )
                 {
                     foreach( $responseCollection->getRates() as $rate )
                     {
                         $aggregatedResponse->addRate( $rate );
-                        $aggregatedResponse->setCount( $aggregatedResponse->getCount() + 1 );
+                        $aggregatedResponse->setCount( $aggregatedResponse->getCount() + $responseCollection->getCount() );
+                    }
+                }
+                if( $responseCollection->getNotes() )
+                {
+                    foreach( $responseCollection->getNotes() as $note )
+                    {
+                        $aggregatedResponse->addNote( $note );
                     }
                 }
             }
