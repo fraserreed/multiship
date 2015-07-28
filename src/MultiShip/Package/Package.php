@@ -228,5 +228,3 @@ class Package
         return $acceptedWeightUnitOfMeasure[ $this->weightUnitOfMeasure ];
     }
 }
-
-?>

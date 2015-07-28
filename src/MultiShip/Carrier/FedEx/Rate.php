@@ -167,5 +167,3 @@ class Rate extends SimpleRate
         return $rateResponse;
     }
 }
-
-?>

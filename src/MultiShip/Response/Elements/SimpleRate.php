@@ -106,5 +106,3 @@ class SimpleRate
         return $this->total;
     }
 }
-
-?>

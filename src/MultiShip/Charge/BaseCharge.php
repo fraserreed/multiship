@@ -31,5 +31,3 @@ class BaseCharge extends AbstractCharge
         return $this->type;
     }
 }
-
-?>

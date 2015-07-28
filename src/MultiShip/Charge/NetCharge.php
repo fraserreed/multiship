@@ -32,5 +32,3 @@ class NetCharge extends AbstractCharge
     }
 
 }
-
-?>

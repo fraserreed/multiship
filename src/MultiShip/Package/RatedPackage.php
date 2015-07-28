@@ -64,5 +64,3 @@ class RatedPackage extends Package
         return $this->billingPackage;
     }
 }
-
-?>

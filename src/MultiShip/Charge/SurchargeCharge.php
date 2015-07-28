@@ -32,5 +32,3 @@ class SurchargeCharge extends AbstractCharge
     }
 
 }
-
-?>

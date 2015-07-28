@@ -151,5 +151,3 @@ class ShipmentPackage extends Package
         return $this->label;
     }
 }
-
-?>

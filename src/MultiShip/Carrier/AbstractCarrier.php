@@ -121,5 +121,3 @@ abstract class AbstractCarrier implements ICarrier
         }
     }
 }
-
-?>

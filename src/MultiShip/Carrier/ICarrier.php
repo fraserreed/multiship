@@ -84,5 +84,3 @@ interface ICarrier
      */
     public function getShipmentRequest();
 }
-
-?>

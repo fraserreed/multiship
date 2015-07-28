@@ -175,5 +175,3 @@ class Rate extends SimpleRate
         return $this->notes;
     }
 }
-
-?>

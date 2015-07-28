@@ -64,5 +64,3 @@ abstract class AbstractShipment extends AbstractRequest implements IShipment
         return $shipmentResponse;
     }
 }
-
-?>

@@ -30,5 +30,3 @@ class TransportationCharge extends AbstractCharge
         return $this->type;
     }
 }
-
-?>

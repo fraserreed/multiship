@@ -202,5 +202,3 @@ class Shipment extends AbstractCollection
         return $this->total;
     }
 }
-
-?>

@@ -32,5 +32,3 @@ class TotalCharge extends AbstractCharge
     }
 
 }
-
-?>

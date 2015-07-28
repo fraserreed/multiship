@@ -31,5 +31,3 @@ class ServiceCharge extends AbstractCharge
         return $this->type;
     }
 }
-
-?>

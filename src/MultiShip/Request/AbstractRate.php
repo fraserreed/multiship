@@ -56,5 +56,3 @@ abstract class AbstractRate extends AbstractRequest
         return $rateResponse;
     }
 }
-
-?>

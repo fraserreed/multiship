@@ -33,5 +33,3 @@ class FreightDiscountCharge extends AbstractCharge
         return $this->type;
     }
 }
-
-?>

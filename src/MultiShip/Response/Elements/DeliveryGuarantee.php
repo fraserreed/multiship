@@ -83,5 +83,3 @@ class DeliveryGuarantee
         return $this->deliveryTime;
     }
 }
-
-?>

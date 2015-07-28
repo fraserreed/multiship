@@ -14,6 +14,7 @@ namespace MultiShip\Carrier\Ups;
 
 
 use MultiShip\Carrier\Ups;
+use MultiShip\Carrier\Ups\Formatters\AddressFormatter;
 
 use MultiShip\Request\AbstractShipment;
 use MultiShip\Exceptions\MultiShipException;
@@ -102,17 +103,7 @@ class Shipment extends AbstractShipment
                     'AttentionName'           => $fromAddress->getAttentionName(),
                     'TaxIdentificationNumber' => $fromAddress->getTaxIdNumber(),
                     'ShipperNumber'           => $config->getAccountNumber(),
-                    'Address'                 => array(
-                        'AddressLine'       => array(
-                            $fromAddress->getLine1(),
-                            $fromAddress->getLine2(),
-                            $fromAddress->getLine3()
-                        ),
-                        'City'              => $fromAddress->getCity(),
-                        'StateProvinceCode' => $fromAddress->getRegion(),
-                        'PostalCode'        => $fromAddress->getPostalCode(),
-                        'CountryCode'       => $fromAddress->getCountry()
-                    ),
+                    'Address'                 => AddressFormatter::format( $fromAddress ),
                     'Phone'                   => array(
                         'Number'    => $fromAddress->getPhoneNumber(),
                         'Extension' => $fromAddress->getPhoneExtension()
@@ -136,17 +127,7 @@ class Shipment extends AbstractShipment
                 'ShipFrom'           => array(
                     'Name'          => $fromAddress->getName(),
                     'AttentionName' => $fromAddress->getAttentionName(),
-                    'Address'       => array(
-                        'AddressLine'       => array(
-                            $fromAddress->getLine1(),
-                            $fromAddress->getLine2(),
-                            $fromAddress->getLine3()
-                        ),
-                        'City'              => $fromAddress->getCity(),
-                        'StateProvinceCode' => $fromAddress->getRegion(),
-                        'PostalCode'        => $fromAddress->getPostalCode(),
-                        'CountryCode'       => $fromAddress->getCountry()
-                    ),
+                    'Address'       => AddressFormatter::format( $fromAddress ),
                     'Phone'         => array(
                         'Number' => $fromAddress->getPhoneNumber()
                     )
@@ -302,5 +283,3 @@ class Shipment extends AbstractShipment
         return $shipmentPackage;
     }
 }
-
-?>

@@ -56,5 +56,3 @@ interface IRequest
      */
     public function handleException( Exception $e );
 }
-
-?>

@@ -30,5 +30,3 @@ interface IShipment
      */
     public function getServiceCode();
 }
-
-?>

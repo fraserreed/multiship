@@ -492,5 +492,3 @@ class Shipment extends AbstractShipment
         return $charge;
     }
 }
-
-?>

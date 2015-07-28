@@ -83,5 +83,3 @@ class Note
         return $this->description;
     }
 }
-
-?>

@@ -82,5 +82,3 @@ class Rate extends AbstractCollection
         return $this->notes;
     }
 }
-
-?>

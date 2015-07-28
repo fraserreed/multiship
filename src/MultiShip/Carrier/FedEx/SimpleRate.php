@@ -242,5 +242,3 @@ class SimpleRate extends AbstractRate
         return $charge;
     }
 }
-
-?>

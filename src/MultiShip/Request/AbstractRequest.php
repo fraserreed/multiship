@@ -217,5 +217,3 @@ abstract class AbstractRequest implements IRequest
         $this->packages[ ] = $package;
     }
 }
-
-?>

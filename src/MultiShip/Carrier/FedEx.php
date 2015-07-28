@@ -181,5 +181,3 @@ class FedEx extends AbstractCarrier
         )
     );
 }
-
-?>

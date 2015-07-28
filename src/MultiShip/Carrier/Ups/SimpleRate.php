@@ -14,6 +14,7 @@ namespace MultiShip\Carrier\Ups;
 
 
 use MultiShip\Carrier\Ups;
+use MultiShip\Carrier\Ups\Formatters\AddressFormatter;
 use MultiShip\Request\AbstractRate;
 
 use MultiShip\Response\Collections\Rate as RateCollection;
@@ -23,6 +24,7 @@ use MultiShip\Charge\TotalCharge;
 use MultiShip\Package\Package;
 
 use MultiShip\Exceptions\MultiShipException;
+
 
 /**
  * MultiShip shipper object
@@ -91,17 +93,7 @@ class SimpleRate extends AbstractRate
                 'Shipper'                => array(
                     'Name'          => $fromAddress->getName(),
                     'ShipperNumber' => $fromAddress->getNumber(),
-                    'Address'       => array(
-                        'AddressLine'       => array(
-                            $fromAddress->getLine1(),
-                            $fromAddress->getLine2(),
-                            $fromAddress->getLine3()
-                        ),
-                        'City'              => $fromAddress->getCity(),
-                        'StateProvinceCode' => $fromAddress->getRegion(),
-                        'PostalCode'        => $fromAddress->getPostalCode(),
-                        'CountryCode'       => $fromAddress->getCountry()
-                    )
+                    'Address'       => AddressFormatter::format( $fromAddress ),
                 ),
 
                 'ShipTo'                 => array(
@@ -118,17 +110,7 @@ class SimpleRate extends AbstractRate
 
                 'ShipFrom'               => array(
                     'Name'    => $fromAddress->getName(),
-                    'Address' => array(
-                        'AddressLine'       => array(
-                            $fromAddress->getLine1(),
-                            $fromAddress->getLine2(),
-                            $fromAddress->getLine3()
-                        ),
-                        'City'              => $fromAddress->getCity(),
-                        'StateProvinceCode' => $fromAddress->getRegion(),
-                        'PostalCode'        => $fromAddress->getPostalCode(),
-                        'CountryCode'       => $fromAddress->getCountry()
-                    )
+                    'Address' => AddressFormatter::format( $fromAddress )
                 ),
 
                 'Service'                => array(
@@ -219,5 +201,3 @@ class SimpleRate extends AbstractRate
         }
     }
 }
-
-?>

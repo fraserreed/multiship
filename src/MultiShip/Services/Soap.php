@@ -210,5 +210,3 @@ class Soap
         return $client->__soapCall( $operation, array( $this->getBody() ) );
     }
 }
-
-?>

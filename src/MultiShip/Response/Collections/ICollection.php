@@ -32,5 +32,3 @@ interface ICollection
 
     public function getCount();
 }
-
-?>

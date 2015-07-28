@@ -357,5 +357,3 @@ class Address
         return $this->residentialAddress;
     }
 }
-
-?>

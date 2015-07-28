@@ -125,5 +125,3 @@ class ShipmentLabel
         return $this->pdfImage;
     }
 }
-
-?>

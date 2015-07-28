@@ -105,5 +105,3 @@ abstract class AbstractCollection implements ICollection
         return (int) $this->count;
     }
 }
-
-?>

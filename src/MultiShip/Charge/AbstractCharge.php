@@ -83,5 +83,3 @@ abstract class AbstractCharge implements ICharge
         return $this->negative;
     }
 }
-
-?>
