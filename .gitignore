@@ -1,5 +1,7 @@
 /index.php
 
+/build
+
 # sphinx generated documentation
 /docs/_build
 /docs/index.html
