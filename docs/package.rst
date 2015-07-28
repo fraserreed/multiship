@@ -12,7 +12,7 @@ be sent from the same to address to the same from address.
 
 For information on how to set the ``to`` and ``from`` addresses, see :ref:`Addresses <addresses>`.
 
-Packages are built using the :ref:``Package <requestPackage>`` object.
+Packages are built using the :ref:`Package <requestPackage>` object.
 
 Rate and shipment responses will also contain packages, representing the shippable assets for the rate
 or shipment.
@@ -45,9 +45,8 @@ For information on how to set up the ``$client`` object, see :ref:`Getting Start
 To add a single package, simply construct the package and call the ``addPackage()`` function.
 
 .. code-block:: php
-
     # add package(s) to request
-    $package = new Package();
+    $package = new \MultiShip\Package\Package();
     $package->setHeight( 10 );
     $package->setWidth( 4 );
     $package->setLength( 5 );
@@ -64,7 +63,7 @@ the ``addPackage()`` function once per package constructed.
 .. code-block:: php
 
     # add package(s) to request
-    $package1 = new Package();
+    $package1 = new \MultiShip\Package\Package();
     $package1->setHeight( 10 );
     $package1->setWidth( 4 );
     $package1->setLength( 5 );
@@ -74,7 +73,7 @@ the ``addPackage()`` function once per package constructed.
 
     $client->addPackage( $package1 );
 
-    $package2 = new Package();
+    $package2 = new \MultiShip\Package\Package();
     $package2->setHeight( 24 );
     $package2->setWidth( 6 );
     $package2->setLength( 12 );

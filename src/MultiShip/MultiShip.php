@@ -27,6 +27,7 @@ use MultiShip\Response\Collections\Rate;
 
 use MultiShip\Exceptions\MultiShipException;
 
+
 /**
  * MultiShip object
  *
@@ -84,7 +85,7 @@ class MultiShip
                     $config->setAccessKey( $carrierConfiguration[ 'accessKey' ] );
                     $config->setUserId( $carrierConfiguration[ 'userId' ] );
                     $config->setPassword( $carrierConfiguration[ 'password' ] );
-                    $config->setAccountNumber( $carrierConfiguration[ 'accountNumber' ] );
+                    $config->setAccountNumber( isset( $carrierConfiguration[ 'accountNumber' ] ) ? $carrierConfiguration[ 'accountNumber' ] : null );
 
                     $this->addCarrier( new Ups( $config ) );
                     break;
@@ -224,7 +225,7 @@ class MultiShip
             /** @var $responseCollection \MultiShip\Response\Collections\Rate */
             foreach( $response as $responseCollection )
             {
-                if ( count( $response ) == 1 )
+                if( count( $response ) == 1 )
                 {
                     $aggregatedResponse->setStatusCode( $responseCollection->getStatusCode() );
                     $aggregatedResponse->setStatusDescription( $responseCollection->getStatusDescription() );

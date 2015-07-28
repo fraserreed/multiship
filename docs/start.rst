@@ -45,8 +45,6 @@ Below is an example of a single carrier request:
 
   <?php
 
-  use MultiShip\MultiShip;
-
   $options = array(
 	'ups'   => array(
 		'accessKey' => "BC987DE765FG543",
@@ -56,7 +54,7 @@ Below is an example of a single carrier request:
 	)
   );
 
-  $client = new MultiShip( $options );
+  $client = new \MultiShip\MultiShip( $options );
 
   //execute request
 
@@ -66,8 +64,6 @@ Below is an example of a multi-carrier request:
 .. code-block:: php
 
   <?php
-
-  use MultiShip\MultiShip;
 
   $options = array(
 	'ups'   => array(
@@ -85,7 +81,7 @@ Below is an example of a multi-carrier request:
 	)
   );
 
-  $client = new MultiShip( $options );
+  $client = new \MultiShip\MultiShip( $options );
 
   //execute request
 

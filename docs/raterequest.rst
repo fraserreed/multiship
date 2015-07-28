@@ -29,10 +29,8 @@ in California.
 
 .. code-block:: php
 
-
-
     # populate from address
-    $from = new Address();
+    $from = new \MultiShip\Address\Address();
 
     $from->setName( 'Imani Carr' );
     $from->setNumber( 222006 );
@@ -47,7 +45,7 @@ in California.
     $client->setFromAddress( $from );
 
     # populate to address
-    $to = new Address();
+    $to = new \MultiShip\Address\Address();
 
     $to->setName( 'Imani Imaginarium' );
     $to->setLine1( '21 ARGONAUT SUITE B' );
@@ -59,7 +57,7 @@ in California.
     $client->setToAddress( $to );
 
     # add package(s) to request
-    $package1 = new Package();
+    $package1 = new \MultiShip\Package\Package();
     $package1->setHeight( 10 );
     $package1->setWidth( 4 );
     $package1->setLength( 5 );
@@ -284,7 +282,7 @@ in California.
 .. code-block:: php
 
     # populate from address
-    $from = new Address();
+    $from = new \MultiShip\Address\Address();
 
     $from->setName( 'Imani Carr' );
     $from->setNumber( 222006 );
@@ -299,7 +297,7 @@ in California.
     $client->setFromAddress( $from );
 
     # populate to address
-    $to = new Address();
+    $to = new \MultiShip\Address\Address();
 
     $to->setName( 'Imani Imaginarium' );
     $to->setLine1( '21 ARGONAUT SUITE B' );
@@ -311,7 +309,7 @@ in California.
     $client->setToAddress( $to );
 
     # add package(s) to request
-    $package1 = new Package();
+    $package1 = new \MultiShip\Package\Package();
     $package1->setHeight( 10 );
     $package1->setWidth( 4 );
     $package1->setLength( 5 );

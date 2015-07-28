@@ -40,9 +40,8 @@ Example
 To add the ``from`` address for the request, construct the address and call the ``setFromAddress()`` function.
 
 .. code-block:: php
-
     # populate from address
-    $from = new Address();
+    $from = new \MultiShip\Address\Address();
 
     $from->setName( 'Imani Carr' );
     $from->setNumber( 222006 );
@@ -60,9 +59,8 @@ To add the ``from`` address for the request, construct the address and call the 
 To add the ``to`` address for the request, construct the address and call the ``setToAddress()`` function.
 
 .. code-block:: php
-
     # populate to address
-    $to = new Address();
+    $to = new \MultiShip\Address\Address();
 
     $to->setName( 'Imani Imaginarium' );
     $to->setLine1( '21 ARGONAUT SUITE B' );
@@ -70,6 +68,6 @@ To add the ``to`` address for the request, construct the address and call the ``
     $to->setRegion( 'CA' );
     $to->setPostalCode( 92656 );
     $to->setCountry( 'US' );
-    $to->setResidential( true );
+    $to->setResidentialAddress( true );
 
     $client->setToAddress( $to );
