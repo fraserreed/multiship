@@ -13,6 +13,7 @@
 namespace MultiShip\Carrier\FedEx;
 
 
+use MultiShip\Carrier\FedEx\Formatters\AddressFormatter;
 use MultiShip\Carrier\Ups;
 
 use MultiShip\Request\AbstractShipment;
@@ -35,6 +36,7 @@ use MultiShip\Label\ShipmentLabel;
 
 use MultiShip\Response\Collections\Shipment as ShipmentCollection;
 use MultiShip\Response\Elements\ShipmentPackage;
+
 
 /**
  * MultiShip shipment object
@@ -155,13 +157,7 @@ class Shipment extends AbstractShipment
                         //'CompanyName' => $fromAddress->getCompany(),
                         'PhoneNumber' => $fromAddress->getPhoneNumber()
                     ),
-                    'Address' => array(
-                        'StreetLines'         => $this->formatStreetLines( $fromAddress ),
-                        'City'                => $fromAddress->getCity(),
-                        'StateOrProvinceCode' => $fromAddress->getRegion(),
-                        'PostalCode'          => $fromAddress->getPostalCode(),
-                        'CountryCode'         => $fromAddress->getCountry()
-                    )
+                    'Address' => AddressFormatter::format( $fromAddress )
                 ),
                 'Recipient'                 => array(
                     'Contact' => array(
@@ -169,14 +165,7 @@ class Shipment extends AbstractShipment
                         //'CompanyName' => $toAddress->getCompany(),
                         'PhoneNumber' => $toAddress->getPhoneNumber()
                     ),
-                    'Address' => array(
-                        'StreetLines'         => $this->formatStreetLines( $toAddress ),
-                        'City'                => $toAddress->getCity(),
-                        'StateOrProvinceCode' => $toAddress->getRegion(),
-                        'PostalCode'          => $toAddress->getPostalCode(),
-                        'CountryCode'         => $toAddress->getCountry(),
-                        'Residential'         => $toAddress->getResidentialAddress()
-                    )
+                    'Address' => AddressFormatter::format( $toAddress, true )
                 ),
 
                 'ShippingChargesPayment'    => array(
@@ -452,30 +441,6 @@ class Shipment extends AbstractShipment
         }
 
         return $shipmentPackage;
-    }
-
-    /**
-     * Format address street lines appropriately
-     *
-     * @param \MultiShip\Address\Address $address
-     *
-     * @return array
-     */
-    private function formatStreetLines( Address $address )
-    {
-        $streetLines = array();
-
-        if( $address->getLine1() )
-            $streetLines[ ] = $address->getLine1();
-
-        if( $address->getLine2() && $address->getLine3() )
-            $streetLines[ ] = $address->getLine2() . ' ' . $address->getLine3();
-        else if( $address->getLine2() )
-            $streetLines[ ] = $address->getLine2();
-        else if( $address->getLine3() )
-            $streetLines[ ] = $address->getLine3();
-
-        return $streetLines;
     }
 
     /**
