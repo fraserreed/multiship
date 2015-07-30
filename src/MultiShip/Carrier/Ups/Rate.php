@@ -24,6 +24,7 @@ use MultiShip\Response\Elements\DeliveryGuarantee;
 use MultiShip\Package\Package;
 use MultiShip\Package\RatedPackage;
 
+
 /**
  * MultiShip shipper object
  *
@@ -83,11 +84,11 @@ class Rate extends SimpleRate
                 //transportation charges
                 if( isset( $rate->TransportationCharges ) )
                 {
-                    $transportationCharges = new TransportationCharge();
-                    $transportationCharges->setCurrencyCode( $rate->TransportationCharges->CurrencyCode );
-                    $transportationCharges->setValue( $rate->TransportationCharges->MonetaryValue );
+                    $transportCharges = new TransportationCharge();
+                    $transportCharges->setCurrencyCode( $rate->TransportationCharges->CurrencyCode );
+                    $transportCharges->setValue( $rate->TransportationCharges->MonetaryValue );
 
-                    $rateElement->addCharge( $transportationCharges );
+                    $rateElement->addCharge( $transportCharges );
                 }
 
                 //service charges
@@ -136,20 +137,20 @@ class Rate extends SimpleRate
 
                         if( isset( $package->TransportationCharges ) )
                         {
-                            $packageTransportCharges = new TransportationCharge();
-                            $packageTransportCharges->setCurrencyCode( $package->TransportationCharges->CurrencyCode );
-                            $packageTransportCharges->setValue( $package->TransportationCharges->MonetaryValue );
+                            $pkgTransportCharges = new TransportationCharge();
+                            $pkgTransportCharges->setCurrencyCode( $package->TransportationCharges->CurrencyCode );
+                            $pkgTransportCharges->setValue( $package->TransportationCharges->MonetaryValue );
 
-                            $ratedPackage->addCharge( $packageTransportCharges );
+                            $ratedPackage->addCharge( $pkgTransportCharges );
                         }
 
                         if( isset( $package->ServiceOptionsCharges ) )
                         {
-                            $packageServiceCharges = new ServiceCharge();
-                            $packageServiceCharges->setCurrencyCode( $package->ServiceOptionsCharges->CurrencyCode );
-                            $packageServiceCharges->setValue( $package->ServiceOptionsCharges->MonetaryValue );
+                            $pkgServiceCharges = new ServiceCharge();
+                            $pkgServiceCharges->setCurrencyCode( $package->ServiceOptionsCharges->CurrencyCode );
+                            $pkgServiceCharges->setValue( $package->ServiceOptionsCharges->MonetaryValue );
 
-                            $ratedPackage->addCharge( $packageServiceCharges );
+                            $ratedPackage->addCharge( $pkgServiceCharges );
                         }
 
                         if( isset( $package->TotalCharges ) )
@@ -172,11 +173,11 @@ class Rate extends SimpleRate
 
                         if( isset( $package->BillingWeight ) )
                         {
-                            $packageBillingPackage = new Package();
-                            $packageBillingPackage->setWeight( $package->BillingWeight->Weight );
-                            $packageBillingPackage->setWeightUnitOfMeasure( $package->BillingWeight->UnitOfMeasurement->Code );
+                            $pkgBillingPackage = new Package();
+                            $pkgBillingPackage->setWeight( $package->BillingWeight->Weight );
+                            $pkgBillingPackage->setWeightUnitOfMeasure( $package->BillingWeight->UnitOfMeasurement->Code );
 
-                            $ratedPackage->setBillingPackage( $packageBillingPackage );
+                            $ratedPackage->setBillingPackage( $pkgBillingPackage );
                         }
 
                         $rateElement->addRatedPackage( $ratedPackage );

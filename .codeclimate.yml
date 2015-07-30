@@ -1,8 +1,12 @@
-# Save as .codeclimate.yml (note leading .) in project root directory
+---
+engines:
+  phpcodesniffer:
+    enabled: true
 languages:
   PHP: true
 exclude_paths:
-- "build/*"
-- "docs/*"
-- "tests/*"
-- "vendor/*"
+- build/**/*
+- docs/**/*
+- report/**/*
+- tests/**/*
+- vendor/**/*

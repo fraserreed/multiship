@@ -23,7 +23,7 @@ class DeliveryGuarantee
     /**
      * @var int
      */
-    protected $businessDaysInTransit;
+    protected $busDaysInTransit;
 
     /**
      * @var string
@@ -36,11 +36,11 @@ class DeliveryGuarantee
     protected $deliveryTime;
 
     /**
-     * @param int $businessDaysInTransit
+     * @param int $busDaysInTransit
      */
-    public function setBusinessDaysInTransit( $businessDaysInTransit )
+    public function setBusinessDaysInTransit( $busDaysInTransit )
     {
-        $this->businessDaysInTransit = $businessDaysInTransit;
+        $this->busDaysInTransit = $busDaysInTransit;
     }
 
     /**
@@ -48,7 +48,7 @@ class DeliveryGuarantee
      */
     public function getBusinessDaysInTransit()
     {
-        return $this->businessDaysInTransit;
+        return $this->busDaysInTransit;
     }
 
     /**

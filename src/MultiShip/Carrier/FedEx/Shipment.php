@@ -54,7 +54,7 @@ class Shipment extends AbstractShipment
 
     protected $shipmentStatus = null;
 
-    protected $masterPackageTrackingNumber;
+    protected $masterPkgTrackNum;
 
     protected $sequenceNumber = 0;
 
@@ -110,7 +110,7 @@ class Shipment extends AbstractShipment
         $config = $this->getConfiguration();
 
         //if the master package has not been set yet, initialize the package list
-        if( empty( $this->masterPackageTrackingNumber ) )
+        if( empty( $this->masterPkgTrackNum ) )
             $this->remainingPackages = $this->packages;
 
         //retrieve the current package for sending
@@ -253,8 +253,8 @@ class Shipment extends AbstractShipment
         );
 
         //add master tracking information, if it is needed
-        if( !empty( $this->masterPackageTrackingNumber ) )
-            $request[ 'RequestedShipment' ][ 'MasterTrackingId' ] = $this->masterPackageTrackingNumber;
+        if( !empty( $this->masterPkgTrackNum ) )
+            $request[ 'RequestedShipment' ][ 'MasterTrackingId' ] = $this->masterPkgTrackNum;
 
         return $request;
     }
@@ -279,7 +279,7 @@ class Shipment extends AbstractShipment
             {
                 $shipmentResponse->setMasterTrackingNumber( $response->CompletedShipmentDetail->MasterTrackingId->TrackingNumber );
 
-                $this->masterPackageTrackingNumber = array(
+                $this->masterPkgTrackNum = array(
                     'TrackingIdType' => $response->CompletedShipmentDetail->MasterTrackingId->TrackingIdType,
                     'TrackingNumber' => $response->CompletedShipmentDetail->MasterTrackingId->TrackingNumber
                 );
